@@ -74,11 +74,43 @@ const InteractiveResume = () => {
     setTimeout(() => setIsMoving(false), 300);
   }, [isLoading, currentLevel, worldPosition, isJumping, resumeData.levels.length]);
 
-  // Update level based on world position
+  // Update level based on world position and trigger level-specific games
   useEffect(() => {
     const newLevel = Math.floor(worldPosition / 1000);
     if (newLevel !== currentLevel && newLevel < resumeData.levels.length) {
       setCurrentLevel(newLevel);
+      setLevelProgress(0);
+      
+      // Trigger level-specific game states
+      switch(newLevel) {
+        case 2: // Houston Basketball
+          if (worldPosition >= 2200) { // Mid-section
+            setGameState('basketball');
+          }
+          break;
+        case 3: // Underwater Swimming  
+          if (worldPosition >= 3200) {
+            setGameState('swimming');
+          }
+          break;
+        case 4: // Boss Battle
+          if (worldPosition >= 4200) {
+            setGameState('bossfight');
+          }
+          break;
+        case 5: // Flying
+          if (worldPosition >= 5200) {
+            setGameState('flying');
+          }
+          break;
+        case 6: // Landing
+          if (worldPosition >= 6000) {
+            setGameState('landing');
+          }
+          break;
+        default:
+          setGameState('exploring');
+      }
     }
   }, [worldPosition, currentLevel, resumeData.levels.length]);
 
