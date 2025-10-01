@@ -1846,6 +1846,525 @@ body {
     opacity: 0;
   }
 }
+
+/* INTERACTIVE GAMEPLAY ELEMENTS */
+
+/* Basketball Game Elements */
+.basketball-court-game {
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 80px;
+}
+
+.court-floor {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #CD853F, #D2691E);
+  border: 3px solid #8B4513;
+  border-radius: 5px;
+}
+
+.basketball-hoop-interactive {
+  position: absolute;
+  right: -40px;
+  top: -80px;
+  width: 60px;
+  height: 100px;
+}
+
+.hoop-backboard-game {
+  width: 50px;
+  height: 60px;
+  background: linear-gradient(135deg, #F5F5F5, #DCDCDC);
+  border: 3px solid #696969;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.hoop-rim-game {
+  width: 35px;
+  height: 8px;
+  background: #FF6347;
+  border: 2px solid #CD853F;
+  border-radius: 20px;
+  position: absolute;
+  right: 8px;
+  top: 50px;
+}
+
+.hoop-net-game {
+  position: absolute;
+  right: 12px;
+  top: 58px;
+  width: 27px;
+  height: 25px;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  border-radius: 0 0 15px 15px;
+}
+
+.basketball-game {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #FF6347, #CD853F);
+  border-radius: 50%;
+  left: 50px;
+  bottom: 15px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.ball-lines:before,
+.ball-lines:after {
+  content: '';
+  position: absolute;
+  background: #8B4513;
+  border-radius: 2px;
+}
+
+.ball-lines:before {
+  width: 2px;
+  height: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ball-lines:after {
+  width: 30px;
+  height: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Basketball Animation */
+.character.dribbling {
+  animation: basketballDribble 1s ease-in-out infinite;
+}
+
+.character.dribbling .character-arm.right {
+  animation: dribbleMotion 1s ease-in-out infinite;
+}
+
+@keyframes dribbleMotion {
+  0%, 100% {
+    transform: rotate(10deg) translateY(0);
+  }
+  50% {
+    transform: rotate(40deg) translateY(15px);
+  }
+}
+
+/* Basketball Shot Animation */
+.basketball-sequence {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.shot-trajectory {
+  position: absolute;
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FFD700, transparent);
+  left: 200px;
+  bottom: 180px;
+  animation: shotTrail 2s ease-in-out infinite;
+}
+
+@keyframes shotTrail {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(-15deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-30deg);
+  }
+}
+
+/* Houston Skyline Background */
+.houston-skyline-bg {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  bottom: 300px;
+  left: 0;
+}
+
+.houston-building {
+  position: absolute;
+  background: linear-gradient(135deg, #2C3E50, #34495E);
+  border-radius: 2px 2px 0 0;
+  bottom: 0;
+  opacity: 0.8;
+}
+
+.hb1 { width: 60px; height: 100px; left: 100px; }
+.hb2 { width: 80px; height: 130px; left: 170px; }
+.hb3 { width: 100px; height: 160px; left: 260px; }
+.hb4 { width: 70px; height: 120px; left: 370px; }
+.hb5 { width: 90px; height: 140px; left: 450px; }
+
+/* Swimming Character Animation */
+.character.underwater {
+  animation: underWaterFloat 3s ease-in-out infinite;
+}
+
+@keyframes underWaterFloat {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateX(-50%) translateY(-15px) rotate(-3deg);
+  }
+  66% {
+    transform: translateX(-50%) translateY(10px) rotate(3deg);
+  }
+}
+
+.character.underwater .character-arms {
+  animation: swimStroke 2s ease-in-out infinite;
+}
+
+.character.underwater .character-legs {
+  animation: swimKick 2s ease-in-out infinite alternate;
+}
+
+@keyframes swimStroke {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes swimKick {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-15deg);
+  }
+}
+
+/* Underwater Environment */
+.underwater-environment {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.water-surface-line {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  top: 0;
+  background: linear-gradient(90deg, rgba(135, 206, 235, 0.5), rgba(30, 144, 255, 0.7));
+  animation: waterSurface 4s ease-in-out infinite;
+}
+
+@keyframes waterSurface {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+.bubble-stream {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(135, 206, 235, 0.4));
+  border-radius: 50%;
+  animation: bubbleRise 5s linear infinite;
+}
+
+.bs1 { left: 200px; bottom: 0; animation-delay: 0s; }
+.bs2 { left: 400px; bottom: 0; animation-delay: 2s; }
+.bs3 { right: 300px; bottom: 0; animation-delay: 4s; }
+
+@keyframes bubbleRise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.3);
+    opacity: 0;
+  }
+}
+
+/* Boss Battle Elements */
+.boss-robot-enemy {
+  position: absolute;
+  right: 200px;
+  bottom: 200px;
+  width: 120px;
+  height: 150px;
+  animation: bossIdle 3s ease-in-out infinite alternate;
+}
+
+@keyframes bossIdle {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+.boss-head {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #DC143C, #B22222);
+  border: 4px solid #8B0000;
+  border-radius: 8px;
+  left: 30px;
+  top: 0;
+}
+
+.boss-eye {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #FF0000;
+  border-radius: 50%;
+  top: 20px;
+  animation: bossEyeGlow 2s ease-in-out infinite alternate;
+}
+
+.be1 { left: 15px; }
+.be2 { right: 15px; }
+
+@keyframes bossEyeGlow {
+  0% { box-shadow: 0 0 5px #FF0000; }
+  100% { box-shadow: 0 0 20px #FF0000, 0 0 30px #FF4500; }
+}
+
+.boss-body {
+  position: absolute;
+  width: 80px;
+  height: 90px;
+  background: linear-gradient(135deg, #2F4F4F, #696969);
+  border: 4px solid #1C1C1C;
+  border-radius: 10px;
+  left: 20px;
+  top: 60px;
+}
+
+.boss-health-bar {
+  position: absolute;
+  width: 100px;
+  height: 8px;
+  background: #333;
+  border: 2px solid #666;
+  top: -15px;
+  left: 10px;
+}
+
+.health-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
+  transition: width 2s ease-in-out;
+}
+
+/* Boss Battle Animation */
+.character.battle-stance {
+  animation: battleReady 2s ease-in-out infinite alternate;
+}
+
+@keyframes battleReady {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10px) scale(1.1);
+  }
+}
+
+.boss-battle-sequence {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.battle-sparks {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #FFD700;
+  border-radius: 50%;
+  animation: battleSparks 0.8s ease-in-out infinite;
+}
+
+.bs1 { right: 150px; bottom: 250px; }
+.bs2 { right: 180px; bottom: 280px; animation-delay: 0.3s; }
+.bs3 { right: 120px; bottom: 220px; animation-delay: 0.6s; }
+
+@keyframes battleSparks {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(2); }
+}
+
+/* Flying Character Animation */
+.character.jetpack-active {
+  animation: jetpackFlight 2s ease-in-out infinite;
+}
+
+@keyframes jetpackFlight {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-50%) translateY(-25px) rotate(-8deg);
+  }
+  75% {
+    transform: translateX(-50%) translateY(15px) rotate(8deg);
+  }
+}
+
+/* Flying Sequence */
+.flying-sequence {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.jetpack-flames {
+  position: absolute;
+  width: 12px;
+  height: 30px;
+  background: linear-gradient(180deg, #FF6347, #FFD700);
+  border-radius: 50% 50% 0 0;
+  bottom: 80px;
+  left: 50%;
+  animation: jetFlame 0.2s ease-in-out infinite alternate;
+}
+
+.jf1 { margin-left: -20px; }
+.jf2 { margin-left: 8px; animation-delay: 0.1s; }
+
+@keyframes jetFlame {
+  0% {
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    height: 45px;
+    opacity: 0.7;
+  }
+}
+
+.flight-trail {
+  position: absolute;
+  width: 200px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #FFD700, transparent);
+  left: 40%;
+  bottom: 100px;
+  animation: flightTrail 2s ease-in-out infinite;
+}
+
+@keyframes flightTrail {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+/* Landing Animation */
+.character.superhero-landing {
+  animation: heroicLanding 3s ease-in-out infinite alternate;
+}
+
+@keyframes heroicLanding {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-15px) scale(1.2);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+.landing-sequence {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.landing-impact {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  background: radial-gradient(ellipse, rgba(255, 215, 0, 0.8), transparent);
+  left: 45%;
+  bottom: 120px;
+  animation: impactWave 2s ease-out infinite;
+}
+
+@keyframes impactWave {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.victory-fireworks {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: radial-gradient(circle, #FF69B4, #FF1493);
+  border-radius: 50%;
+  animation: victoryFireworks 4s ease-in-out infinite;
+}
+
+.vf1 { top: 150px; left: 200px; }
+.vf2 { top: 100px; right: 200px; animation-delay: 1.5s; }
+.vf3 { top: 120px; left: 600px; animation-delay: 3s; }
+
+@keyframes victoryFireworks {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(3);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
 .building {
   position: absolute;
   background: linear-gradient(135deg, #2c3e50, #34495e);
