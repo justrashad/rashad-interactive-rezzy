@@ -114,39 +114,53 @@ body {
   pointer-events: auto;
 }
 
-/* Level 0 - Introduction (Classic Mario Hills) */
-.game-container.level-0 {
-  background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 70%, #90EE90 70%, #90EE90 85%, #8B4513 85%, #654321 100%);
+/* Continuous world backgrounds - each section has its own background */
+.world-container {
+  background: linear-gradient(to right, 
+    /* Section 0: Introduction */
+    #87CEEB 0%, #87CEEB 14.28%,
+    /* Section 1: About Rashad */
+    #FFE4B5 14.28%, #FFA500 28.56%,
+    /* Section 2: Houston Basketball */
+    #87CEEB 28.56%, #4682B4 42.84%,
+    /* Section 3: Underwater */
+    #1E90FF 42.84%, #0077BE 57.12%,
+    /* Section 4: Industrial */
+    #2F4F4F 57.12%, #696969 71.4%,
+    /* Section 5: Flying */
+    #87CEEB 71.4%, #B0E0E6 85.68%,
+    /* Section 6: Contact */
+    #191970 85.68%, #483D8B 100%
+  );
 }
 
-/* Level 1 - About Rashad (Sunrise Meadow) */
-.game-container.level-1 {
-  background: linear-gradient(to bottom, #FFE4B5 0%, #FFA500 20%, #FF7F50 40%, #87CEEB 60%, #90EE90 80%, #228B22 100%);
+/* Individual section backgrounds */
+.intro-section {
+  background: linear-gradient(to bottom, transparent 0%, transparent 70%, #90EE90 70%, #90EE90 85%, #8B4513 85%, #654321 100%);
 }
 
-/* Level 2 - Houston Basketball Court */
-.game-container.level-2 {
-  background: linear-gradient(to bottom, #87CEEB 0%, #4682B4 30%, #FF6347 50%, #8B4513 85%, #654321 100%);
+.about-section {
+  background: linear-gradient(to bottom, transparent 0%, transparent 60%, #90EE90 80%, #228B22 100%);
 }
 
-/* Level 3 - Underwater Swimming Scene */
-.game-container.level-3 {
-  background: linear-gradient(to bottom, #4682B4 0%, #1E90FF 20%, #0077BE 40%, #006994 60%, #004d6b 80%, #002d3f 100%);
+.basketball-section {
+  background: linear-gradient(to bottom, transparent 0%, transparent 50%, #FF6347 50%, #8B4513 85%, #654321 100%);
 }
 
-/* Level 4 - Industrial Boss Battle */
-.game-container.level-4 {
-  background: linear-gradient(to bottom, #2F4F4F 0%, #696969 30%, #808080 50%, #A9A9A9 70%, #8B4513 85%, #654321 100%);
+.underwater-section {
+  background: linear-gradient(to bottom, transparent 0%, #006994 60%, #004d6b 80%, #002d3f 100%);
 }
 
-/* Level 5 - Flying Scene */
-.game-container.level-5 {
-  background: linear-gradient(to bottom, #87CEEB 0%, #98D4EA 20%, #B0E0E6 40%, #E0F6FF 60%, #F0F8FF 80%, #87CEEB 100%);
+.industrial-section {
+  background: linear-gradient(to bottom, transparent 0%, #808080 50%, #A9A9A9 70%, #8B4513 85%, #654321 100%);
 }
 
-/* Level 6 - Rooftop Landing Contact */
-.game-container.level-6 {
-  background: linear-gradient(to bottom, #191970 0%, #483D8B 20%, #6A5ACD 40%, #9370DB 60%, #8B4513 85%, #654321 100%);
+.flying-section {
+  background: linear-gradient(to bottom, transparent 0%, #E0F6FF 60%, #F0F8FF 80%, #87CEEB 100%);
+}
+
+.contact-section {
+  background: linear-gradient(to bottom, transparent 0%, #6A5ACD 40%, #9370DB 60%, #8B4513 85%, #654321 100%);
 }
 
 /* Clouds */
