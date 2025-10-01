@@ -81,7 +81,7 @@ const InteractiveResume = () => {
       // Trigger level-specific game states
       switch(newLevel) {
         case 2: // Houston Basketball
-          if (worldPosition >= 2200) { // Mid-section
+          if (worldPosition >= 1600) { // Mid-section
             setGameState('basketball');
           }
           break;
