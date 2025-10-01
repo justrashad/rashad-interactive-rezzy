@@ -196,6 +196,8 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, onLevelChange })
       <Character 
         position={characterPosition} 
         isMoving={isMoving}
+        currentLevel={currentLevel}
+        gameAction={currentLevelData.gameAction}
       />
 
       {/* Skills indicator */}
