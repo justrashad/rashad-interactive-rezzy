@@ -2526,6 +2526,353 @@ body {
   }
 }
 
+/* Enhanced Basketball Shooting Mechanics */
+.basketball-shot-ball {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle at 30% 30%, #FF6347, #CD853F);
+  border-radius: 50%;
+  left: 45%;
+  bottom: 180px;
+  opacity: 0;
+  z-index: 20;
+}
+
+.basketball-shot-ball.shooting {
+  animation: basketballShot 2s ease-in-out;
+}
+
+@keyframes basketballShot {
+  0% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  30% {
+    opacity: 1;
+    transform: translateX(100px) translateY(-80px) rotate(180deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(200px) translateY(-120px) rotate(360deg);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(300px) translateY(-80px) rotate(540deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(350px) translateY(0px) rotate(720deg);
+  }
+}
+
+.score-popup {
+  position: absolute;
+  top: 200px;
+  right: 100px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #00FF00;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px 15px;
+  border-radius: 20px;
+  opacity: 0;
+  z-index: 25;
+}
+
+.score-popup.show {
+  animation: scoreAnimation 3s ease-in-out;
+}
+
+@keyframes scoreAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(0);
+  }
+  20%, 80% {
+    opacity: 1;
+    transform: scale(1.2) translateY(-20px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-40px);
+  }
+}
+
+/* Enhanced Swimming Scene Elements */
+.water-entry-platform {
+  position: absolute;
+  left: 0;
+  top: 200px;
+  width: 100px;
+  height: 200px;
+}
+
+.diving-platform {
+  width: 80px;
+  height: 20px;
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.platform-ladder {
+  width: 8px;
+  height: 180px;
+  background: linear-gradient(135deg, #C0C0C0, #808080);
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  border-radius: 4px;
+}
+
+.platform-ladder:after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 4px;
+  background: #C0C0C0;
+  left: -6px;
+  top: 30px;
+  box-shadow: 0 20px 0 #C0C0C0, 0 40px 0 #C0C0C0, 0 60px 0 #C0C0C0;
+}
+
+.underwater-environment-enhanced {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.water-surface-animated {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  top: 250px;
+  background: linear-gradient(90deg, 
+    rgba(30, 144, 255, 0.8) 0%, 
+    rgba(135, 206, 235, 0.9) 25%, 
+    rgba(30, 144, 255, 0.8) 50%, 
+    rgba(135, 206, 235, 0.9) 75%, 
+    rgba(30, 144, 255, 0.8) 100%
+  );
+  animation: waterWaves 4s ease-in-out infinite;
+}
+
+@keyframes waterWaves {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+.water-layers {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  opacity: 0.6;
+}
+
+.layer1 {
+  top: 290px;
+  background: linear-gradient(180deg, rgba(30, 144, 255, 0.7), rgba(0, 119, 190, 0.8));
+}
+
+.layer2 {
+  top: 440px;
+  background: linear-gradient(180deg, rgba(0, 119, 190, 0.8), rgba(0, 77, 153, 0.9));
+}
+
+.layer3 {
+  top: 590px;
+  background: linear-gradient(180deg, rgba(0, 77, 153, 0.9), rgba(0, 45, 115, 1));
+}
+
+.vertical-swim-zone {
+  position: absolute;
+  left: 150px;
+  top: 250px;
+  width: 200px;
+  height: 400px;
+  border-left: 3px dashed rgba(255, 255, 255, 0.5);
+}
+
+.depth-marker {
+  position: absolute;
+  left: -50px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0077BE;
+  padding: 4px 8px;
+  border-radius: 15px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.dm1 { top: 50px; }
+.dm2 { top: 150px; }
+.dm3 { top: 250px; }
+
+.bubble-stream-enhanced {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(135, 206, 235, 0.5));
+  border-radius: 50%;
+  animation: bubbleRiseEnhanced 6s linear infinite;
+}
+
+.bs1 { left: 200px; bottom: 0; animation-delay: 0s; }
+.bs2 { left: 350px; bottom: 0; animation-delay: 1.2s; }
+.bs3 { left: 500px; bottom: 0; animation-delay: 2.4s; }
+.bs4 { left: 650px; bottom: 0; animation-delay: 3.6s; }
+.bs5 { left: 800px; bottom: 0; animation-delay: 4.8s; }
+
+@keyframes bubbleRiseEnhanced {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.skill-treasure-chest {
+  position: absolute;
+  width: 60px;
+  height: 45px;
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  animation: treasureGlow 3s ease-in-out infinite alternate;
+}
+
+.stc1 { left: 300px; top: 350px; }
+.stc2 { left: 600px; top: 450px; }
+.stc3 { left: 900px; top: 550px; }
+
+.chest-label {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 215, 0, 0.9);
+  color: #8B4513;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+@keyframes treasureGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 0 60px rgba(255, 215, 0, 0.8);
+  }
+}
+
+.horizontal-swim-exit {
+  position: absolute;
+  right: 0;
+  top: 400px;
+  width: 150px;
+  height: 100px;
+}
+
+.exit-tunnel {
+  width: 120px;
+  height: 80px;
+  background: radial-gradient(ellipse, rgba(255, 255, 255, 0.3), rgba(30, 144, 255, 0.8));
+  border-radius: 50%;
+  animation: tunnelPulse 4s ease-in-out infinite;
+}
+
+@keyframes tunnelPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.exit-light {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, rgba(255, 255, 0, 0.8), transparent);
+  border-radius: 50%;
+  animation: exitLightBeam 2s ease-in-out infinite alternate;
+}
+
+@keyframes exitLightBeam {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 50px rgba(255, 255, 0, 1), 0 0 80px rgba(255, 255, 0, 0.8);
+  }
+}
+
+/* Swimming Character Animations */
+.character.diving {
+  animation: diveSequence 3s ease-in-out;
+}
+
+@keyframes diveSequence {
+  0% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+  }
+  30% {
+    transform: translateX(-50%) translateY(-50px) rotate(-45deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(200px) rotate(-90deg);
+  }
+}
+
+.character.swimming-vertical {
+  animation: verticalSwim 4s ease-in-out infinite;
+}
+
+@keyframes verticalSwim {
+  0%, 100% {
+    transform: translateX(-50%) translateY(250px) rotate(-90deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(450px) rotate(-90deg);
+  }
+}
+
+.character.swimming-horizontal {
+  animation: horizontalSwim 3s ease-in-out infinite;
+}
+
+@keyframes horizontalSwim {
+  0% {
+    transform: translateX(-50%) translateY(400px) rotate(0deg);
+  }
+  100% {
+    transform: translateX(50%) translateY(400px) rotate(0deg);
+  }
+}
+
 .court-floor {
   width: 100%;
   height: 100%;
