@@ -9,18 +9,23 @@ const Character = ({ position, isMoving }) => {
         bottom: `${position.y}px`
       }}
     >
-      {/* Character head with brown skin */}
-      <div className="character-head" style={{ background: '#8B4513' }}>
+      {/* Character head with improved design */}
+      <div className="character-head">
         <div className="character-hair"></div>
         <div className="character-glasses"></div>
+        <div className="character-eyes">
+          <div className="character-eye left"></div>
+          <div className="character-eye right"></div>
+        </div>
+        <div className="character-mouth"></div>
       </div>
       
       {/* Character body */}
       <div className="character-body">
         {/* Arms */}
         <div className="character-arms">
-          <div className="character-arm left" style={{ background: '#8B4513' }}></div>
-          <div className="character-arm right" style={{ background: '#8B4513' }}></div>
+          <div className="character-arm left"></div>
+          <div className="character-arm right"></div>
         </div>
         
         {/* Legs */}
