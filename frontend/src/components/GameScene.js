@@ -242,10 +242,41 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, o
 
           {/* Section 3: Underwater Skills */}
           <div className="world-section underwater-section" style={{ left: '3000px', width: '1000px' }}>
-            <div className="section-title">
+            <div className="section-title underwater-title">
               <h2 className="level-name">DEEP DIVE - SKILLS</h2>
               <p className="section-description">Exploring the depths of technology</p>
             </div>
+            
+            {/* Underwater Environment */}
+            <div className="underwater-environment">
+              <div className="water-surface-line"></div>
+              <div className="bubble-stream bs1"></div>
+              <div className="bubble-stream bs2"></div>
+              <div className="bubble-stream bs3"></div>
+              
+              <div className="underwater-plant up1"></div>
+              <div className="underwater-plant up2"></div>
+              <div className="underwater-rock ur1"></div>
+              <div className="underwater-rock ur2"></div>
+              
+              <div className="swimming-fish sf1"></div>
+              <div className="swimming-fish sf2"></div>
+              
+              <div className="treasure-chest-skills">
+                <div className="chest-glow"></div>
+                <div className="skill-gems gem1"></div>
+                <div className="skill-gems gem2"></div>
+                <div className="skill-gems gem3"></div>
+              </div>
+            </div>
+            
+            {/* Swimming Animation */}
+            {gameState === 'swimming' && (
+              <div className="swimming-sequence">
+                <div className="swim-trail"></div>
+                <div className="water-ripples"></div>
+              </div>
+            )}
           </div>
 
           {/* Section 4: Boss Battle Experience */}
