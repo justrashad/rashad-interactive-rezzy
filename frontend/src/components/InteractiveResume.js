@@ -45,7 +45,37 @@ const InteractiveResume = () => {
       case 'w':
       case 'W':
       case ' ':
-        if (!isJumping) {
+        if (gameState === 'basketball') {
+          // Trigger basketball shot
+          const shotBall = document.getElementById('shot-ball');
+          const scorePopup = document.getElementById('score-popup');
+          const swishEffect = document.getElementById('swish-animation');
+          const crowdCheer = document.getElementById('crowd-celebration');
+          
+          if (shotBall) {
+            shotBall.classList.add('shooting');
+            setTimeout(() => {
+              if (scorePopup) scorePopup.classList.add('show');
+              if (swishEffect) swishEffect.style.display = 'block';
+              if (crowdCheer) crowdCheer.style.display = 'block';
+              
+              // Update score
+              const homeScore = document.getElementById('home-score');
+              if (homeScore) {
+                const currentScore = parseInt(homeScore.textContent) || 0;
+                homeScore.textContent = currentScore + 2;
+              }
+            }, 1800);
+            
+            // Reset after animation
+            setTimeout(() => {
+              shotBall.classList.remove('shooting');
+              if (scorePopup) scorePopup.classList.remove('show');
+              if (swishEffect) swishEffect.style.display = 'none';
+              if (crowdCheer) crowdCheer.style.display = 'none';
+            }, 4000);
+          }
+        } else if (!isJumping) {
           setIsJumping(true);
           setCharacterPosition(prev => ({ ...prev, y: prev.y + 50 }));
           setTimeout(() => {
