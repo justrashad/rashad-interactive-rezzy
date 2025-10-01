@@ -28,12 +28,12 @@ const InteractiveResume = () => {
       case 'ArrowLeft':
       case 'a':
       case 'A':
-        setWorldPosition(prev => Math.max(0, prev - 80));
+        setWorldPosition(prev => Math.max(0, prev - 25)); // Smaller, smoother increments
         break;
       case 'ArrowRight':
       case 'd':
       case 'D':
-        setWorldPosition(prev => Math.min(12000, prev + 80)); // 13000px total world width
+        setWorldPosition(prev => Math.min(12000, prev + 25)); // Smaller, smoother increments
         
         // Update level based on world position
         const newLevel = Math.floor(worldPosition / 1600); // Longer sections // Each section is 1000px
