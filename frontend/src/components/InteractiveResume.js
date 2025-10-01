@@ -37,14 +37,23 @@ const InteractiveResume = () => {
       case 'W':
       case ' ':
         if (gameState === 'basketball') {
-          // Trigger basketball shot
+          // Trigger basketball shot sequence
+          const characterBall = document.getElementById('character-ball');
           const shotBall = document.getElementById('shot-ball');
           const scorePopup = document.getElementById('score-popup');
           const swishEffect = document.getElementById('swish-animation');
           const crowdCheer = document.getElementById('crowd-celebration');
           
+          // Start shooting sequence
+          if (characterBall) {
+            characterBall.classList.add('shooting-up');
+          }
+          
           if (shotBall) {
-            shotBall.classList.add('shooting');
+            setTimeout(() => {
+              shotBall.classList.add('shooting');
+            }, 200);
+            
             setTimeout(() => {
               if (scorePopup) scorePopup.classList.add('show');
               if (swishEffect) swishEffect.style.display = 'block';
@@ -60,6 +69,7 @@ const InteractiveResume = () => {
             
             // Reset after animation
             setTimeout(() => {
+              if (characterBall) characterBall.classList.remove('shooting-up');
               shotBall.classList.remove('shooting');
               if (scorePopup) scorePopup.classList.remove('show');
               if (swishEffect) swishEffect.style.display = 'none';
