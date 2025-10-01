@@ -5,6 +5,9 @@ const Character = ({ position, isMoving, currentLevel, gameAction, gameState }) 
     let classes = 'character';
     if (isMoving) classes += ' moving';
     
+    // Add outfit class based on level
+    classes += ` outfit-level-${currentLevel}`;
+    
     // Use gameState for more dynamic animations
     switch (gameState) {
       case 'basketball':
@@ -30,6 +33,69 @@ const Character = ({ position, isMoving, currentLevel, gameAction, gameState }) 
     }
     
     return classes;
+  };
+
+  // Render different character details based on level
+  const renderCharacterDetails = () => {
+    switch (currentLevel) {
+      case 0: // Introduction - Normal outfit
+      case 1: // About Rashad - Nerd outfit
+        return (
+          <>
+            <div className="nerd-glasses"></div>
+            <div className="pocket-protector"></div>
+            <div className="tie"></div>
+            <div className="calculator"></div>
+          </>
+        );
+      case 2: // Basketball - Basketball uniform
+        return (
+          <>
+            <div className="basketball-headband"></div>
+            <div className="jersey-number">23</div>
+            <div className="basketball-shorts"></div>
+            <div className="sneakers"></div>
+          </>
+        );
+      case 3: // Swimming - Scuba gear
+        return (
+          <>
+            <div className="scuba-mask"></div>
+            <div className="oxygen-tank"></div>
+            <div className="wetsuit"></div>
+            <div className="fins"></div>
+            <div className="bubbles-stream"></div>
+          </>
+        );
+      case 4: // Boss Battle - Black Panther suit
+        return (
+          <>
+            <div className="panther-suit"></div>
+            <div className="panther-mask"></div>
+            <div className="vibranium-claws"></div>
+            <div className="power-aura-bp"></div>
+          </>
+        );
+      case 5: // Flying - Jetpack outfit
+        return (
+          <>
+            <div className="pilot-goggles"></div>
+            <div className="flight-suit"></div>
+            <div className="jetpack-detailed"></div>
+            <div className="jetpack-flames-detailed"></div>
+          </>
+        );
+      case 6: // Landing - Hero cape
+        return (
+          <>
+            <div className="hero-cape"></div>
+            <div className="victory-crown"></div>
+            <div className="champion-medal"></div>
+          </>
+        );
+      default:
+        return null;
+    }
   };
 
   return (
