@@ -20,33 +20,44 @@ const InteractiveResume = () => {
   const handleKeyPress = useCallback((event) => {
     if (isLoading) return;
 
+    setIsMoving(true);
+    
     switch (event.key) {
       case 'ArrowLeft':
-        setIsMoving(true);
-        setCharacterPosition(prev => ({ ...prev, x: Math.max(0, prev.x - 10) }));
-        setTimeout(() => setIsMoving(false), 300);
+        setCharacterPosition(prev => ({ ...prev, x: Math.max(10, prev.x - 15) }));
+        if (currentLevel > 0) {
+          setCurrentLevel(prev => Math.max(0, prev - 1));
+        }
         break;
       case 'ArrowRight':
-        setIsMoving(true);
-        setCharacterPosition(prev => ({ ...prev, x: Math.min(90, prev.x + 10) }));
-        setTimeout(() => setIsMoving(false), 300);
-        if (characterPosition.x > 80) {
+        setCharacterPosition(prev => ({ ...prev, x: Math.min(80, prev.x + 15) }));
+        if (currentLevel < resumeData.levels.length - 1) {
           setCurrentLevel(prev => Math.min(resumeData.levels.length - 1, prev + 1));
         }
         break;
       case 'ArrowUp':
-        setIsMoving(true);
-        setTimeout(() => setIsMoving(false), 300);
+        if (currentLevel > 0) {
+          setCurrentLevel(prev => Math.max(0, prev - 1));
+        }
         break;
       case 'ArrowDown':
-        setIsMoving(true);
-        setCurrentLevel(prev => Math.min(resumeData.levels.length - 1, prev + 1));
-        setTimeout(() => setIsMoving(false), 300);
+      case ' ':
+        if (currentLevel < resumeData.levels.length - 1) {
+          setCurrentLevel(prev => Math.min(resumeData.levels.length - 1, prev + 1));
+        }
+        break;
+      case 'Enter':
+        if (currentLevel < resumeData.levels.length - 1) {
+          setCurrentLevel(prev => Math.min(resumeData.levels.length - 1, prev + 1));
+        }
         break;
       default:
-        break;
+        setIsMoving(false);
+        return;
     }
-  }, [isLoading, characterPosition.x, resumeData.levels.length]);
+    
+    setTimeout(() => setIsMoving(false), 400);
+  }, [isLoading, currentLevel, resumeData.levels.length]);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyPress);
