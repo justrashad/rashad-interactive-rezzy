@@ -178,7 +178,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
         {renderLevelBackground()}
         
         {/* Fixed elements that move with world */}
-        <div className="world-content" style={{ width: '12000px', position: 'relative' }}>
+        <div className="world-content" style={{ width: '13000px', position: 'relative' }}>
           
           {/* Section 0: Introduction */}
           <div className="world-section intro-section" style={{ left: '0px', width: '1500px' }}>
