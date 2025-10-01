@@ -1,27 +1,31 @@
 import React from 'react';
 
-const Character = ({ position, isMoving, currentLevel, gameAction }) => {
+const Character = ({ position, isMoving, currentLevel, gameAction, gameState }) => {
   const getCharacterClass = () => {
     let classes = 'character';
     if (isMoving) classes += ' moving';
     
-    switch (gameAction) {
+    // Use gameState for more dynamic animations
+    switch (gameState) {
       case 'basketball':
-        classes += ' playing-basketball';
+        classes += ' playing-basketball dribbling';
         break;
       case 'swimming':
-        classes += ' swimming';
+        classes += ' swimming underwater';
         break;
       case 'bossfight':
-        classes += ' fighting-boss';
+        classes += ' fighting-boss battle-stance';
         break;
       case 'flying':
-        classes += ' flying';
+        classes += ' flying jetpack-active';
         break;
       case 'landing':
-        classes += ' landing';
+        classes += ' landing superhero-landing';
         break;
       default:
+        if (gameAction) {
+          classes += ` ${gameAction}`;
+        }
         break;
     }
     
