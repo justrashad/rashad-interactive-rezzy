@@ -708,14 +708,23 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
               </div>
             </div>
             
-            {/* Boss Battle Effects */}
+            {/* Epic Boss Battle Sequence */}
             {gameState === 'bossfight' && (
-              <div className="boss-battle-sequence">
-                <div className="battle-sparks bs1"></div>
-                <div className="battle-sparks bs2"></div>
-                <div className="battle-sparks bs3"></div>
-                <div className="power-beam"></div>
-                <div className="victory-explosion"></div>
+              <div className="epic-boss-battle">
+                <div className="battle-effects">
+                  <div className="laser-blast blast1"></div>
+                  <div className="laser-blast blast2"></div>
+                  <div className="laser-blast blast3"></div>
+                  <div className="explosion-effect exp1">💥</div>
+                  <div className="explosion-effect exp2">💥</div>
+                  <div className="energy-waves wave1"></div>
+                  <div className="energy-waves wave2"></div>
+                </div>
+                <div className="victory-sequence">
+                  <div className="boss-defeat-explosion">⚡💥⚡</div>
+                  <div className="victory-text">BOSS DEFEATED!</div>
+                  <div className="exp-gained">+2000 EXP</div>
+                </div>
               </div>
             )}
           </div>
