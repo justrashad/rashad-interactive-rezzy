@@ -172,7 +172,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
         className="world-container" 
         style={{ 
           transform: `translateX(-${worldPosition * 0.8}px)`, // Parallax effect
-          transition: 'transform 0.2s ease-out'
+          transition: 'transform 0.1s cubic-bezier(0.4, 0, 0.2, 1)' // Smoother easing
         }}
       >
         {renderLevelBackground()}
