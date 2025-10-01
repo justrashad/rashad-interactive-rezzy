@@ -285,6 +285,48 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, o
               <h2 className="level-name">BOSS BATTLE - EXPERIENCE</h2>
               <p className="section-description">Conquering IT challenges</p>
             </div>
+            
+            {/* Industrial Environment */}
+            <div className="industrial-environment">
+              <div className="factory-bg fb1"></div>
+              <div className="factory-bg fb2"></div>
+              <div className="industrial-pipe ip1"></div>
+              <div className="industrial-pipe ip2"></div>
+              <div className="smoke-stack ss1"></div>
+              <div className="smoke-stack ss2"></div>
+            </div>
+            
+            {/* Boss Robot */}
+            <div className="boss-robot-enemy" id="boss-robot-main">
+              <div className="boss-head">
+                <div className="boss-eye be1"></div>
+                <div className="boss-eye be2"></div>
+                <div className="boss-antenna"></div>
+              </div>
+              <div className="boss-body">
+                <div className="boss-chest-panel"></div>
+                <div className="boss-arm ba1"></div>
+                <div className="boss-arm ba2"></div>
+              </div>
+              <div className="boss-legs">
+                <div className="boss-leg bl1"></div>
+                <div className="boss-leg bl2"></div>
+              </div>
+              <div className="boss-health-bar">
+                <div className="health-fill" id="boss-health"></div>
+              </div>
+            </div>
+            
+            {/* Boss Battle Effects */}
+            {gameState === 'bossfight' && (
+              <div className="boss-battle-sequence">
+                <div className="battle-sparks bs1"></div>
+                <div className="battle-sparks bs2"></div>
+                <div className="battle-sparks bs3"></div>
+                <div className="power-beam"></div>
+                <div className="victory-explosion"></div>
+              </div>
+            )}
           </div>
 
           {/* Section 5: Flying Achievements */}
