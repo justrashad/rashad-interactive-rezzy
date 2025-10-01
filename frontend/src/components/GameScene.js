@@ -181,7 +181,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
         <div className="world-content" style={{ width: '12000px', position: 'relative' }}>
           
           {/* Section 0: Introduction */}
-          <div className="world-section intro-section" style={{ left: '0px', width: '800px' }}>
+          <div className="world-section intro-section" style={{ left: '0px', width: '1500px' }}>
             <div className="main-title">
               <div className="title-banner">Interactive Resume of</div>
               <h1 className="main-name">RASHAD WASHINGTON</h1>
