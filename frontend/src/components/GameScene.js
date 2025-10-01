@@ -337,7 +337,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
           </div>
 
           {/* Section 2: Houston Basketball */}
-          <div className="world-section basketball-section" style={{ left: '3000px', width: '2000px' }}>
+          <div className="world-section basketball-section" style={{ left: '4000px', width: '2000px' }}>
             <div className="section-title">
               <h2 className="level-name">HOME COURT - HOUSTON</h2>
               <p className="section-description">Where precision meets passion</p>
