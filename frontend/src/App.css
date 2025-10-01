@@ -114,24 +114,9 @@ body {
   pointer-events: auto;
 }
 
-/* Continuous world backgrounds - each section has its own background */
+/* Smooth transitioning world container */
 .world-container {
-  background: linear-gradient(to right, 
-    /* Section 0: Introduction */
-    #87CEEB 0%, #87CEEB 14.28%,
-    /* Section 1: About Rashad */
-    #FFE4B5 14.28%, #FFA500 28.56%,
-    /* Section 2: Houston Basketball */
-    #87CEEB 28.56%, #4682B4 42.84%,
-    /* Section 3: Underwater */
-    #1E90FF 42.84%, #0077BE 57.12%,
-    /* Section 4: Industrial */
-    #2F4F4F 57.12%, #696969 71.4%,
-    /* Section 5: Flying */
-    #87CEEB 71.4%, #B0E0E6 85.68%,
-    /* Section 6: Contact */
-    #191970 85.68%, #483D8B 100%
-  );
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Individual section backgrounds */
