@@ -20,28 +20,18 @@ const InteractiveResume = () => {
   const [levelProgress, setLevelProgress] = useState(0); // Progress within current level's game
   const [keysPressed, setKeysPressed] = useState(new Set()); // Track held keys for smooth movement
 
-  const handleKeyPress = useCallback((event) => {
+  // Handle key down (start movement)
+  const handleKeyDown = useCallback((event) => {
     if (isLoading) return;
-
-    setIsMoving(true);
     
+    const key = event.key.toLowerCase();
+    if (['arrowleft', 'arrowright', 'a', 'd'].includes(key)) {
+      setKeysPressed(prev => new Set(prev).add(key));
+      setIsMoving(true);
+    }
+    
+    // Handle non-movement keys
     switch (event.key) {
-      case 'ArrowLeft':
-      case 'a':
-      case 'A':
-        setWorldPosition(prev => Math.max(0, prev - 25)); // Smaller, smoother increments
-        break;
-      case 'ArrowRight':
-      case 'd':
-      case 'D':
-        setWorldPosition(prev => Math.min(12000, prev + 25)); // Smaller, smoother increments
-        
-        // Update level based on world position
-        const newLevel = Math.floor(worldPosition / 1600); // Longer sections // Each section is 1000px
-        if (newLevel !== currentLevel && newLevel < resumeData.levels.length) {
-          setCurrentLevel(newLevel);
-        }
-        break;
       case 'ArrowUp':
       case 'w':
       case 'W':
@@ -94,13 +84,43 @@ const InteractiveResume = () => {
           setCharacterPosition(prev => ({ ...prev, y: 130 }));
         }, 300);
         break;
-      default:
-        setIsMoving(false);
-        return;
     }
-    
-    setTimeout(() => setIsMoving(false), 300);
-  }, [isLoading, currentLevel, worldPosition, isJumping, resumeData.levels.length]);
+  }, [isLoading, gameState, isJumping]);
+
+  // Handle key up (stop movement)
+  const handleKeyUp = useCallback((event) => {
+    const key = event.key.toLowerCase();
+    setKeysPressed(prev => {
+      const newSet = new Set(prev);
+      newSet.delete(key);
+      if (newSet.size === 0) {
+        setIsMoving(false);
+      }
+      return newSet;
+    });
+  }, []);
+
+  // Smooth continuous movement
+  useEffect(() => {
+    const moveInterval = setInterval(() => {
+      if (keysPressed.size > 0) {
+        setWorldPosition(prev => {
+          let newPosition = prev;
+          
+          if (keysPressed.has('a') || keysPressed.has('arrowleft')) {
+            newPosition = Math.max(0, newPosition - 15);
+          }
+          if (keysPressed.has('d') || keysPressed.has('arrowright')) {
+            newPosition = Math.min(12000, newPosition + 15);
+          }
+          
+          return newPosition;
+        });
+      }
+    }, 16); // 60fps smooth movement
+
+    return () => clearInterval(moveInterval);
+  }, [keysPressed]);
 
   // Update level based on world position and trigger level-specific games
   useEffect(() => {
