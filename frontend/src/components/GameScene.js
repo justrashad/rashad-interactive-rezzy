@@ -211,23 +211,71 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
             
             {/* Stadium Environment */}
             <div className="basketball-stadium">
-              {/* Crowd in the Background */}
+              {/* Detailed Crowd with Various Skin Tones */}
               <div className="crowd-stands">
                 <div className="crowd-section left-crowd">
-                  <div className="crowd-person cp1">👤</div>
-                  <div className="crowd-person cp2">👤</div>
-                  <div className="crowd-person cp3">👤</div>
-                  <div className="crowd-person cp4">👤</div>
-                  <div className="crowd-person cp5">👤</div>
-                  <div className="crowd-person cp6">👤</div>
+                  <div className="detailed-crowd-person dcp1" data-skin="light">
+                    <div className="person-head"></div>
+                    <div className="person-body"></div>
+                    <div className="person-arms"></div>
+                  </div>
+                  <div className="detailed-crowd-person dcp2" data-skin="medium">
+                    <div className="person-head"></div>
+                    <div className="person-body"></div>
+                    <div className="person-arms"></div>
+                  </div>
+                  <div className="detailed-crowd-person dcp3" data-skin="dark">
+                    <div className="person-head"></div>
+                    <div className="person-body"></div>
+                    <div className="person-arms"></div>
+                  </div>
+                  <div className="detailed-crowd-person dcp4" data-skin="tan">
+                    <div className="person-head"></div>
+                    <div className="person-body"></div>
+                    <div className="person-arms"></div>
+                  </div>
+                  <div className="detailed-crowd-person dcp5" data-skin="brown">
+                    <div className="person-head"></div>
+                    <div className="person-body"></div>
+                    <div className="person-arms"></div>
+                  </div>
+                  <div className="detailed-crowd-person dcp6" data-skin="olive">
+                    <div className="person-head"></div>
+                    <div className="person-body"></div>
+                    <div className="person-arms"></div>
+                  </div>
                 </div>
                 <div className="crowd-section right-crowd">
-                  <div className="crowd-person cp7">👤</div>
-                  <div className="crowd-person cp8">👤</div>
-                  <div className="crowd-person cp9">👤</div>
-                  <div className="crowd-person cp10">👤</div>
-                  <div className="crowd-person cp11">👤</div>
-                  <div className="crowd-person cp12">👤</div>
+                  <div className="detailed-crowd-person dcp7" data-skin="dark">
+                    <div className="person-head"></div>
+                    <div className="person-body"></div>
+                    <div className="person-arms"></div>
+                  </div>
+                  <div className="detailed-crowd-person dcp8" data-skin="light">
+                    <div className="person-head"></div>
+                    <div className="person-body"></div>
+                    <div className="person-arms"></div>
+                  </div>
+                  <div className="detailed-crowd-person dcp9" data-skin="medium">
+                    <div className="person-head"></div>
+                    <div className="person-body"></div>
+                    <div className="person-arms"></div>
+                  </div>
+                  <div className="detailed-crowd-person dcp10" data-skin="brown">
+                    <div className="person-head"></div>
+                    <div className="person-body"></div>
+                    <div className="person-arms"></div>
+                  </div>
+                  <div className="detailed-crowd-person dcp11" data-skin="tan">
+                    <div className="person-head"></div>
+                    <div className="person-body"></div>
+                    <div className="person-arms"></div>
+                  </div>
+                  <div className="detailed-crowd-person dcp12" data-skin="olive">
+                    <div className="person-head"></div>
+                    <div className="person-body"></div>
+                    <div className="person-arms"></div>
+                  </div>
                 </div>
               </div>
               
