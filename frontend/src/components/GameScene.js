@@ -609,6 +609,13 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
                 <div className="horizontal-swim-trail"></div>
                 <div className="water-ripples-enhanced"></div>
                 <div className="skill-collection-effect">+SKILL COLLECTED!</div>
+                <div className="scuba-oxygen-bubbles">
+                  <div className="oxygen-bubble ob1"></div>
+                  <div className="oxygen-bubble ob2"></div>
+                  <div className="oxygen-bubble ob3"></div>
+                  <div className="oxygen-bubble ob4"></div>
+                  <div className="oxygen-bubble ob5"></div>
+                </div>
               </div>
             )}
           </div>
