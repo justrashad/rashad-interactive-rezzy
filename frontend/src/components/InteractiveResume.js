@@ -36,7 +36,7 @@ const InteractiveResume = () => {
         setWorldPosition(prev => Math.min(6000, prev + 80)); // 6000px total world width
         
         // Update level based on world position
-        const newLevel = Math.floor(worldPosition / 1000); // Each section is 1000px
+        const newLevel = Math.floor(worldPosition / 800); // Smaller sections for easier navigation // Each section is 1000px
         if (newLevel !== currentLevel && newLevel < resumeData.levels.length) {
           setCurrentLevel(newLevel);
         }
