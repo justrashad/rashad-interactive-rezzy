@@ -641,3 +641,30 @@ body {
     transform: translateX(-50%) scaleX(1.05);
   }
 }
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes levelTransition {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Add transition class for level changes */
+.level-transition {
+  animation: levelTransition 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
