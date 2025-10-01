@@ -501,7 +501,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
           </div>
 
           {/* Section 3: Underwater Skills */}
-          <div className="world-section underwater-section" style={{ left: '5000px', width: '1500px' }}>
+          <div className="world-section underwater-section" style={{ left: '6000px', width: '1500px' }}>
             <div className="section-title underwater-title">
               <h2 className="level-name">DEEP DIVE - SKILLS</h2>
               <p className="section-description">Exploring the depths of technology</p>
