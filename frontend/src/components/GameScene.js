@@ -209,35 +209,111 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
               <p className="section-description">Where precision meets passion</p>
             </div>
             
-            {/* Houston Skyline */}
-            <div className="houston-skyline-bg">
-              <div className="houston-building hb1"></div>
-              <div className="houston-building hb2"></div>
-              <div className="houston-building hb3"></div>
-              <div className="houston-building hb4"></div>
-              <div className="houston-building hb5"></div>
+            {/* Stadium Environment */}
+            <div className="basketball-stadium">
+              {/* Crowd in the Background */}
+              <div className="crowd-stands">
+                <div className="crowd-section left-crowd">
+                  <div className="crowd-person cp1">👤</div>
+                  <div className="crowd-person cp2">👤</div>
+                  <div className="crowd-person cp3">👤</div>
+                  <div className="crowd-person cp4">👤</div>
+                  <div className="crowd-person cp5">👤</div>
+                  <div className="crowd-person cp6">👤</div>
+                </div>
+                <div className="crowd-section right-crowd">
+                  <div className="crowd-person cp7">👤</div>
+                  <div className="crowd-person cp8">👤</div>
+                  <div className="crowd-person cp9">👤</div>
+                  <div className="crowd-person cp10">👤</div>
+                  <div className="crowd-person cp11">👤</div>
+                  <div className="crowd-person cp12">👤</div>
+                </div>
+              </div>
+              
+              {/* Stadium Lights */}
+              <div className="stadium-lights">
+                <div className="light-pole lp1">
+                  <div className="light-fixture"></div>
+                </div>
+                <div className="light-pole lp2">
+                  <div className="light-fixture"></div>
+                </div>
+              </div>
+              
+              {/* Houston Skyline Background */}
+              <div className="houston-skyline-bg">
+                <div className="houston-building hb1"></div>
+                <div className="houston-building hb2"></div>
+                <div className="houston-building hb3"></div>
+                <div className="houston-building hb4"></div>
+                <div className="houston-building hb5"></div>
+              </div>
             </div>
             
-            {/* Basketball Court */}
-            <div className="basketball-court-game">
-              <div className="court-floor"></div>
-              <div className="basketball-hoop-interactive">
-                <div className="hoop-backboard-game"></div>
-                <div className="hoop-rim-game"></div>
-                <div className="hoop-net-game"></div>
+            {/* Full Basketball Court */}
+            <div className="basketball-court-full">
+              <div className="court-floor-detailed">
+                {/* Court Lines */}
+                <div className="court-centerline"></div>
+                <div className="court-freethrow-line"></div>
+                <div className="court-three-point-line"></div>
+                <div className="court-center-circle"></div>
+                <div className="court-key left-key"></div>
+                <div className="court-key right-key"></div>
               </div>
-              <div className="basketball-game" id="basketball-ball">
-                <div className="ball-lines"></div>
+              
+              {/* Basketball Hoop with Backboard */}
+              <div className="basketball-hoop-full">
+                <div className="hoop-pole"></div>
+                <div className="hoop-backboard-detailed">
+                  <div className="backboard-square"></div>
+                </div>
+                <div className="hoop-rim-detailed"></div>
+                <div className="hoop-net-detailed">
+                  <div className="net-strand ns1"></div>
+                  <div className="net-strand ns2"></div>
+                  <div className="net-strand ns3"></div>
+                  <div className="net-strand ns4"></div>
+                  <div className="net-strand ns5"></div>
+                </div>
+              </div>
+              
+              {/* Interactive Basketball */}
+              <div className="basketball-interactive" id="game-basketball">
+                <div className="basketball-lines horizontal"></div>
+                <div className="basketball-lines vertical"></div>
               </div>
             </div>
             
-            {/* Basketball Animation Trigger */}
+            {/* Score Display */}
+            <div className="score-display">
+              <div className="score-board">
+                <div className="team-score home">RASHAD: <span id="home-score">0</span></div>
+                <div className="game-time">2:30</div>
+                <div className="team-score away">VISITOR: <span id="away-score">0</span></div>
+              </div>
+            </div>
+            
+            {/* Basketball Game Sequence */}
             {gameState === 'basketball' && (
-              <div className="basketball-sequence">
-                <div className="dribble-animation"></div>
-                <div className="shot-trajectory"></div>
+              <div className="basketball-game-sequence">
+                <div className="dribble-bounce-effect"></div>
+                <div className="shot-arc"></div>
+                <div className="swish-effect"></div>
+                <div className="crowd-cheer-effect">🎉</div>
               </div>
             )}
+            
+            {/* Interactive Elements */}
+            <div className="basketball-interactions">
+              <div className="dribble-indicator">Press SPACE to shoot!</div>
+              <div className="power-meter">
+                <div className="power-bar">
+                  <div className="power-fill"></div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Section 3: Underwater Skills */}
