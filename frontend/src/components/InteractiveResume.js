@@ -19,6 +19,8 @@ const InteractiveResume = () => {
 
   const [worldPosition, setWorldPosition] = useState(0); // Track position in the continuous world
   const [isJumping, setIsJumping] = useState(false);
+  const [gameState, setGameState] = useState('exploring'); // exploring, basketball, swimming, bossfight, flying, landing
+  const [levelProgress, setLevelProgress] = useState(0); // Progress within current level's game
 
   const handleKeyPress = useCallback((event) => {
     if (isLoading) return;
