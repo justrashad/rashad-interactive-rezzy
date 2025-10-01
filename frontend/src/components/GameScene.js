@@ -167,58 +167,114 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, o
 
   return (
     <div className={`game-container level-${currentLevel}`}>
-      {renderLevelBackground()}
-
-      {/* Main title area - only show on intro level */}
-      {currentLevel === 0 && (
-        <div className="main-title">
-          <div className="title-banner">
-            Interactive Resume of
+      {/* Continuous scrolling world */}
+      <div 
+        className="world-container" 
+        style={{ 
+          transform: `translateX(-${worldPosition}px)`,
+          transition: 'transform 0.3s ease-out'
+        }}
+      >
+        {renderLevelBackground()}
+        
+        {/* Fixed elements that move with world */}
+        <div className="world-content" style={{ width: '7000px', position: 'relative' }}>
+          
+          {/* Section 0: Introduction */}
+          <div className="world-section intro-section" style={{ left: '0px', width: '1000px' }}>
+            <div className="main-title">
+              <div className="title-banner">Interactive Resume of</div>
+              <h1 className="main-name">RASHAD WASHINGTON</h1>
+              <div className="subtitle">Principal Systems Analyst</div>
+              <div className="location">Live and Work in Houston, TX</div>
+              <div className="instructions">
+                Use ARROW KEYS or WASD to move<br/>
+                SPACE to jump, explore the world!
+              </div>
+            </div>
           </div>
-          <h1 className="main-name">RASHAD WASHINGTON</h1>
-          <div className="subtitle">Principal Systems Analyst</div>
-          <div className="location">Live and Work in Missouri City, TX</div>
-          <div className="instructions">
-            Scroll down mouse OR press keyboard's down-arrow<br/>
-            Swipe from right to left
+
+          {/* Section 1: About Rashad */}
+          <div className="world-section about-section" style={{ left: '1000px', width: '1000px' }}>
+            <div className="section-title">
+              <h2 className="level-name">ABOUT RASHAD</h2>
+              <p className="section-description">The journey begins...</p>
+            </div>
           </div>
+
+          {/* Section 2: Houston Basketball */}
+          <div className="world-section basketball-section" style={{ left: '2000px', width: '1000px' }}>
+            <div className="section-title">
+              <h2 className="level-name">HOME COURT - HOUSTON</h2>
+              <p className="section-description">Where precision meets passion</p>
+            </div>
+          </div>
+
+          {/* Section 3: Underwater Skills */}
+          <div className="world-section underwater-section" style={{ left: '3000px', width: '1000px' }}>
+            <div className="section-title">
+              <h2 className="level-name">DEEP DIVE - SKILLS</h2>
+              <p className="section-description">Exploring the depths of technology</p>
+            </div>
+          </div>
+
+          {/* Section 4: Boss Battle Experience */}
+          <div className="world-section industrial-section" style={{ left: '4000px', width: '1000px' }}>
+            <div className="section-title">
+              <h2 className="level-name">BOSS BATTLE - EXPERIENCE</h2>
+              <p className="section-description">Conquering IT challenges</p>
+            </div>
+          </div>
+
+          {/* Section 5: Flying Achievements */}
+          <div className="world-section flying-section" style={{ left: '5000px', width: '1000px' }}>
+            <div className="section-title">
+              <h2 className="level-name">SOARING HIGH - ACHIEVEMENTS</h2>
+              <p className="section-description">Reaching new heights</p>
+            </div>
+          </div>
+
+          {/* Section 6: Rooftop Contact */}
+          <div className="world-section contact-section" style={{ left: '6000px', width: '1000px' }}>
+            <div className="section-title">
+              <h2 className="level-name">THE SUMMIT - CONTACT</h2>
+              <p className="section-description">Let's connect at the top!</p>
+            </div>
+          </div>
+
         </div>
-      )}
+      </div>
 
-      {/* Level titles for other levels */}
-      {currentLevel > 0 && (
-        <div className="level-title">
-          <h2 className="level-name">{currentLevelData.name}</h2>
-        </div>
-      )}
-
-      {/* Character */}
-      <Character 
-        position={characterPosition} 
-        isMoving={isMoving}
-        currentLevel={currentLevel}
-        gameAction={currentLevelData.gameAction}
-      />
-
-      {/* Skills indicator */}
-      <SkillsIndicator skills={currentLevelData.skills} />
-
-      {/* Level indicator */}
-      <LevelIndicator 
-        currentLevel={currentLevel + 1} 
-        totalLevels={resumeData.levels.length}
-      />
-
-      {/* Content panel for current level */}
-      {currentLevel > 0 && (
-        <ContentPanel 
-          data={currentLevelData}
-          level={currentLevel}
+      {/* UI Elements (fixed position) */}
+      <div className="ui-overlay">
+        {/* Character */}
+        <Character 
+          position={characterPosition} 
+          isMoving={isMoving}
+          currentLevel={currentLevel}
+          gameAction={currentLevelData.gameAction}
         />
-      )}
 
-      {/* Navigation hints */}
-      <NavigationHints />
+        {/* Skills indicator */}
+        <SkillsIndicator skills={currentLevelData.skills} />
+
+        {/* Level indicator */}
+        <LevelIndicator 
+          currentLevel={currentLevel + 1} 
+          totalLevels={resumeData.levels.length}
+        />
+
+        {/* Content panel for current level */}
+        {currentLevel > 0 && (
+          <ContentPanel 
+            data={currentLevelData}
+            level={currentLevel}
+          />
+        )}
+
+        {/* Navigation hints */}
+        <NavigationHints />
+      </div>
     </div>
   );
 };
