@@ -757,6 +757,22 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
         </div>
       </div>
 
+      {/* Smooth transition overlay */}
+      <div className="transition-overlay" style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        pointerEvents: 'none',
+        background: `linear-gradient(90deg, 
+          transparent ${Math.max(0, (worldPosition / 12000) * 100 - 5)}%, 
+          rgba(255,255,255,0.1) ${(worldPosition / 12000) * 100}%, 
+          transparent ${Math.min(100, (worldPosition / 12000) * 100 + 5)}%
+        )`,
+        transition: 'background 0.2s ease-out'
+      }}></div>
+
       {/* UI Elements (fixed position) */}
       <div className="ui-overlay">
         {/* Character */}
