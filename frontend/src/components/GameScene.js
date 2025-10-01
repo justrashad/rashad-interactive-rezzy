@@ -208,17 +208,36 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, o
               <h2 className="level-name">HOME COURT - HOUSTON</h2>
               <p className="section-description">Where precision meets passion</p>
             </div>
-            {/* Interactive basketball that appears */}
-            <div className="interactive-basketball" style={{ 
-              position: 'absolute', 
-              left: '600px', 
-              bottom: '150px',
-              width: '30px',
-              height: '30px',
-              background: 'radial-gradient(circle, #FF6347, #CD853F)',
-              borderRadius: '50%',
-              animation: 'bounce 2s ease-in-out infinite'
-            }}></div>
+            
+            {/* Houston Skyline */}
+            <div className="houston-skyline-bg">
+              <div className="houston-building hb1"></div>
+              <div className="houston-building hb2"></div>
+              <div className="houston-building hb3"></div>
+              <div className="houston-building hb4"></div>
+              <div className="houston-building hb5"></div>
+            </div>
+            
+            {/* Basketball Court */}
+            <div className="basketball-court-game">
+              <div className="court-floor"></div>
+              <div className="basketball-hoop-interactive">
+                <div className="hoop-backboard-game"></div>
+                <div className="hoop-rim-game"></div>
+                <div className="hoop-net-game"></div>
+              </div>
+              <div className="basketball-game" id="basketball-ball">
+                <div className="ball-lines"></div>
+              </div>
+            </div>
+            
+            {/* Basketball Animation Trigger */}
+            {gameState === 'basketball' && (
+              <div className="basketball-sequence">
+                <div className="dribble-animation"></div>
+                <div className="shot-trajectory"></div>
+              </div>
+            )}
           </div>
 
           {/* Section 3: Underwater Skills */}
