@@ -422,6 +422,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, o
           isMoving={isMoving}
           currentLevel={currentLevel}
           gameAction={currentLevelData.gameAction}
+          gameState={gameState}
         />
 
         {/* Skills indicator */}
