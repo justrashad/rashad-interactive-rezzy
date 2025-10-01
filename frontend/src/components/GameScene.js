@@ -387,70 +387,55 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
             
             {/* Stadium Environment */}
             <div className="basketball-stadium">
-              {/* Detailed Crowd with Various Skin Tones */}
-              <div className="crowd-stands">
-                <div className="crowd-section left-crowd">
-                  <div className="detailed-crowd-person dcp1" data-skin="light">
-                    <div className="person-head"></div>
-                    <div className="person-body"></div>
-                    <div className="person-arms"></div>
-                  </div>
-                  <div className="detailed-crowd-person dcp2" data-skin="medium">
-                    <div className="person-head"></div>
-                    <div className="person-body"></div>
-                    <div className="person-arms"></div>
-                  </div>
-                  <div className="detailed-crowd-person dcp3" data-skin="dark">
-                    <div className="person-head"></div>
-                    <div className="person-body"></div>
-                    <div className="person-arms"></div>
-                  </div>
-                  <div className="detailed-crowd-person dcp4" data-skin="tan">
-                    <div className="person-head"></div>
-                    <div className="person-body"></div>
-                    <div className="person-arms"></div>
-                  </div>
-                  <div className="detailed-crowd-person dcp5" data-skin="brown">
-                    <div className="person-head"></div>
-                    <div className="person-body"></div>
-                    <div className="person-arms"></div>
-                  </div>
-                  <div className="detailed-crowd-person dcp6" data-skin="olive">
-                    <div className="person-head"></div>
-                    <div className="person-body"></div>
-                    <div className="person-arms"></div>
-                  </div>
+              {/* FULL Stadium Crowd with Various Skin Tones */}
+              <div className="full-stadium-crowd">
+                {/* Lower Section - Front Row */}
+                <div className="crowd-row front-row">
+                  {Array.from({length: 20}, (_, i) => (
+                    <div key={`front-${i}`} className={`crowd-person-small cp-front-${i}`} data-skin={['light', 'medium', 'dark', 'tan', 'brown', 'olive'][i % 6]}>
+                      <div className="person-head-small"></div>
+                      <div className="person-body-small"></div>
+                    </div>
+                  ))}
                 </div>
-                <div className="crowd-section right-crowd">
-                  <div className="detailed-crowd-person dcp7" data-skin="dark">
-                    <div className="person-head"></div>
-                    <div className="person-body"></div>
-                    <div className="person-arms"></div>
+                
+                {/* Middle Section - Second Row */}
+                <div className="crowd-row middle-row">
+                  {Array.from({length: 18}, (_, i) => (
+                    <div key={`middle-${i}`} className={`crowd-person-small cp-middle-${i}`} data-skin={['medium', 'dark', 'light', 'brown', 'olive', 'tan'][i % 6]}>
+                      <div className="person-head-small"></div>
+                      <div className="person-body-small"></div>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Upper Section - Back Row */}
+                <div className="crowd-row back-row">
+                  {Array.from({length: 16}, (_, i) => (
+                    <div key={`back-${i}`} className={`crowd-person-small cp-back-${i}`} data-skin={['dark', 'brown', 'medium', 'olive', 'light', 'tan'][i % 6]}>
+                      <div className="person-head-small"></div>
+                      <div className="person-body-small"></div>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Right Side Crowd */}
+                <div className="crowd-section right-side-full">
+                  <div className="crowd-row right-front">
+                    {Array.from({length: 15}, (_, i) => (
+                      <div key={`right-front-${i}`} className={`crowd-person-small cp-rf-${i}`} data-skin={['brown', 'light', 'dark', 'tan', 'medium', 'olive'][i % 6]}>
+                        <div className="person-head-small"></div>
+                        <div className="person-body-small"></div>
+                      </div>
+                    ))}
                   </div>
-                  <div className="detailed-crowd-person dcp8" data-skin="light">
-                    <div className="person-head"></div>
-                    <div className="person-body"></div>
-                    <div className="person-arms"></div>
-                  </div>
-                  <div className="detailed-crowd-person dcp9" data-skin="medium">
-                    <div className="person-head"></div>
-                    <div className="person-body"></div>
-                    <div className="person-arms"></div>
-                  </div>
-                  <div className="detailed-crowd-person dcp10" data-skin="brown">
-                    <div className="person-head"></div>
-                    <div className="person-body"></div>
-                    <div className="person-arms"></div>
-                  </div>
-                  <div className="detailed-crowd-person dcp11" data-skin="tan">
-                    <div className="person-head"></div>
-                    <div className="person-body"></div>
-                    <div className="person-arms"></div>
-                  </div>
-                  <div className="detailed-crowd-person dcp12" data-skin="olive">
-                    <div className="person-head"></div>
-                    <div className="person-body"></div>
-                    <div className="person-arms"></div>
+                  <div className="crowd-row right-back">
+                    {Array.from({length: 12}, (_, i) => (
+                      <div key={`right-back-${i}`} className={`crowd-person-small cp-rb-${i}`} data-skin={['olive', 'dark', 'brown', 'light', 'tan', 'medium'][i % 6]}>
+                        <div className="person-head-small"></div>
+                        <div className="person-body-small"></div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
