@@ -410,13 +410,26 @@ body {
 .title-banner {
   background: linear-gradient(45deg, #DC143C, #B22222);
   color: white;
-  padding: 10px 30px;
-  font-size: 24px;
+  padding: 12px 35px;
+  font-size: 14px;
   font-weight: bold;
   margin-bottom: 20px;
   position: relative;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  border: 3px solid #8B0000;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: bannerPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes bannerPulse {
+  0% {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  }
+  100% {
+    box-shadow: 0 8px 20px rgba(220, 20, 60, 0.3);
+  }
 }
 
 .title-banner:before,
