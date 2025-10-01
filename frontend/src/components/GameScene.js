@@ -356,7 +356,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
           </div>
 
           {/* Section 4: Boss Battle Experience */}
-          <div className="world-section industrial-section" style={{ left: '4000px', width: '1000px' }}>
+          <div className="world-section industrial-section" style={{ left: '3200px', width: '800px' }}>
             <div className="section-title">
               <h2 className="level-name">BOSS BATTLE - EXPERIENCE</h2>
               <p className="section-description">Conquering IT challenges</p>
