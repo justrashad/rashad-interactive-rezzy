@@ -503,10 +503,16 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
                 </div>
               </div>
               
-              {/* Interactive Basketball */}
+              {/* Interactive Basketball with Dribbling */}
               <div className="basketball-interactive" id="game-basketball">
                 <div className="basketball-lines horizontal"></div>
                 <div className="basketball-lines vertical"></div>
+              </div>
+              
+              {/* Character Ball (for dribbling) */}
+              <div className="character-basketball" id="character-ball">
+                <div className="ball-lines horizontal"></div>
+                <div className="ball-lines vertical"></div>
               </div>
             </div>
             
