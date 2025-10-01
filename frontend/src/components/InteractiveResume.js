@@ -163,9 +163,13 @@ const InteractiveResume = () => {
   }, [worldPosition, currentLevel, resumeData.levels.length]);
 
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [handleKeyPress]);
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, [handleKeyDown, handleKeyUp]);
 
   if (isLoading) {
     return <LoadingScreen />;
