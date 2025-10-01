@@ -637,24 +637,74 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
               <div className="smoke-stack ss2"></div>
             </div>
             
-            {/* Boss Robot */}
-            <div className="boss-robot-enemy" id="boss-robot-main">
-              <div className="boss-head">
-                <div className="boss-eye be1"></div>
-                <div className="boss-eye be2"></div>
-                <div className="boss-antenna"></div>
+            {/* Detailed Evil Robot Boss */}
+            <div className="evil-robot-boss" id="evil-boss-main">
+              {/* Boss Head with Evil Features */}
+              <div className="evil-boss-head">
+                <div className="evil-antenna antenna1"></div>
+                <div className="evil-antenna antenna2"></div>
+                <div className="evil-eye eye-left">
+                  <div className="eye-pupil"></div>
+                  <div className="eye-laser"></div>
+                </div>
+                <div className="evil-eye eye-right">
+                  <div className="eye-pupil"></div>
+                  <div className="eye-laser"></div>
+                </div>
+                <div className="evil-mouth">
+                  <div className="tooth tooth1"></div>
+                  <div className="tooth tooth2"></div>
+                  <div className="tooth tooth3"></div>
+                </div>
               </div>
-              <div className="boss-body">
-                <div className="boss-chest-panel"></div>
-                <div className="boss-arm ba1"></div>
-                <div className="boss-arm ba2"></div>
+              
+              {/* Massive Robot Body */}
+              <div className="evil-boss-body">
+                <div className="chest-reactor">
+                  <div className="reactor-core"></div>
+                  <div className="reactor-ring ring1"></div>
+                  <div className="reactor-ring ring2"></div>
+                </div>
+                <div className="chest-armor"></div>
+                <div className="shoulder-cannon cannon-left"></div>
+                <div className="shoulder-cannon cannon-right"></div>
               </div>
-              <div className="boss-legs">
-                <div className="boss-leg bl1"></div>
-                <div className="boss-leg bl2"></div>
+              
+              {/* Powerful Arms with Weapons */}
+              <div className="evil-boss-arms">
+                <div className="robot-arm arm-left">
+                  <div className="arm-cannon"></div>
+                  <div className="arm-claw claw1"></div>
+                  <div className="arm-claw claw2"></div>
+                  <div className="arm-claw claw3"></div>
+                </div>
+                <div className="robot-arm arm-right">
+                  <div className="arm-laser"></div>
+                  <div className="energy-orb"></div>
+                </div>
               </div>
-              <div className="boss-health-bar">
-                <div className="health-fill" id="boss-health"></div>
+              
+              {/* Heavy Legs and Base */}
+              <div className="evil-boss-legs">
+                <div className="robot-leg leg-left">
+                  <div className="leg-thruster"></div>
+                </div>
+                <div className="robot-leg leg-right">
+                  <div className="leg-thruster"></div>
+                </div>
+              </div>
+              
+              {/* Boss Health and Status */}
+              <div className="boss-ui">
+                <div className="boss-name-plate">EVIL TECH OVERLORD</div>
+                <div className="boss-health-container">
+                  <div className="boss-health-bar">
+                    <div className="health-fill-boss" id="boss-health-fill">100%</div>
+                  </div>
+                  <div className="boss-shield-bar">
+                    <div className="shield-fill" id="boss-shield-fill"></div>
+                  </div>
+                </div>
               </div>
             </div>
             
