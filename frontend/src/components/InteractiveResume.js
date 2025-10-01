@@ -81,27 +81,27 @@ const InteractiveResume = () => {
       // Trigger level-specific game states
       switch(newLevel) {
         case 2: // Houston Basketball
-          if (worldPosition >= 1600) { // Mid-section
+          if (worldPosition >= 3500) { // Mid-section of basketball court
             setGameState('basketball');
           }
           break;
         case 3: // Underwater Swimming  
-          if (worldPosition >= 2600) {
+          if (worldPosition >= 5200) {
             setGameState('swimming');
           }
           break;
         case 4: // Boss Battle
-          if (worldPosition >= 3400) {
+          if (worldPosition >= 7000) {
             setGameState('bossfight');
           }
           break;
         case 5: // Flying
-          if (worldPosition >= 4200) {
+          if (worldPosition >= 8500) {
             setGameState('flying');
           }
           break;
         case 6: // Landing
-          if (worldPosition >= 5000) {
+          if (worldPosition >= 10000) {
             setGameState('landing');
           }
           break;
