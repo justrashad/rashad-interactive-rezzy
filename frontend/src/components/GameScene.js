@@ -631,7 +631,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
           </div>
 
           {/* Section 5: Flying Achievements */}
-          <div className="world-section flying-section" style={{ left: '8000px', width: '1500px' }}>
+          <div className="world-section flying-section" style={{ left: '9000px', width: '1500px' }}>
             <div className="section-title">
               <h2 className="level-name">SOARING HIGH - ACHIEVEMENTS</h2>
               <p className="section-description">Reaching new heights</p>
