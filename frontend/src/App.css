@@ -56,8 +56,37 @@ body {
   height: 100vh;
   position: relative;
   overflow: hidden;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Level 0 - Intro (Hills and Nature) */
+.game-container.level-0 {
   background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 70%, #90EE90 70%, #90EE90 85%, #8B4513 85%, #654321 100%);
-  transition: all 0.5s ease-in-out;
+}
+
+/* Level 1 - Tech Skills (Cyber City) */
+.game-container.level-1 {
+  background: linear-gradient(to bottom, #1a1a2e 0%, #16213e 50%, #0f4c75 70%, #3282b8 85%, #0f4c75 100%);
+}
+
+/* Level 2 - Current Role (Medical/Office) */
+.game-container.level-2 {
+  background: linear-gradient(to bottom, #e8f4fd 0%, #b8daf7 30%, #7bb3f0 70%, #4a90e2 85%, #2e5c8a 100%);
+}
+
+/* Level 3 - Previous Experience (Industrial) */
+.game-container.level-3 {
+  background: linear-gradient(to bottom, #8b6f47 0%, #a0855b 30%, #b8986f 70%, #8b6f47 85%, #654321 100%);
+}
+
+/* Level 4 - Education (Campus) */
+.game-container.level-4 {
+  background: linear-gradient(to bottom, #87ceeb 0%, #98d4ea 30%, #90ee90 70%, #228b22 85%, #006400 100%);
+}
+
+/* Level 5 - Contact (Futuristic) */
+.game-container.level-5 {
+  background: linear-gradient(to bottom, #0f0f23 0%, #1a1a2e 30%, #16213e 70%, #e94560 85%, #533483 100%);
 }
 
 /* Clouds */
