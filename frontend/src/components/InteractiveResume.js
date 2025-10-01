@@ -33,7 +33,7 @@ const InteractiveResume = () => {
       case 'ArrowRight':
       case 'd':
       case 'D':
-        setWorldPosition(prev => Math.min(11000, prev + 80)); // 12000px total world width
+        setWorldPosition(prev => Math.min(12000, prev + 80)); // 13000px total world width
         
         // Update level based on world position
         const newLevel = Math.floor(worldPosition / 1600); // Longer sections // Each section is 1000px
