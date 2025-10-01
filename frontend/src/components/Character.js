@@ -109,7 +109,6 @@ const Character = ({ position, isMoving, currentLevel, gameAction, gameState }) 
       {/* Character head with improved design */}
       <div className="character-head">
         <div className="character-hair"></div>
-        <div className="character-glasses"></div>
         <div className="character-eyes">
           <div className="character-eye left"></div>
           <div className="character-eye right"></div>
@@ -131,6 +130,9 @@ const Character = ({ position, isMoving, currentLevel, gameAction, gameState }) 
           <div className="character-leg right"></div>
         </div>
       </div>
+
+      {/* Level-specific character details */}
+      {renderCharacterDetails()}
 
       {/* Special effects for different actions */}
       {gameAction === 'flying' && (
