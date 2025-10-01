@@ -178,10 +178,10 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
         {renderLevelBackground()}
         
         {/* Fixed elements that move with world */}
-        <div className="world-content" style={{ width: '7000px', position: 'relative' }}>
+        <div className="world-content" style={{ width: '5600px', position: 'relative' }}>
           
           {/* Section 0: Introduction */}
-          <div className="world-section intro-section" style={{ left: '0px', width: '1000px' }}>
+          <div className="world-section intro-section" style={{ left: '0px', width: '800px' }}>
             <div className="main-title">
               <div className="title-banner">Interactive Resume of</div>
               <h1 className="main-name">RASHAD WASHINGTON</h1>
@@ -195,7 +195,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
           </div>
 
           {/* Section 1: About Rashad */}
-          <div className="world-section about-section" style={{ left: '1000px', width: '1000px' }}>
+          <div className="world-section about-section" style={{ left: '800px', width: '800px' }}>
             <div className="section-title">
               <h2 className="level-name">ABOUT RASHAD</h2>
               <p className="section-description">The journey begins...</p>
@@ -203,7 +203,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
           </div>
 
           {/* Section 2: Houston Basketball */}
-          <div className="world-section basketball-section" style={{ left: '2000px', width: '1000px' }}>
+          <div className="world-section basketball-section" style={{ left: '1600px', width: '800px' }}>
             <div className="section-title">
               <h2 className="level-name">HOME COURT - HOUSTON</h2>
               <p className="section-description">Where precision meets passion</p>
