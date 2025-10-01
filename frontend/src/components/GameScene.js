@@ -373,34 +373,75 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
               <p className="section-description">Exploring the depths of technology</p>
             </div>
             
-            {/* Underwater Environment */}
-            <div className="underwater-environment">
-              <div className="water-surface-line"></div>
-              <div className="bubble-stream bs1"></div>
-              <div className="bubble-stream bs2"></div>
-              <div className="bubble-stream bs3"></div>
+            {/* Water Entry Point */}
+            <div className="water-entry-platform">
+              <div className="diving-platform"></div>
+              <div className="platform-ladder"></div>
+            </div>
+            
+            {/* Underwater Environment - Deeper and More Detailed */}
+            <div className="underwater-environment-enhanced">
+              <div className="water-surface-animated"></div>
+              <div className="water-layers layer1"></div>
+              <div className="water-layers layer2"></div>
+              <div className="water-layers layer3"></div>
               
-              <div className="underwater-plant up1"></div>
-              <div className="underwater-plant up2"></div>
-              <div className="underwater-rock ur1"></div>
-              <div className="underwater-rock ur2"></div>
+              {/* Vertical Swimming Path */}
+              <div className="vertical-swim-zone">
+                <div className="depth-marker dm1">10ft</div>
+                <div className="depth-marker dm2">20ft</div>
+                <div className="depth-marker dm3">30ft</div>
+              </div>
               
-              <div className="swimming-fish sf1"></div>
-              <div className="swimming-fish sf2"></div>
+              {/* Enhanced Bubble Streams */}
+              <div className="bubble-stream-enhanced bs1"></div>
+              <div className="bubble-stream-enhanced bs2"></div>
+              <div className="bubble-stream-enhanced bs3"></div>
+              <div className="bubble-stream-enhanced bs4"></div>
+              <div className="bubble-stream-enhanced bs5"></div>
               
-              <div className="treasure-chest-skills">
+              {/* Underwater Flora and Fauna */}
+              <div className="underwater-plant-enhanced up1"></div>
+              <div className="underwater-plant-enhanced up2"></div>
+              <div className="underwater-plant-enhanced up3"></div>
+              <div className="underwater-rock-enhanced ur1"></div>
+              <div className="underwater-rock-enhanced ur2"></div>
+              <div className="underwater-rock-enhanced ur3"></div>
+              
+              {/* Swimming Fish School */}
+              <div className="fish-school fs1"></div>
+              <div className="fish-school fs2"></div>
+              <div className="fish-school fs3"></div>
+              
+              {/* Skills Treasure Chests at Different Depths */}
+              <div className="skill-treasure-chest stc1">
+                <div className="chest-label">LINUX</div>
                 <div className="chest-glow"></div>
-                <div className="skill-gems gem1"></div>
-                <div className="skill-gems gem2"></div>
-                <div className="skill-gems gem3"></div>
+              </div>
+              <div className="skill-treasure-chest stc2">
+                <div className="chest-label">KUBERNETES</div>
+                <div className="chest-glow"></div>
+              </div>
+              <div className="skill-treasure-chest stc3">
+                <div className="chest-label">LEADERSHIP</div>
+                <div className="chest-glow"></div>
+              </div>
+              
+              {/* Horizontal Swimming Exit */}
+              <div className="horizontal-swim-exit">
+                <div className="exit-tunnel"></div>
+                <div className="exit-light"></div>
               </div>
             </div>
             
-            {/* Swimming Animation */}
+            {/* Swimming Animation Sequence */}
             {gameState === 'swimming' && (
-              <div className="swimming-sequence">
-                <div className="swim-trail"></div>
-                <div className="water-ripples"></div>
+              <div className="swimming-sequence-enhanced">
+                <div className="dive-splash-effect"></div>
+                <div className="vertical-swim-trail"></div>
+                <div className="horizontal-swim-trail"></div>
+                <div className="water-ripples-enhanced"></div>
+                <div className="skill-collection-effect">+SKILL COLLECTED!</div>
               </div>
             )}
           </div>
