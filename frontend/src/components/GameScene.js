@@ -448,7 +448,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
           </div>
 
           {/* Section 6: Rooftop Contact */}
-          <div className="world-section contact-section" style={{ left: '4800px', width: '800px' }}>
+          <div className="world-section contact-section" style={{ left: '9500px', width: '1500px' }}>
             <div className="section-title">
               <h2 className="level-name">THE SUMMIT - CONTACT</h2>
               <p className="section-description">Let's connect at the top!</p>
