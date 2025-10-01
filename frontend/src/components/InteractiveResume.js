@@ -86,22 +86,22 @@ const InteractiveResume = () => {
           }
           break;
         case 3: // Underwater Swimming  
-          if (worldPosition >= 3200) {
+          if (worldPosition >= 2600) {
             setGameState('swimming');
           }
           break;
         case 4: // Boss Battle
-          if (worldPosition >= 4200) {
+          if (worldPosition >= 3400) {
             setGameState('bossfight');
           }
           break;
         case 5: // Flying
-          if (worldPosition >= 5200) {
+          if (worldPosition >= 4200) {
             setGameState('flying');
           }
           break;
         case 6: // Landing
-          if (worldPosition >= 6000) {
+          if (worldPosition >= 5000) {
             setGameState('landing');
           }
           break;
