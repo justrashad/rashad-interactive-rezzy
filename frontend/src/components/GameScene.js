@@ -6,7 +6,7 @@ import NavigationHints from './NavigationHints';
 import ContentPanel from './ContentPanel';
 import { resumeData } from '../data/resumeData';
 
-const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, onLevelChange }) => {
+const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, gameState, onLevelChange }) => {
   const currentLevelData = resumeData.levels[currentLevel];
 
   const renderLevelBackground = () => {
