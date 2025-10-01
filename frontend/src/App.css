@@ -4,10 +4,13 @@
   box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
-  font-family: 'Courier New', monospace;
+  font-family: 'Press Start 2P', cursive;
   overflow: hidden;
   user-select: none;
+  font-size: 12px;
 }
 
 .App {
