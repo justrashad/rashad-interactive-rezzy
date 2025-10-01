@@ -10,11 +10,8 @@ const InteractiveResume = () => {
   const [isMoving, setIsMoving] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000); // Reduced loading time
-
-    return () => clearTimeout(timer);
+    // Skip loading screen for testing
+    setIsLoading(false);
   }, []);
 
   const [worldPosition, setWorldPosition] = useState(0); // Track position in the continuous world
