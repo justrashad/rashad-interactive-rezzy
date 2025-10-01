@@ -17,6 +17,9 @@ const InteractiveResume = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const [worldPosition, setWorldPosition] = useState(0); // Track position in the continuous world
+  const [isJumping, setIsJumping] = useState(false);
+
   const handleKeyPress = useCallback((event) => {
     if (isLoading) return;
 
@@ -24,47 +27,60 @@ const InteractiveResume = () => {
     
     switch (event.key) {
       case 'ArrowLeft':
-        if (currentLevel > 0) {
-          setCurrentLevel(prev => Math.max(0, prev - 1));
-          setCharacterPosition({ x: 70, y: 130 }); // Reset position for new level
-        } else {
-          setCharacterPosition(prev => ({ ...prev, x: Math.max(10, prev.x - 15) }));
-        }
+      case 'a':
+      case 'A':
+        setWorldPosition(prev => Math.max(0, prev - 50));
+        setCharacterPosition(prev => ({ ...prev, x: Math.max(5, prev.x - 5) }));
         break;
       case 'ArrowRight':
-        if (currentLevel < resumeData.levels.length - 1) {
-          setCurrentLevel(prev => Math.min(resumeData.levels.length - 1, prev + 1));
-          setCharacterPosition({ x: 30, y: 130 }); // Reset position for new level
-        } else {
-          setCharacterPosition(prev => ({ ...prev, x: Math.min(80, prev.x + 15) }));
+      case 'd':
+      case 'D':
+        setWorldPosition(prev => Math.min(6000, prev + 50)); // 6000px total world width
+        setCharacterPosition(prev => ({ ...prev, x: Math.min(95, prev.x + 5) }));
+        
+        // Update level based on world position
+        const newLevel = Math.floor(worldPosition / 1000); // Each section is 1000px
+        if (newLevel !== currentLevel && newLevel < resumeData.levels.length) {
+          setCurrentLevel(newLevel);
         }
         break;
       case 'ArrowUp':
-        if (currentLevel > 0) {
-          setCurrentLevel(prev => Math.max(0, prev - 1));
-          setCharacterPosition({ x: 50, y: 130 }); // Reset position for new level
+      case 'w':
+      case 'W':
+      case ' ':
+        if (!isJumping) {
+          setIsJumping(true);
+          setCharacterPosition(prev => ({ ...prev, y: prev.y + 50 }));
+          setTimeout(() => {
+            setCharacterPosition(prev => ({ ...prev, y: 130 }));
+            setIsJumping(false);
+          }, 600);
         }
         break;
       case 'ArrowDown':
-      case ' ':
-        if (currentLevel < resumeData.levels.length - 1) {
-          setCurrentLevel(prev => Math.min(resumeData.levels.length - 1, prev + 1));
-          setCharacterPosition({ x: 50, y: 130 }); // Reset position for new level
-        }
-        break;
-      case 'Enter':
-        if (currentLevel < resumeData.levels.length - 1) {
-          setCurrentLevel(prev => Math.min(resumeData.levels.length - 1, prev + 1));
-          setCharacterPosition({ x: 50, y: 130 }); // Reset position for new level
-        }
+      case 's':
+      case 'S':
+        // Duck/crouch animation
+        setCharacterPosition(prev => ({ ...prev, y: Math.max(110, prev.y - 20) }));
+        setTimeout(() => {
+          setCharacterPosition(prev => ({ ...prev, y: 130 }));
+        }, 300);
         break;
       default:
         setIsMoving(false);
         return;
     }
     
-    setTimeout(() => setIsMoving(false), 600);
-  }, [isLoading, currentLevel, resumeData.levels.length]);
+    setTimeout(() => setIsMoving(false), 300);
+  }, [isLoading, currentLevel, worldPosition, isJumping, resumeData.levels.length]);
+
+  // Update level based on world position
+  useEffect(() => {
+    const newLevel = Math.floor(worldPosition / 1000);
+    if (newLevel !== currentLevel && newLevel < resumeData.levels.length) {
+      setCurrentLevel(newLevel);
+    }
+  }, [worldPosition, currentLevel, resumeData.levels.length]);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyPress);
