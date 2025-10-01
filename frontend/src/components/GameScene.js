@@ -194,11 +194,145 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
             </div>
           </div>
 
-          {/* Section 1: About Rashad */}
-          <div className="world-section about-section" style={{ left: '1500px', width: '1500px' }}>
-            <div className="section-title">
+          {/* Section 1: About Rashad - Extended Beautiful Scene */}
+          <div className="world-section about-section" style={{ left: '1500px', width: '2500px' }}>
+            <div className="section-title about-title">
               <h2 className="level-name">ABOUT RASHAD</h2>
               <p className="section-description">The journey begins...</p>
+            </div>
+            
+            {/* Sunrise Environment */}
+            <div className="sunrise-environment">
+              {/* Animated Sun */}
+              <div className="sunrise-sun-detailed">
+                <div className="sun-rays ray1"></div>
+                <div className="sun-rays ray2"></div>
+                <div className="sun-rays ray3"></div>
+                <div className="sun-rays ray4"></div>
+                <div className="sun-rays ray5"></div>
+                <div className="sun-rays ray6"></div>
+              </div>
+              
+              {/* Layered Hills */}
+              <div className="story-hills hill-layer-1"></div>
+              <div className="story-hills hill-layer-2"></div>
+              <div className="story-hills hill-layer-3"></div>
+              <div className="story-hills hill-layer-4"></div>
+              
+              {/* Beautiful Trees */}
+              <div className="story-tree tree-large tree-1">
+                <div className="tree-canopy canopy-1"></div>
+                <div className="tree-trunk trunk-1"></div>
+                <div className="tree-shadow shadow-1"></div>
+              </div>
+              <div className="story-tree tree-medium tree-2">
+                <div className="tree-canopy canopy-2"></div>
+                <div className="tree-trunk trunk-2"></div>
+                <div className="tree-shadow shadow-2"></div>
+              </div>
+              <div className="story-tree tree-small tree-3">
+                <div className="tree-canopy canopy-3"></div>
+                <div className="tree-trunk trunk-3"></div>
+                <div className="tree-shadow shadow-3"></div>
+              </div>
+              <div className="story-tree tree-large tree-4">
+                <div className="tree-canopy canopy-4"></div>
+                <div className="tree-trunk trunk-4"></div>
+                <div className="tree-shadow shadow-4"></div>
+              </div>
+              
+              {/* Colorful Flowers Field */}
+              <div className="flower-field">
+                <div className="flower flower-red f1"></div>
+                <div className="flower flower-yellow f2"></div>
+                <div className="flower flower-purple f3"></div>
+                <div className="flower flower-pink f4"></div>
+                <div className="flower flower-blue f5"></div>
+                <div className="flower flower-orange f6"></div>
+                <div className="flower flower-red f7"></div>
+                <div className="flower flower-yellow f8"></div>
+                <div className="flower flower-purple f9"></div>
+                <div className="flower flower-pink f10"></div>
+                <div className="flower flower-blue f11"></div>
+                <div className="flower flower-orange f12"></div>
+              </div>
+              
+              {/* Flying Birds */}
+              <div className="birds-flying">
+                <div className="bird bird-1">🕊️</div>
+                <div className="bird bird-2">🕊️</div>
+                <div className="bird bird-3">🕊️</div>
+                <div className="bird bird-4">🕊️</div>
+              </div>
+              
+              {/* Floating Achievement Badges */}
+              <div className="story-achievements">
+                <div className="achievement-badge badge-1">
+                  <div className="badge-icon">🎓</div>
+                  <div className="badge-text">EDUCATION</div>
+                </div>
+                <div className="achievement-badge badge-2">
+                  <div className="badge-icon">💼</div>
+                  <div className="badge-text">20+ YEARS</div>
+                </div>
+                <div className="achievement-badge badge-3">
+                  <div className="badge-icon">🏥</div>
+                  <div className="badge-text">HEALTHCARE IT</div>
+                </div>
+                <div className="achievement-badge badge-4">
+                  <div className="badge-icon">👨‍💼</div>
+                  <div className="badge-text">LEADERSHIP</div>
+                </div>
+              </div>
+              
+              {/* Story Book Elements */}
+              <div className="story-elements">
+                <div className="open-book">
+                  <div className="book-page page-left">
+                    <div className="page-text">
+                      <div class="story-line">Passionate about</div>
+                      <div class="story-line">technology &</div>
+                      <div class="story-line">innovation</div>
+                    </div>
+                  </div>
+                  <div className="book-page page-right">
+                    <div className="page-text">
+                      <div class="story-line">Leading teams</div>
+                      <div class="story-line">& solving</div>
+                      <div class="story-line">complex problems</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Inspirational Quote Scroll */}
+              <div className="quote-scroll">
+                <div className="scroll-paper">
+                  <div className="quote-text">
+                    "Technology is best when it brings<br/>
+                    people together" - Rashad Washington
+                  </div>
+                </div>
+              </div>
+              
+              {/* Grass and Ground Details */}
+              <div className="ground-details">
+                <div className="grass-patch patch-1"></div>
+                <div className="grass-patch patch-2"></div>
+                <div className="grass-patch patch-3"></div>
+                <div className="grass-patch patch-4"></div>
+                <div className="grass-patch patch-5"></div>
+                <div className="small-stones stone-1"></div>
+                <div className="small-stones stone-2"></div>
+                <div className="small-stones stone-3"></div>
+              </div>
+              
+              {/* Butterflies */}
+              <div className="butterflies">
+                <div className="butterfly butterfly-1">🦋</div>
+                <div className="butterfly butterfly-2">🦋</div>
+                <div className="butterfly butterfly-3">🦋</div>
+              </div>
             </div>
           </div>
 
