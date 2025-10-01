@@ -96,6 +96,7 @@ const InteractiveResume = () => {
       currentLevel={currentLevel}
       characterPosition={characterPosition}
       isMoving={isMoving}
+      worldPosition={worldPosition}
       onLevelChange={setCurrentLevel}
     />
   );
