@@ -195,7 +195,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
           </div>
 
           {/* Section 1: About Rashad */}
-          <div className="world-section about-section" style={{ left: '800px', width: '800px' }}>
+          <div className="world-section about-section" style={{ left: '1500px', width: '1500px' }}>
             <div className="section-title">
               <h2 className="level-name">ABOUT RASHAD</h2>
               <p className="section-description">The journey begins...</p>
