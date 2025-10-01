@@ -29,8 +29,7 @@ const InteractiveResume = () => {
       case 'ArrowLeft':
       case 'a':
       case 'A':
-        setWorldPosition(prev => Math.max(0, prev - 50));
-        setCharacterPosition(prev => ({ ...prev, x: Math.max(5, prev.x - 5) }));
+        setWorldPosition(prev => Math.max(0, prev - 80));
         break;
       case 'ArrowRight':
       case 'd':
