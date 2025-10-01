@@ -793,30 +793,94 @@ body {
 
 /* CHARACTER ACTION ANIMATIONS */
 
-/* Basketball Animation */
-.character.playing-basketball {
-  animation: basketballDribble 1s ease-in-out infinite;
+/* Enhanced Basketball Character Animation */
+.character.dribbling {
+  animation: basketballDribble 1.2s ease-in-out infinite;
 }
 
 @keyframes basketballDribble {
   0%, 100% {
     transform: translateX(-50%) translateY(0);
   }
+  25% {
+    transform: translateX(-50%) translateY(-8px);
+  }
   50% {
     transform: translateX(-50%) translateY(-15px);
   }
+  75% {
+    transform: translateX(-50%) translateY(-8px);
+  }
 }
 
-.character.playing-basketball .character-arm.right {
-  animation: dribbleArm 1s ease-in-out infinite;
+.character.dribbling .character-arm.right {
+  animation: dribbleMotionEnhanced 1.2s ease-in-out infinite;
 }
 
-@keyframes dribbleArm {
+.character.dribbling .character-arm.left {
+  animation: supportArm 1.2s ease-in-out infinite;
+}
+
+@keyframes dribbleMotionEnhanced {
   0%, 100% {
     transform: rotate(10deg) translateY(0);
   }
+  25% {
+    transform: rotate(45deg) translateY(20px);
+  }
   50% {
-    transform: rotate(30deg) translateY(10px);
+    transform: rotate(60deg) translateY(25px);
+  }
+  75% {
+    transform: rotate(30deg) translateY(15px);
+  }
+}
+
+@keyframes supportArm {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+}
+
+/* Basketball Shooting Animation */
+.character.shooting-basketball {
+  animation: basketballShoot 2s ease-in-out;
+}
+
+@keyframes basketballShoot {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  30% {
+    transform: translateX(-50%) translateY(-25px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-30px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.character.shooting-basketball .character-arms {
+  animation: shootingArms 2s ease-in-out;
+}
+
+@keyframes shootingArms {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-20deg) translateY(-10px);
+  }
+  60% {
+    transform: rotate(-45deg) translateY(-15px);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
 
