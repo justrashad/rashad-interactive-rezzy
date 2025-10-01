@@ -18,6 +18,7 @@ const InteractiveResume = () => {
   const [isJumping, setIsJumping] = useState(false);
   const [gameState, setGameState] = useState('exploring'); // exploring, basketball, swimming, bossfight, flying, landing
   const [levelProgress, setLevelProgress] = useState(0); // Progress within current level's game
+  const [keysPressed, setKeysPressed] = useState(new Set()); // Track held keys for smooth movement
 
   const handleKeyPress = useCallback((event) => {
     if (isLoading) return;
