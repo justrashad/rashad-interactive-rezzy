@@ -347,9 +347,11 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
             {gameState === 'basketball' && (
               <div className="basketball-game-sequence">
                 <div className="dribble-bounce-effect"></div>
-                <div className="shot-arc"></div>
-                <div className="swish-effect"></div>
-                <div className="crowd-cheer-effect">🎉</div>
+                <div className="shot-arc" id="shot-trajectory"></div>
+                <div className="basketball-shot-ball" id="shot-ball"></div>
+                <div className="swish-effect" id="swish-animation"></div>
+                <div className="crowd-cheer-effect" id="crowd-celebration">🎉</div>
+                <div className="score-popup" id="score-popup">+2 POINTS!</div>
               </div>
             )}
             
