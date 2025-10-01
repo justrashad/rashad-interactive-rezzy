@@ -335,6 +335,40 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, o
               <h2 className="level-name">SOARING HIGH - ACHIEVEMENTS</h2>
               <p className="section-description">Reaching new heights</p>
             </div>
+            
+            {/* Sky Environment */}
+            <div className="sky-environment">
+              <div className="flying-cloud fc1"></div>
+              <div className="flying-cloud fc2"></div>
+              <div className="flying-cloud fc3"></div>
+              
+              <div className="houston-skyline-distant">
+                <div className="distant-building db1"></div>
+                <div className="distant-building db2"></div>
+                <div className="tallest-houston-building" id="target-building">
+                  <div className="building-spire"></div>
+                  <div className="building-lights bl1"></div>
+                  <div className="building-lights bl2"></div>
+                  <div className="building-lights bl3"></div>
+                </div>
+              </div>
+              
+              <div className="achievement-stars">
+                <div className="star-achievement sa1">★</div>
+                <div className="star-achievement sa2">★</div>
+                <div className="star-achievement sa3">★</div>
+              </div>
+            </div>
+            
+            {/* Flying Sequence */}
+            {gameState === 'flying' && (
+              <div className="flying-sequence">
+                <div className="jetpack-flames jf1"></div>
+                <div className="jetpack-flames jf2"></div>
+                <div className="flight-trail"></div>
+                <div className="upward-motion"></div>
+              </div>
+            )}
           </div>
 
           {/* Section 6: Rooftop Contact */}
@@ -343,6 +377,38 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, o
               <h2 className="level-name">THE SUMMIT - CONTACT</h2>
               <p className="section-description">Let's connect at the top!</p>
             </div>
+            
+            {/* Rooftop Environment */}
+            <div className="rooftop-environment">
+              <div className="building-rooftop-surface"></div>
+              <div className="rooftop-antenna ra1"></div>
+              <div className="rooftop-helipad"></div>
+              
+              <div className="city-lights-below">
+                <div className="city-light cl1"></div>
+                <div className="city-light cl2"></div>
+                <div className="city-light cl3"></div>
+                <div className="city-light cl4"></div>
+              </div>
+              
+              <div className="contact-beacon-signal">
+                <div className="beacon-pulse"></div>
+                <div className="signal-waves sw1"></div>
+                <div className="signal-waves sw2"></div>
+                <div className="signal-waves sw3"></div>
+              </div>
+            </div>
+            
+            {/* Landing Sequence */}
+            {gameState === 'landing' && (
+              <div className="landing-sequence">
+                <div className="landing-impact"></div>
+                <div className="victory-fireworks vf1"></div>
+                <div className="victory-fireworks vf2"></div>
+                <div className="victory-fireworks vf3"></div>
+                <div className="superhero-pose"></div>
+              </div>
+            )}
           </div>
 
         </div>
