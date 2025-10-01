@@ -208,6 +208,17 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, o
               <h2 className="level-name">HOME COURT - HOUSTON</h2>
               <p className="section-description">Where precision meets passion</p>
             </div>
+            {/* Interactive basketball that appears */}
+            <div className="interactive-basketball" style={{ 
+              position: 'absolute', 
+              left: '600px', 
+              bottom: '150px',
+              width: '30px',
+              height: '30px',
+              background: 'radial-gradient(circle, #FF6347, #CD853F)',
+              borderRadius: '50%',
+              animation: 'bounce 2s ease-in-out infinite'
+            }}></div>
           </div>
 
           {/* Section 3: Underwater Skills */}
