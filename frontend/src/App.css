@@ -769,7 +769,224 @@ body {
   margin-bottom: 10px;
 }
 
-/* LEVEL 1 - TECH CITY ELEMENTS */
+/* LEVEL 1 - ABOUT RASHAD (SUNRISE MEADOW) */
+.sunrise-sun {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #FFD700, #FFA500);
+  border-radius: 50%;
+  right: 150px;
+  top: 80px;
+  box-shadow: 0 0 50px rgba(255, 215, 0, 0.6);
+  animation: sunGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes sunGlow {
+  0% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.6); }
+  100% { box-shadow: 0 0 80px rgba(255, 215, 0, 0.9); }
+}
+
+.about-hill {
+  position: absolute;
+  background: linear-gradient(135deg, #32CD32, #228B22);
+  border-radius: 50% 50% 0 0;
+}
+
+.about-flowers {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #FF69B4, #FF1493);
+  border-radius: 50%;
+  bottom: 120px;
+}
+
+.flower1 { left: 150px; }
+.flower2 { left: 300px; }
+.flower3 { right: 200px; }
+
+.story-book {
+  position: absolute;
+  width: 60px;
+  height: 40px;
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 140px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.story-book:after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 30px;
+  background: #F5F5DC;
+  top: 5px;
+  left: 5px;
+  border-radius: 3px;
+}
+
+/* LEVEL 2 - HOUSTON BASKETBALL COURT */
+.houston-skyline {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  top: 150px;
+  left: 0;
+}
+
+.houston-building {
+  position: absolute;
+  background: linear-gradient(135deg, #2C3E50, #34495E);
+  border-radius: 2px 2px 0 0;
+  border: 1px solid #1ABC9C;
+  box-shadow: 0 0 10px rgba(26, 188, 156, 0.3);
+}
+
+.houston-building.building1 {
+  width: 80px;
+  height: 120px;
+  left: 100px;
+  bottom: 0;
+}
+
+.houston-building.building2 {
+  width: 60px;
+  height: 100px;
+  left: 190px;
+  bottom: 0;
+}
+
+.houston-building.building3 {
+  width: 100px;
+  height: 150px;
+  left: 260px;
+  bottom: 0;
+}
+
+.houston-building.building4 {
+  width: 70px;
+  height: 130px;
+  left: 370px;
+  bottom: 0;
+}
+
+.houston-building.building5 {
+  width: 90px;
+  height: 110px;
+  right: 100px;
+  bottom: 0;
+}
+
+.basketball-court {
+  position: absolute;
+  width: 400px;
+  height: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 100px;
+  background: linear-gradient(135deg, #CD853F, #D2691E);
+  border: 3px solid #8B4513;
+  border-radius: 5px;
+}
+
+.court-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid white;
+  border-radius: 3px;
+}
+
+.court-lines:after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: white;
+  left: 50%;
+  top: 0;
+}
+
+.basketball-hoop {
+  position: absolute;
+  right: -50px;
+  top: -60px;
+  width: 50px;
+  height: 80px;
+}
+
+.hoop-backboard {
+  position: absolute;
+  width: 40px;
+  height: 50px;
+  background: linear-gradient(135deg, #F5F5F5, #DCDCDC);
+  border: 2px solid #696969;
+  right: 0;
+  top: 0;
+}
+
+.hoop-rim {
+  position: absolute;
+  width: 30px;
+  height: 6px;
+  background: #FF6347;
+  border: 2px solid #CD853F;
+  border-radius: 15px;
+  right: 5px;
+  top: 40px;
+}
+
+.hoop-net {
+  position: absolute;
+  right: 8px;
+  top: 46px;
+  width: 24px;
+  height: 20px;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  border-radius: 0 0 12px 12px;
+}
+
+.basketball {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: radial-gradient(circle, #FF6347, #CD853F);
+  border-radius: 50%;
+  left: 100px;
+  bottom: 10px;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.basketball:before,
+.basketball:after {
+  content: '';
+  position: absolute;
+  background: #8B4513;
+  border-radius: 1px;
+}
+
+.basketball:before {
+  width: 2px;
+  height: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.basketball:after {
+  width: 25px;
+  height: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* LEVEL 3 - UNDERWATER SWIMMING SCENE */
 .building {
   position: absolute;
   background: linear-gradient(135deg, #2c3e50, #34495e);
