@@ -94,7 +94,9 @@ const ContentPanel = ({ data, level }) => {
       maxHeight: '70vh',
       overflowY: 'auto',
       padding: '20px',
-      zIndex: 15
+      zIndex: 15,
+      animation: 'slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+      transition: 'all 0.4s ease'
     }}>
       {data.experience && data.experience.map(renderExperience)}
       {data.awards && renderAwards(data.awards)}
