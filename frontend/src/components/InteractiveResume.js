@@ -24,31 +24,38 @@ const InteractiveResume = () => {
     
     switch (event.key) {
       case 'ArrowLeft':
-        setCharacterPosition(prev => ({ ...prev, x: Math.max(10, prev.x - 15) }));
         if (currentLevel > 0) {
           setCurrentLevel(prev => Math.max(0, prev - 1));
+          setCharacterPosition({ x: 70, y: 130 }); // Reset position for new level
+        } else {
+          setCharacterPosition(prev => ({ ...prev, x: Math.max(10, prev.x - 15) }));
         }
         break;
       case 'ArrowRight':
-        setCharacterPosition(prev => ({ ...prev, x: Math.min(80, prev.x + 15) }));
         if (currentLevel < resumeData.levels.length - 1) {
           setCurrentLevel(prev => Math.min(resumeData.levels.length - 1, prev + 1));
+          setCharacterPosition({ x: 30, y: 130 }); // Reset position for new level
+        } else {
+          setCharacterPosition(prev => ({ ...prev, x: Math.min(80, prev.x + 15) }));
         }
         break;
       case 'ArrowUp':
         if (currentLevel > 0) {
           setCurrentLevel(prev => Math.max(0, prev - 1));
+          setCharacterPosition({ x: 50, y: 130 }); // Reset position for new level
         }
         break;
       case 'ArrowDown':
       case ' ':
         if (currentLevel < resumeData.levels.length - 1) {
           setCurrentLevel(prev => Math.min(resumeData.levels.length - 1, prev + 1));
+          setCharacterPosition({ x: 50, y: 130 }); // Reset position for new level
         }
         break;
       case 'Enter':
         if (currentLevel < resumeData.levels.length - 1) {
           setCurrentLevel(prev => Math.min(resumeData.levels.length - 1, prev + 1));
+          setCharacterPosition({ x: 50, y: 130 }); // Reset position for new level
         }
         break;
       default:
@@ -56,7 +63,7 @@ const InteractiveResume = () => {
         return;
     }
     
-    setTimeout(() => setIsMoving(false), 400);
+    setTimeout(() => setIsMoving(false), 600);
   }, [isLoading, currentLevel, resumeData.levels.length]);
 
   useEffect(() => {
