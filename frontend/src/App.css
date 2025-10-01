@@ -1139,64 +1139,453 @@ body {
   margin-bottom: 10px;
 }
 
-/* LEVEL 1 - ABOUT RASHAD (SUNRISE MEADOW) */
-.sunrise-sun {
+/* ENHANCED LEVEL 1 - ABOUT RASHAD (BEAUTIFUL SUNRISE MEADOW) */
+
+/* Sunrise Environment Container */
+.sunrise-environment {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, #FFD700, #FFA500);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* Enhanced Animated Sun with Rays */
+.sunrise-sun-detailed {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #FFD700 0%, #FFA500 70%, #FF6347 100%);
   border-radius: 50%;
-  right: 150px;
-  top: 80px;
-  box-shadow: 0 0 50px rgba(255, 215, 0, 0.6);
-  animation: sunGlow 3s ease-in-out infinite alternate;
+  right: 200px;
+  top: 60px;
+  box-shadow: 0 0 60px rgba(255, 215, 0, 0.8);
+  animation: sunRotate 20s linear infinite, sunGlow 4s ease-in-out infinite alternate;
+}
+
+.sun-rays {
+  position: absolute;
+  width: 4px;
+  height: 80px;
+  background: linear-gradient(180deg, rgba(255, 215, 0, 0.8), transparent);
+  border-radius: 2px;
+  top: -40px;
+  left: 50%;
+  transform-origin: center bottom;
+  animation: rayRotate 20s linear infinite;
+}
+
+.ray1 { transform: translateX(-50%) rotate(0deg); }
+.ray2 { transform: translateX(-50%) rotate(60deg); }
+.ray3 { transform: translateX(-50%) rotate(120deg); }
+.ray4 { transform: translateX(-50%) rotate(180deg); }
+.ray5 { transform: translateX(-50%) rotate(240deg); }
+.ray6 { transform: translateX(-50%) rotate(300deg); }
+
+@keyframes sunRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @keyframes sunGlow {
-  0% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.6); }
-  100% { box-shadow: 0 0 80px rgba(255, 215, 0, 0.9); }
+  0% { box-shadow: 0 0 60px rgba(255, 215, 0, 0.8); }
+  100% { box-shadow: 0 0 120px rgba(255, 215, 0, 1), 0 0 160px rgba(255, 140, 0, 0.6); }
 }
 
-.about-hill {
+@keyframes rayRotate {
+  0% { opacity: 0.6; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0.6; }
+}
+
+/* Layered Rolling Hills */
+.story-hills {
   position: absolute;
-  background: linear-gradient(135deg, #32CD32, #228B22);
+  bottom: 100px;
   border-radius: 50% 50% 0 0;
 }
 
-.about-flowers {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: radial-gradient(circle, #FF69B4, #FF1493);
-  border-radius: 50%;
-  bottom: 120px;
+.hill-layer-1 {
+  width: 400px;
+  height: 120px;
+  background: linear-gradient(135deg, #90EE90, #32CD32);
+  left: 200px;
+  z-index: 1;
 }
 
-.flower1 { left: 150px; }
-.flower2 { left: 300px; }
-.flower3 { right: 200px; }
+.hill-layer-2 {
+  width: 350px;
+  height: 100px;
+  background: linear-gradient(135deg, #98FB98, #90EE90);
+  left: 500px;
+  z-index: 2;
+}
 
-.story-book {
+.hill-layer-3 {
+  width: 300px;
+  height: 80px;
+  background: linear-gradient(135deg, #ADFF2F, #9ACD32);
+  left: 800px;
+  z-index: 1;
+}
+
+.hill-layer-4 {
+  width: 450px;
+  height: 140px;
+  background: linear-gradient(135deg, #7CFC00, #32CD32);
+  left: 1200px;
+  z-index: 2;
+}
+
+/* Beautiful Trees with Shadows */
+.story-tree {
   position: absolute;
-  width: 60px;
-  height: 40px;
+  bottom: 100px;
+  z-index: 3;
+}
+
+.tree-canopy {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: relative;
+  animation: treeWave 6s ease-in-out infinite alternate;
+}
+
+.tree-trunk {
+  width: 15px;
+  height: 60px;
   background: linear-gradient(135deg, #8B4513, #A0522D);
+  margin: -20px auto 0;
+  border-radius: 8px;
+  box-shadow: 2px 0 4px rgba(0,0,0,0.3);
+}
+
+.tree-shadow {
+  width: 100px;
+  height: 20px;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.2), transparent);
+  position: absolute;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 140px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-.story-book:after {
+.tree-1 { left: 300px; }
+.tree-2 { left: 600px; }
+.tree-3 { left: 900px; }
+.tree-4 { left: 1400px; }
+
+.tree-large .tree-canopy { 
+  width: 100px; 
+  height: 100px; 
+  background: radial-gradient(circle, #228B22, #006400);
+}
+.tree-medium .tree-canopy { 
+  width: 70px; 
+  height: 70px; 
+  background: radial-gradient(circle, #32CD32, #228B22);
+}
+.tree-small .tree-canopy { 
+  width: 50px; 
+  height: 50px; 
+  background: radial-gradient(circle, #90EE90, #32CD32);
+}
+
+@keyframes treeWave {
+  0% { transform: rotate(-2deg); }
+  100% { transform: rotate(2deg); }
+}
+
+/* Colorful Flower Field */
+.flower-field {
+  position: absolute;
+  width: 100%;
+  bottom: 120px;
+  z-index: 2;
+}
+
+.flower {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: flowerSway 4s ease-in-out infinite;
+}
+
+.flower:before {
   content: '';
   position: absolute;
-  width: 50px;
-  height: 30px;
+  width: 2px;
+  height: 15px;
+  background: #228B22;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.flower-red { background: radial-gradient(circle, #FF69B4, #FF1493); }
+.flower-yellow { background: radial-gradient(circle, #FFD700, #FFA500); }
+.flower-purple { background: radial-gradient(circle, #9370DB, #8A2BE2); }
+.flower-pink { background: radial-gradient(circle, #FFB6C1, #FF69B4); }
+.flower-blue { background: radial-gradient(circle, #87CEEB, #4682B4); }
+.flower-orange { background: radial-gradient(circle, #FF7F50, #FF6347); }
+
+.f1 { left: 250px; animation-delay: 0s; }
+.f2 { left: 400px; animation-delay: 0.5s; }
+.f3 { left: 550px; animation-delay: 1s; }
+.f4 { left: 700px; animation-delay: 1.5s; }
+.f5 { left: 850px; animation-delay: 2s; }
+.f6 { left: 1000px; animation-delay: 2.5s; }
+.f7 { left: 1150px; animation-delay: 0.3s; }
+.f8 { left: 1300px; animation-delay: 0.8s; }
+.f9 { left: 1450px; animation-delay: 1.3s; }
+.f10 { left: 1600px; animation-delay: 1.8s; }
+.f11 { left: 1750px; animation-delay: 2.3s; }
+.f12 { left: 1900px; animation-delay: 2.8s; }
+
+@keyframes flowerSway {
+  0%, 100% { transform: rotate(-5deg) scale(1); }
+  50% { transform: rotate(5deg) scale(1.1); }
+}
+
+/* Flying Birds */
+.birds-flying {
+  position: absolute;
+  width: 100%;
+  top: 100px;
+  z-index: 4;
+}
+
+.bird {
+  position: absolute;
+  font-size: 20px;
+  animation: birdFly 15s linear infinite;
+}
+
+.bird-1 { top: 0px; left: -50px; animation-delay: 0s; }
+.bird-2 { top: 20px; left: -80px; animation-delay: 2s; }
+.bird-3 { top: -10px; left: -100px; animation-delay: 4s; }
+.bird-4 { top: 30px; left: -120px; animation-delay: 6s; }
+
+@keyframes birdFly {
+  0% { transform: translateX(0px) translateY(0px); }
+  25% { transform: translateX(600px) translateY(-20px); }
+  50% { transform: translateX(1200px) translateY(10px); }
+  75% { transform: translateX(1800px) translateY(-15px); }
+  100% { transform: translateX(2500px) translateY(0px); }
+}
+
+/* Floating Achievement Badges */
+.story-achievements {
+  position: absolute;
+  width: 100%;
+  top: 150px;
+  z-index: 5;
+}
+
+.achievement-badge {
+  position: absolute;
+  width: 80px;
+  height: 60px;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  border: 3px solid #FF6347;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  animation: badgeFloat 5s ease-in-out infinite alternate;
+}
+
+.badge-icon {
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+.badge-text {
+  font-size: 6px;
+  font-weight: bold;
+  color: #8B4513;
+  text-align: center;
+  line-height: 1;
+}
+
+.badge-1 { left: 400px; animation-delay: 0s; }
+.badge-2 { left: 700px; animation-delay: 1s; }
+.badge-3 { left: 1000px; animation-delay: 2s; }
+.badge-4 { left: 1300px; animation-delay: 3s; }
+
+@keyframes badgeFloat {
+  0% { transform: translateY(0px) rotate(-2deg); }
+  100% { transform: translateY(-20px) rotate(2deg); }
+}
+
+/* Open Story Book */
+.story-elements {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 200px;
+  z-index: 5;
+}
+
+.open-book {
+  width: 120px;
+  height: 80px;
+  position: relative;
+  animation: bookGlow 4s ease-in-out infinite alternate;
+}
+
+.book-page {
+  width: 55px;
+  height: 70px;
   background: #F5F5DC;
-  top: 5px;
-  left: 5px;
-  border-radius: 3px;
+  border: 2px solid #8B4513;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.page-left {
+  left: 0;
+  transform: rotateY(-10deg);
+}
+
+.page-right {
+  right: 0;
+  transform: rotateY(10deg);
+}
+
+.page-text {
+  padding: 8px;
+  font-size: 6px;
+  color: #8B4513;
+  line-height: 1.2;
+}
+
+.story-line {
+  margin-bottom: 2px;
+}
+
+@keyframes bookGlow {
+  0% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3)); }
+  100% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.7)); }
+}
+
+/* Inspirational Quote Scroll */
+.quote-scroll {
+  position: absolute;
+  right: 300px;
+  bottom: 250px;
+  z-index: 5;
+}
+
+.scroll-paper {
+  width: 200px;
+  height: 100px;
+  background: linear-gradient(135deg, #F5DEB3, #DEB887);
+  border: 2px solid #8B7355;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  animation: scrollFloat 6s ease-in-out infinite alternate;
+}
+
+.quote-text {
+  font-size: 8px;
+  color: #8B4513;
+  text-align: center;
+  line-height: 1.3;
+  padding: 10px;
+}
+
+@keyframes scrollFloat {
+  0% { transform: translateY(0px) rotate(-1deg); }
+  100% { transform: translateY(-15px) rotate(1deg); }
+}
+
+/* Ground Details */
+.ground-details {
+  position: absolute;
+  width: 100%;
+  bottom: 80px;
+  z-index: 1;
+}
+
+.grass-patch {
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  background: linear-gradient(135deg, #7CFC00, #32CD32);
+  border-radius: 50% 50% 0 0;
+  animation: grassWave 4s ease-in-out infinite alternate;
+}
+
+.patch-1 { left: 200px; animation-delay: 0s; }
+.patch-2 { left: 500px; animation-delay: 1s; }
+.patch-3 { left: 800px; animation-delay: 2s; }
+.patch-4 { left: 1100px; animation-delay: 1.5s; }
+.patch-5 { left: 1400px; animation-delay: 0.5s; }
+
+@keyframes grassWave {
+  0% { transform: scaleY(1); }
+  100% { transform: scaleY(1.2); }
+}
+
+.small-stones {
+  position: absolute;
+  width: 15px;
+  height: 10px;
+  background: linear-gradient(135deg, #A9A9A9, #696969);
+  border-radius: 50%;
+  animation: stoneShimmer 8s ease-in-out infinite alternate;
+}
+
+.stone-1 { left: 350px; bottom: 0; }
+.stone-2 { left: 750px; bottom: 0; }
+.stone-3 { left: 1200px; bottom: 0; }
+
+@keyframes stoneShimmer {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Butterflies */
+.butterflies {
+  position: absolute;
+  width: 100%;
+  top: 200px;
+  z-index: 4;
+}
+
+.butterfly {
+  position: absolute;
+  font-size: 16px;
+  animation: butterflyDance 10s ease-in-out infinite;
+}
+
+.butterfly-1 { left: 300px; animation-delay: 0s; }
+.butterfly-2 { left: 800px; animation-delay: 3s; }
+.butterfly-3 { left: 1200px; animation-delay: 6s; }
+
+@keyframes butterflyDance {
+  0%, 100% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+  25% { transform: translateX(50px) translateY(-30px) rotate(10deg); }
+  50% { transform: translateX(100px) translateY(20px) rotate(-5deg); }
+  75% { transform: translateX(150px) translateY(-20px) rotate(8deg); }
+}
+
+/* Enhanced About Section Title */
+.about-title {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border: 3px solid rgba(255, 215, 0, 0.8);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
 /* LEVEL 2 - HOUSTON BASKETBALL COURT */
