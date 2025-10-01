@@ -11,7 +11,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, onLevelChange })
 
   const renderLevelBackground = () => {
     switch (currentLevel) {
-      case 0: // Intro Level - Hills and Trees
+      case 0: // Introduction - Classic Mario Hills
         return (
           <>
             <div className="cloud cloud1"></div>
@@ -29,98 +29,133 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, onLevelChange })
                 <div className="tree-leaves"></div>
                 <div className="tree-trunk"></div>
               </div>
-              <div className="tree tree3">
-                <div className="tree-leaves"></div>
-                <div className="tree-trunk"></div>
+            </div>
+          </>
+        );
+      
+      case 1: // About Rashad - Peaceful meadow with sunrise
+        return (
+          <>
+            <div className="cloud cloud1 sunrise-cloud"></div>
+            <div className="cloud cloud2 sunrise-cloud"></div>
+            <div className="landscape about-level">
+              <div className="sunrise-sun"></div>
+              <div className="about-hill hill1"></div>
+              <div className="about-hill hill2"></div>
+              <div className="about-flowers flower1"></div>
+              <div className="about-flowers flower2"></div>
+              <div className="about-flowers flower3"></div>
+              <div className="story-book"></div>
+            </div>
+          </>
+        );
+      
+      case 2: // Houston Basketball Court
+        return (
+          <>
+            <div className="houston-skyline">
+              <div className="houston-building building1"></div>
+              <div className="houston-building building2"></div>
+              <div className="houston-building building3"></div>
+              <div className="houston-building building4"></div>
+              <div className="houston-building building5"></div>
+            </div>
+            <div className="landscape basketball-level">
+              <div className="basketball-court">
+                <div className="court-lines"></div>
+                <div className="basketball-hoop">
+                  <div className="hoop-rim"></div>
+                  <div className="hoop-net"></div>
+                  <div className="hoop-backboard"></div>
+                </div>
+                <div className="basketball" id="basketball"></div>
               </div>
             </div>
           </>
         );
       
-      case 1: // Skills Level - Tech City
+      case 3: // Underwater Swimming Scene
         return (
           <>
-            <div className="cloud cloud1 tech-cloud"></div>
-            <div className="cloud cloud2 tech-cloud"></div>
-            <div className="landscape tech-level">
-              <div className="building building1"></div>
-              <div className="building building2"></div>
-              <div className="building building3"></div>
-              <div className="tech-pipes pipe1"></div>
-              <div className="tech-pipes pipe2"></div>
-              <div className="data-blocks block1"></div>
-              <div className="data-blocks block2"></div>
-              <div className="data-blocks block3"></div>
+            <div className="underwater-scene">
+              <div className="water-surface"></div>
+              <div className="bubble bubble1"></div>
+              <div className="bubble bubble2"></div>
+              <div className="bubble bubble3"></div>
+              <div className="underwater-plants plant1"></div>
+              <div className="underwater-plants plant2"></div>
+              <div className="underwater-rocks rock1"></div>
+              <div className="underwater-rocks rock2"></div>
+              <div className="fish fish1"></div>
+              <div className="fish fish2"></div>
+              <div className="treasure-chest"></div>
             </div>
           </>
         );
       
-      case 2: // Current Role - Office Environment
+      case 4: // Industrial Boss Battle
         return (
           <>
-            <div className="cloud cloud1 office-cloud"></div>
-            <div className="landscape office-level">
-              <div className="office-building main-building"></div>
-              <div className="office-windows window1"></div>
-              <div className="office-windows window2"></div>
-              <div className="office-windows window3"></div>
-              <div className="hospital-cross"></div>
-              <div className="server-racks rack1"></div>
-              <div className="server-racks rack2"></div>
-            </div>
-          </>
-        );
-      
-      case 3: // Previous Experience - Industrial
-        return (
-          <>
-            <div className="cloud cloud1 industrial-cloud"></div>
-            <div className="landscape industrial-level">
-              <div className="factory factory1"></div>
-              <div className="factory factory2"></div>
-              <div className="industrial-pipes ipipe1"></div>
-              <div className="industrial-pipes ipipe2"></div>
-              <div className="smokestacks stack1"></div>
-              <div className="smokestacks stack2"></div>
-              <div className="conveyor-belt belt1"></div>
-            </div>
-          </>
-        );
-      
-      case 4: // Education - Campus
-        return (
-          <>
-            <div className="cloud cloud1 campus-cloud"></div>
-            <div className="landscape campus-level">
-              <div className="campus-building main-hall"></div>
-              <div className="campus-building library"></div>
-              <div className="campus-trees ctree1">
-                <div className="tree-leaves"></div>
-                <div className="tree-trunk"></div>
+            <div className="industrial-scene">
+              <div className="factory-complex main-factory"></div>
+              <div className="factory-complex side-factory"></div>
+              <div className="industrial-smokestacks stack1"></div>
+              <div className="industrial-smokestacks stack2"></div>
+              <div className="conveyor-systems belt1"></div>
+              <div className="conveyor-systems belt2"></div>
+              <div className="boss-robot" id="boss-robot">
+                <div className="robot-head"></div>
+                <div className="robot-body"></div>
+                <div className="robot-arms arm-left"></div>
+                <div className="robot-arms arm-right"></div>
+                <div className="robot-eyes eye1"></div>
+                <div className="robot-eyes eye2"></div>
               </div>
-              <div className="campus-trees ctree2">
-                <div className="tree-leaves"></div>
-                <div className="tree-trunk"></div>
-              </div>
-              <div className="campus-flag flag1"></div>
-              <div className="campus-path path1"></div>
+              <div className="danger-sparks spark1"></div>
+              <div className="danger-sparks spark2"></div>
             </div>
           </>
         );
       
-      case 5: // Contact - Futuristic
+      case 5: // Flying Scene with Houston Skyline
         return (
           <>
-            <div className="cloud cloud1 future-cloud"></div>
-            <div className="cloud cloud2 future-cloud"></div>
-            <div className="landscape contact-level">
-              <div className="contact-portal portal1"></div>
-              <div className="contact-screens screen1"></div>
-              <div className="contact-screens screen2"></div>
-              <div className="contact-platforms platform1"></div>
-              <div className="contact-platforms platform2"></div>
-              <div className="energy-beams beam1"></div>
-              <div className="energy-beams beam2"></div>
+            <div className="sky-scene">
+              <div className="cloud cloud1 flying-cloud"></div>
+              <div className="cloud cloud2 flying-cloud"></div>
+              <div className="cloud cloud3 flying-cloud"></div>
+              <div className="houston-skyline-distant">
+                <div className="distant-building db1"></div>
+                <div className="distant-building db2"></div>
+                <div className="distant-building db3"></div>
+                <div className="distant-building db4"></div>
+                <div className="distant-building db5"></div>
+                <div className="tallest-building" id="tallest-building"></div>
+              </div>
+              <div className="achievement-stars star1"></div>
+              <div className="achievement-stars star2"></div>
+              <div className="achievement-stars star3"></div>
+            </div>
+          </>
+        );
+      
+      case 6: // Rooftop Landing - Contact
+        return (
+          <>
+            <div className="rooftop-scene">
+              <div className="building-rooftop"></div>
+              <div className="rooftop-details antenna"></div>
+              <div className="rooftop-details helipad"></div>
+              <div className="houston-cityscape">
+                <div className="city-lights light1"></div>
+                <div className="city-lights light2"></div>
+                <div className="city-lights light3"></div>
+                <div className="city-lights light4"></div>
+              </div>
+              <div className="contact-beacon"></div>
+              <div className="victory-fireworks firework1"></div>
+              <div className="victory-fireworks firework2"></div>
+              <div className="victory-fireworks firework3"></div>
             </div>
           </>
         );
