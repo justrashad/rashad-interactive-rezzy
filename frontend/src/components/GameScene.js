@@ -165,8 +165,50 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
     }
   };
 
+  // Calculate smooth background gradient based on world position
+  const getBackgroundStyle = () => {
+    const progress = worldPosition / 12000; // Normalize to 0-1
+    
+    // Define color stops for each section
+    const colorStops = [
+      { pos: 0,     colors: ['#87CEEB', '#87CEEB'] },    // Intro - Sky Blue
+      { pos: 0.125, colors: ['#FFE4B5', '#FFA500'] },    // About - Sunrise
+      { pos: 0.33,  colors: ['#87CEEB', '#4682B4'] },    // Basketball - Sky
+      { pos: 0.5,   colors: ['#1E90FF', '#0077BE'] },    // Swimming - Ocean
+      { pos: 0.67,  colors: ['#2F4F4F', '#696969'] },    // Industrial - Gray
+      { pos: 0.83,  colors: ['#87CEEB', '#B0E0E6'] },    // Flying - Light Sky
+      { pos: 1,     colors: ['#191970', '#483D8B'] }     // Contact - Night
+    ];
+    
+    // Find current section blend
+    let fromSection = colorStops[0];
+    let toSection = colorStops[1];
+    let sectionProgress = 0;
+    
+    for (let i = 0; i < colorStops.length - 1; i++) {
+      if (progress >= colorStops[i].pos && progress <= colorStops[i + 1].pos) {
+        fromSection = colorStops[i];
+        toSection = colorStops[i + 1];
+        sectionProgress = (progress - fromSection.pos) / (toSection.pos - fromSection.pos);
+        break;
+      }
+    }
+    
+    // Smooth interpolation between colors
+    const blendFactor = Math.sin(sectionProgress * Math.PI * 0.5); // Smooth easing
+    
+    return {
+      background: `linear-gradient(to bottom, 
+        color-mix(in srgb, ${fromSection.colors[0]} ${(1-blendFactor)*100}%, ${toSection.colors[0]} ${blendFactor*100}%) 0%, 
+        color-mix(in srgb, ${fromSection.colors[0]} ${(1-blendFactor)*100}%, ${toSection.colors[0]} ${blendFactor*100}%) 70%, 
+        color-mix(in srgb, ${fromSection.colors[1]} ${(1-blendFactor)*100}%, ${toSection.colors[1]} ${blendFactor*100}%) 100%
+      )`,
+      transition: 'background 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+    };
+  };
+
   return (
-    <div className={`game-container level-${currentLevel}`}>
+    <div className={`game-container level-${currentLevel}`} style={getBackgroundStyle()}>
       {/* Continuous scrolling world */}
       <div 
         className="world-container" 
