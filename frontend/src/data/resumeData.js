@@ -2,7 +2,7 @@ export const resumeData = {
   personal: {
     name: "RASHAD WASHINGTON",
     title: "Principal Systems Analyst",
-    location: "Missouri City, TX",
+    location: "Houston, TX",
     email: "rashad@justrashad.com",
     phone: "(832) 498-3852",
     website: "http://www.justrashad.com"
@@ -11,6 +11,8 @@ export const resumeData = {
     {
       id: 0,
       name: "Introduction",
+      title: "Meet Rashad Washington",
+      description: "Welcome to my interactive journey!",
       skills: [
         { name: "Leadership", level: "EXPERT" },
         { name: "System Administration", level: "EXPERT" },
@@ -20,18 +22,48 @@ export const resumeData = {
     },
     {
       id: 1,
-      name: "Technical Skills",
+      name: "About Rashad",
+      title: "The Story Begins",
+      description: "Principal Systems Analyst with 20+ years of expertise in designing, implementing, and optimizing complex IT systems. A passionate leader who loves technology, sports, and making a difference in healthcare IT.",
       skills: [
-        { name: "Red Hat Linux", level: "EXPERT" },
-        { name: "Ubuntu", level: "EXPERT" },
-        { name: "AIX", level: "ADVANCED" },
-        { name: "Solaris", level: "ADVANCED" },
-        { name: "Windows Server", level: "INTERMEDIATE" }
+        { name: "Innovation", level: "EXPERT" },
+        { name: "Mentorship", level: "EXPERT" },
+        { name: "Strategic Thinking", level: "ADVANCED" },
+        { name: "Communication", level: "ADVANCED" }
       ]
     },
     {
       id: 2,
-      name: "Current Role",
+      name: "Home Court - Houston",
+      title: "Life in Space City",
+      description: "Based in Houston, TX - where technology meets opportunity. Just like mastering a perfect free throw, I bring precision and consistency to every IT challenge.",
+      gameAction: "basketball",
+      skills: [
+        { name: "Red Hat Linux", level: "EXPERT" },
+        { name: "Ubuntu", level: "EXPERT" },
+        { name: "Kubernetes", level: "ADVANCED" },
+        { name: "VMware", level: "ADVANCED" }
+      ]
+    },
+    {
+      id: 3,
+      name: "Deep Dive - Technical Skills",
+      title: "Swimming in the Tech Ocean",
+      description: "Diving deep into the vast ocean of technology. From servers to containers, I navigate through complex systems with the agility of a skilled swimmer.",
+      gameAction: "swimming",
+      skills: [
+        { name: "AIX", level: "EXPERT" },
+        { name: "Solaris", level: "ADVANCED" },
+        { name: "Docker", level: "ADVANCED" },
+        { name: "Ansible", level: "INTERMEDIATE" }
+      ]
+    },
+    {
+      id: 4,
+      name: "Boss Battle - Work Experience",
+      title: "Conquering IT Challenges",
+      description: "Every major project is like facing a boss battle. Through strategic planning and technical expertise, I've conquered complex IT challenges at M.D. Anderson and IBM.",
+      gameAction: "bossfight",
       experience: [
         {
           id: 1,
@@ -39,59 +71,65 @@ export const resumeData = {
           company: "M.D. Anderson Cancer Center",
           period: "08/2008 – PRESENT",
           location: "HOUSTON, TX",
-          description: "Lead a team of 8 IT professionals in designing and administering Unix-style computer systems (Red Hat, Ubuntu, AIX, Solaris), overseeing 2000+ servers. Architect and deploy cutting-edge Research Kubernetes clusters and administer high-performance parallel systems, including Nvidia DGX H100, A100 servers, and Dell servers supporting VMware virtualization.",
+          description: "Lead a team of 8 IT professionals managing 2000+ servers. Architect Kubernetes clusters and administer high-performance systems including Nvidia DGX H100, A100 servers.",
           skills: [
-            { name: "SYSTEM ADMIN", percentage: 70, color: "#FF6B35" },
-            { name: "LEADERSHIP", percentage: 20, color: "#004E89" },
-            { name: "AUTOMATION", percentage: 10, color: "#009B72" }
+            { name: "LEADERSHIP", percentage: 70, color: "#FF6B35" },
+            { name: "ARCHITECTURE", percentage: 20, color: "#004E89" },
+            { name: "INNOVATION", percentage: 10, color: "#009B72" }
           ]
-        }
-      ]
-    },
-    {
-      id: 3,
-      name: "Previous Experience",
-      experience: [
+        },
         {
           id: 2,
           title: "Level 2 Systems Administrator",
           company: "IBM",
           period: "06/2001 - 07/2008",
           location: "RESEARCH TRIANGLE PARK, NC",
-          description: "Provided high-quality 2nd level server support for 500+ corporate clients in a heterogeneous environment (AIX, Linux, Solaris, Windows 2000/2003 Server Family). Managed SLA-driven alerts using customized monitoring software, ensuring 99% uptime and availability of services for each client.",
+          description: "Provided enterprise-level support for 500+ corporate clients, ensuring 99% uptime across heterogeneous environments.",
           skills: [
             { name: "SUPPORT", percentage: 60, color: "#FF6B35" },
             { name: "MONITORING", percentage: 25, color: "#004E89" },
-            { name: "TROUBLESHOOTING", percentage: 15, color: "#009B72" }
+            { name: "OPTIMIZATION", percentage: 15, color: "#009B72" }
           ]
         }
       ]
     },
     {
-      id: 4,
-      name: "Education & Certifications",
+      id: 5,
+      name: "Soaring High - Achievements",
+      title: "Flying to New Heights",
+      description: "Like soaring through the clouds, my career has reached new heights through continuous learning, leadership, and innovation in healthcare IT.",
+      gameAction: "flying",
       awards: [
         {
           title: "Bachelor of Science in Computer Science",
           organization: "Grambling State University",
           date: "08/1997 – 05/2001",
-          description: "GRAMBLING, LA"
+          description: "Foundation of technical excellence"
         },
         {
           title: "Red Hat Certified System Administrator",
           organization: "Red Hat",
           date: "Current",
           description: "Certificate No. 100-139-179"
+        },
+        {
+          title: "20+ Years Healthcare IT Leadership",
+          organization: "M.D. Anderson Cancer Center",
+          date: "2008 - Present",
+          description: "Leading innovation in cancer research computing"
         }
       ]
     },
     {
-      id: 5,
-      name: "Contact",
+      id: 6,
+      name: "Reaching the Summit - Contact",
+      title: "Let's Connect at the Top",
+      description: "Having reached the summit of Houston's skyline, I'm ready for the next challenge. Let's connect and build something amazing together!",
+      gameAction: "landing",
       contact: {
         email: "rashad@justrashad.com",
         phone: "(832) 498-3852",
-        location: "Missouri City, TX 77459, United States",
+        location: "Houston, TX 77459, United States",
         website: "http://www.justrashad.com"
       }
     }
