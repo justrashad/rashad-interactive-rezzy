@@ -403,29 +403,29 @@ body {
 
 .character-arms {
   position: absolute;
-  top: 10px;
-  width: 70px;
-  left: -11px;
+  top: 6px;
+  width: 48px;
+  left: -8px;
 }
 
 .character-arm {
-  width: 14px;
-  height: 32px;
-  background: #8B4513; /* Dark brown skin for arms */
-  border-radius: 7px;
+  width: 8px;
+  height: 20px;
+  background: #8B4513;
+  border-radius: 2px;
   position: absolute;
-  border: 2px solid #654321;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border: 1px solid #654321;
+  image-rendering: pixelated;
 }
 
 .character-arm.left {
   left: 0;
-  transform: rotate(-15deg);
+  transform: rotate(-10deg);
 }
 
 .character-arm.right {
   right: 0;
-  transform: rotate(15deg);
+  transform: rotate(10deg);
 }
 
 .character-legs {
