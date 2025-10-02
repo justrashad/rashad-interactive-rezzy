@@ -506,13 +506,14 @@ body {
 /* Nerd outfit additions */
 .character-tie {
   position: absolute;
-  top: 8px;
-  left: 20px;
-  width: 8px;
-  height: 35px;
-  background: #8B0000; /* Dark red tie */
-  border-radius: 0 0 4px 4px;
+  top: 4px;
+  left: 13px;
+  width: 6px;
+  height: 24px;
+  background: #8B0000;
+  border-radius: 0 0 2px 2px;
   border: 1px solid #660000;
+  image-rendering: pixelated;
 }
 
 .character-tie:before {
@@ -520,21 +521,23 @@ body {
   position: absolute;
   top: 0;
   left: 1px;
-  width: 6px;
-  height: 8px;
+  width: 4px;
+  height: 6px;
   background: #8B0000;
-  border-radius: 50% 50% 0 0;
+  border-radius: 2px 2px 0 0;
+  image-rendering: pixelated;
 }
 
 .character-collar {
   position: absolute;
   top: 0;
-  left: 12px;
-  width: 24px;
-  height: 12px;
-  border-left: 8px solid #E0E0E0;
-  border-right: 8px solid #E0E0E0;
-  border-bottom: 6px solid transparent;
+  left: 8px;
+  width: 16px;
+  height: 8px;
+  border-left: 6px solid #E0E0E0;
+  border-right: 6px solid #E0E0E0;
+  border-bottom: 4px solid transparent;
+  image-rendering: pixelated;
 }
 
 /* Main title */
