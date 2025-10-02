@@ -149,41 +149,35 @@ const InteractiveResume = () => {
 
   // Update level based on world position and trigger level-specific games
   useEffect(() => {
-    const newLevel = Math.floor(worldPosition / 1000);
+    let newLevel = 0;
+    
+    // Calculate level based on section positions
+    if (worldPosition >= 10500) newLevel = 6; // Contact section
+    else if (worldPosition >= 9000) newLevel = 5; // Flying section  
+    else if (worldPosition >= 7500) newLevel = 4; // Boss battle section
+    else if (worldPosition >= 6000) newLevel = 3; // Swimming section
+    else if (worldPosition >= 4000) newLevel = 2; // Basketball section
+    else if (worldPosition >= 1500) newLevel = 1; // About section
+    else newLevel = 0; // Intro section
+    
     if (newLevel !== currentLevel && newLevel < resumeData.levels.length) {
       setCurrentLevel(newLevel);
       setLevelProgress(0);
-      
-      // Trigger level-specific game states
-      switch(newLevel) {
-        case 2: // Houston Basketball
-          if (worldPosition >= 4500) { // Mid-section of basketball court
-            setGameState('basketball');
-          }
-          break;
-        case 3: // Underwater Swimming  
-          if (worldPosition >= 6200) {
-            setGameState('swimming');
-          }
-          break;
-        case 4: // Boss Battle
-          if (worldPosition >= 8000) {
-            setGameState('bossfight');
-          }
-          break;
-        case 5: // Flying
-          if (worldPosition >= 9500) {
-            setGameState('flying');
-          }
-          break;
-        case 6: // Landing
-          if (worldPosition >= 11000) {
-            setGameState('landing');
-          }
-          break;
-        default:
-          setGameState('exploring');
-      }
+    }
+    
+    // Trigger level-specific game states based on position within section
+    if (worldPosition >= 4500 && worldPosition < 6000) { // Mid-section of basketball court
+      setGameState('basketball');
+    } else if (worldPosition >= 6200 && worldPosition < 7500) { // Swimming section
+      setGameState('swimming');
+    } else if (worldPosition >= 8000 && worldPosition < 9000) { // Boss battle section
+      setGameState('bossfight');
+    } else if (worldPosition >= 9500 && worldPosition < 10500) { // Flying section
+      setGameState('flying');
+    } else if (worldPosition >= 11000) { // Contact/Landing section
+      setGameState('landing');
+    } else {
+      setGameState('exploring');
     }
   }, [worldPosition, currentLevel, resumeData.levels.length]);
 
