@@ -281,7 +281,7 @@ frontend:
 
   - task: "Swimming Scene Effects"
     implemented: true
-    working: false
+    working: true
     file: "/app/frontend/src/components/GameScene.js"
     stuck_count: 2
     priority: "high"
@@ -293,6 +293,9 @@ frontend:
         - working: false
           agent: "testing"
           comment: "Swimming scene elements not found: 0 swimming elements detected, no bubbles, no scuba gear visible. Underwater scene exists in DOM but not accessible because worldPosition never reaches swimming area (6000-7500px). Character never switches to scuba outfit (stuck at outfit-level-0)."
+        - working: true
+          agent: "testing"
+          comment: "SUCCESS VERIFICATION: Swimming scene effects are now WORKING. Testing found: 14 underwater elements, 13 bubble elements, 1 swimming element, 1 scuba element, 4 treasure elements. Underwater environment with depth markers (10ft, 20ft, 30ft), skill treasure chests (LINUX, KUBERNETES, LEADERSHIP), and bubble streams all properly implemented and accessible."
 
   - task: "Boss Battle Scene"
     implemented: true
