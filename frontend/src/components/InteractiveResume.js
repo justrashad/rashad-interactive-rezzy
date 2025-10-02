@@ -127,21 +127,16 @@ const InteractiveResume = () => {
 
   // Smooth continuous movement for sustained key presses
   useEffect(() => {
-    console.log('Keys pressed:', keysPressed);
     const moveInterval = setInterval(() => {
       if (keysPressed.size > 0) {
-        console.log('Continuous moving! Keys:', Array.from(keysPressed));
         setWorldPosition(prev => {
           let newPosition = prev;
-          console.log('Continuous worldPosition:', prev);
           
           if (keysPressed.has('a') || keysPressed.has('arrowleft')) {
             newPosition = Math.max(0, newPosition - 8);
-            console.log('Continuous moving left to:', newPosition);
           }
           if (keysPressed.has('d') || keysPressed.has('arrowright')) {
             newPosition = Math.min(12000, newPosition + 8);
-            console.log('Continuous moving right to:', newPosition);
           }
           
           return newPosition;
