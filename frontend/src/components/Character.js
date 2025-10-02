@@ -109,6 +109,7 @@ const Character = ({ position, isMoving, currentLevel, gameAction, gameState }) 
       {/* Character head with improved design */}
       <div className="character-head">
         <div className="character-hair"></div>
+        <div className="character-glasses"></div>
         <div className="character-eyes">
           <div className="character-eye left"></div>
           <div className="character-eye right"></div>
@@ -118,6 +119,9 @@ const Character = ({ position, isMoving, currentLevel, gameAction, gameState }) 
       
       {/* Character body */}
       <div className="character-body">
+        <div className="character-collar"></div>
+        <div className="character-tie"></div>
+        
         {/* Arms */}
         <div className="character-arms">
           <div className="character-arm left"></div>
