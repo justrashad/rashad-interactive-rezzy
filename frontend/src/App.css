@@ -392,13 +392,13 @@ body {
 
 .character-hair {
   position: absolute;
-  top: -10px;
-  left: 10px;
-  width: 35px;
-  height: 20px;
-  background: #1A0F0A; /* Solid dark hair */
-  border-radius: 50% 50% 20% 20%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  top: -6px;
+  left: 6px;
+  width: 28px;
+  height: 14px;
+  background: #1A0F0A;
+  border-radius: 4px 4px 2px 2px;
+  image-rendering: pixelated;
 }
 
 .character-arms {
