@@ -398,16 +398,16 @@ body {
 
 .character-arms {
   position: absolute;
-  top: 15px;
-  width: 80px;
-  left: -10px;
+  top: 10px;
+  width: 70px;
+  left: -11px;
 }
 
 .character-arm {
-  width: 18px;
-  height: 30px;
-  background: linear-gradient(135deg, #A0522D, #8B4513);
-  border-radius: 12px;
+  width: 14px;
+  height: 32px;
+  background: #8B4513; /* Dark brown skin for arms */
+  border-radius: 7px;
   position: absolute;
   border: 2px solid #654321;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -415,12 +415,12 @@ body {
 
 .character-arm.left {
   left: 0;
-  transform: rotate(-10deg);
+  transform: rotate(-15deg);
 }
 
 .character-arm.right {
   right: 0;
-  transform: rotate(10deg);
+  transform: rotate(15deg);
 }
 
 .character-legs {
