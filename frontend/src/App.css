@@ -320,12 +320,15 @@ body {
   bottom: 130px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 100px;
+  width: 64px;
+  height: 80px;
   z-index: 10;
   transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1),
               transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform; /* Optimize for animations */
+  will-change: transform;
+  image-rendering: pixelated; /* Sharp pixel art */
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 .character-body {
