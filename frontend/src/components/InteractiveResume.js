@@ -25,32 +25,23 @@ const InteractiveResume = () => {
     if (isLoading) return;
     
     const key = event.key.toLowerCase();
-    console.log('Key down:', key);
     if (['arrowleft', 'arrowright', 'a', 'd'].includes(key)) {
-      console.log('Movement key pressed:', key);
       
       // Immediate movement on key press
       setWorldPosition(prev => {
         let newPosition = prev;
-        console.log('Current worldPosition before move:', prev);
         
         if (key === 'arrowleft' || key === 'a') {
           newPosition = Math.max(0, newPosition - 50);
-          console.log('Moving left to:', newPosition);
         }
         if (key === 'arrowright' || key === 'd') {
           newPosition = Math.min(12000, newPosition + 50);
-          console.log('Moving right to:', newPosition);
         }
         
         return newPosition;
       });
       
-      setKeysPressed(prev => {
-        const newSet = new Set(prev).add(key);
-        console.log('Keys pressed after add:', Array.from(newSet));
-        return newSet;
-      });
+      setKeysPressed(prev => new Set(prev).add(key));
       setIsMoving(true);
     }
     
