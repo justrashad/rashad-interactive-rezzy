@@ -225,6 +225,66 @@ frontend:
           agent: "testing"
           comment: "Resume data properly integrated with 6 levels: Introduction, Technical Skills, Current Role (M.D. Anderson), Previous Experience (IBM), Education & Certifications, and Contact. All professional information accurate."
 
+  - task: "Side-scrolling World Mechanism"
+    implemented: true
+    working: false
+    file: "/app/frontend/src/components/InteractiveResume.js"
+    stuck_count: 1
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "main"
+          comment: "Visual verification shows world is not scrolling when arrow keys are pressed. Character appears stuck in starting position. Transform translateX on world-container not working properly."
+
+  - task: "Character Outfit Level Transitions"
+    implemented: true
+    working: false
+    file: "/app/frontend/src/components/Character.js"
+    stuck_count: 1
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "main"
+          comment: "Different character outfits for each level (nerd, basketball, scuba, Black Panther suit) not visible. Level-based CSS classes may not be applying correctly."
+
+  - task: "Basketball Scene Interaction"
+    implemented: true
+    working: false
+    file: "/app/frontend/src/components/GameScene.js"
+    stuck_count: 1
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "main"
+          comment: "Basketball court with crowd, shooting mechanics, and dribbling animations not visible. Spacebar shooting action may not be triggering properly."
+
+  - task: "Swimming Scene Effects"
+    implemented: true
+    working: false
+    file: "/app/frontend/src/components/GameScene.js"
+    stuck_count: 1
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "main"
+          comment: "Underwater scene with scuba gear and oxygen bubbles not visible. Character should switch to scuba outfit and emit bubbles in swimming section."
+
+  - task: "Boss Battle Scene"
+    implemented: true
+    working: false
+    file: "/app/frontend/src/components/GameScene.js"
+    stuck_count: 1
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "main"
+          comment: "Industrial boss battle scene with detailed robot enemy not visible. Boss fight mechanics and character Black Panther suit not appearing."
+
 metadata:
   created_by: "testing_agent"
   version: "1.0"
