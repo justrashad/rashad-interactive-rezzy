@@ -168,7 +168,7 @@ const InteractiveResume = () => {
     // Trigger level-specific game states based on position within section
     if (worldPosition >= 4500 && worldPosition < 6000) { // Mid-section of basketball court
       setGameState('basketball');
-    } else if (worldPosition >= 6200 && worldPosition < 7500) { // Swimming section
+    } else if (worldPosition >= 6000 && worldPosition < 7500) { // Swimming section
       setGameState('swimming');
     } else if (worldPosition >= 8000 && worldPosition < 9000) { // Boss battle section
       setGameState('bossfight');
