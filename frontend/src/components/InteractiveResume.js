@@ -106,9 +106,11 @@ const InteractiveResume = () => {
   // Handle key up (stop movement)
   const handleKeyUp = useCallback((event) => {
     const key = event.key.toLowerCase();
+    console.log('Key up:', key);
     setKeysPressed(prev => {
       const newSet = new Set(prev);
       newSet.delete(key);
+      console.log('Keys pressed after remove:', Array.from(newSet));
       if (newSet.size === 0) {
         setIsMoving(false);
       }
