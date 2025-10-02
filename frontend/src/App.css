@@ -320,8 +320,8 @@ body {
   bottom: 130px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;
-  height: 120px;
+  width: 80px;
+  height: 100px;
   z-index: 10;
   transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1),
               transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -329,22 +329,23 @@ body {
 }
 
 .character-body {
-  width: 60px;
-  height: 70px;
-  background: linear-gradient(135deg, #FF6B35, #FF4500);
+  width: 48px;
+  height: 50px;
+  background: #FFFFFF; /* White dress shirt */
   margin: 0 auto;
-  border-radius: 8px;
+  border-radius: 4px;
   position: relative;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  border: 2px solid #CC3600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border: 2px solid #E0E0E0;
+  margin-top: -8px;
 }
 
 .character-head {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #A0522D, #8B4513);
+  width: 55px;
+  height: 55px;
+  background: #8B4513; /* Dark brown skin */
   border-radius: 50%;
-  margin: 0 auto -15px;
+  margin: 0 auto;
   position: relative;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   border: 2px solid #654321;
