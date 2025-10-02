@@ -393,12 +393,12 @@ body {
 
 .character-hair {
   position: absolute;
-  top: -6px;
-  left: 6px;
-  width: 28px;
-  height: 14px;
+  top: -8px;
+  left: 8px;
+  width: 32px;
+  height: 16px;
   background: #1A0F0A;
-  border-radius: 4px 4px 2px 2px;
+  border-radius: 6px 6px 3px 3px;
   image-rendering: pixelated;
 }
 
