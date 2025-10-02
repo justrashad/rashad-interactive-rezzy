@@ -25,8 +25,14 @@ const InteractiveResume = () => {
     if (isLoading) return;
     
     const key = event.key.toLowerCase();
+    console.log('Key down:', key);
     if (['arrowleft', 'arrowright', 'a', 'd'].includes(key)) {
-      setKeysPressed(prev => new Set(prev).add(key));
+      console.log('Movement key pressed:', key);
+      setKeysPressed(prev => {
+        const newSet = new Set(prev).add(key);
+        console.log('Keys pressed after add:', Array.from(newSet));
+        return newSet;
+      });
       setIsMoving(true);
     }
     
