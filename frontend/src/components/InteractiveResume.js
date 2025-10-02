@@ -136,29 +136,29 @@ const InteractiveResume = () => {
     });
   }, []);
 
-  // Smooth continuous movement
+  // Smooth continuous movement for sustained key presses
   useEffect(() => {
     console.log('Keys pressed:', keysPressed);
     const moveInterval = setInterval(() => {
       if (keysPressed.size > 0) {
-        console.log('Moving! Keys:', Array.from(keysPressed));
+        console.log('Continuous moving! Keys:', Array.from(keysPressed));
         setWorldPosition(prev => {
           let newPosition = prev;
-          console.log('Current worldPosition:', prev);
+          console.log('Continuous worldPosition:', prev);
           
           if (keysPressed.has('a') || keysPressed.has('arrowleft')) {
-            newPosition = Math.max(0, newPosition - 15);
-            console.log('Moving left to:', newPosition);
+            newPosition = Math.max(0, newPosition - 8);
+            console.log('Continuous moving left to:', newPosition);
           }
           if (keysPressed.has('d') || keysPressed.has('arrowright')) {
-            newPosition = Math.min(12000, newPosition + 15);
-            console.log('Moving right to:', newPosition);
+            newPosition = Math.min(12000, newPosition + 8);
+            console.log('Continuous moving right to:', newPosition);
           }
           
           return newPosition;
         });
       }
-    }, 16); // 60fps smooth movement
+    }, 50); // Slower for sustained movement
 
     return () => clearInterval(moveInterval);
   }, [keysPressed]);
