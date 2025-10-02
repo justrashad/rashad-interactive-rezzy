@@ -232,10 +232,15 @@ metadata:
   run_ui: true
 
 test_plan:
-  current_focus: []
+  current_focus:
+    - "Side-scrolling World Mechanism"
+    - "Character Outfit Level Transitions"
+    - "Basketball Scene Interaction"
+    - "Swimming Scene Effects"
+    - "Boss Battle Scene"
   stuck_tasks: []
-  test_all: true
-  test_priority: "completed"
+  test_all: false
+  test_priority: "high_first"
 
 agent_communication:
     - agent: "testing"
