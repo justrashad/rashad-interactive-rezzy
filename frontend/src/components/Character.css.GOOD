@@ -1,0 +1,1895 @@
+/* ============================================
+   ROUNDED CHARACTER - SIMPLIFIED STYLE
+   Like the reference image with smooth curves
+   ============================================ */
+
+/* BASE CHARACTER - LARGER & ROUNDER */
+.character-pixel {
+  position: fixed;
+  bottom: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 140px;
+  z-index: 10;
+  transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.character-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Level Transition Animation */
+.level-transition {
+  animation: levelSwitch 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes levelSwitch {
+  0% { opacity: 1; transform: translateX(-50%) scale(1); }
+  50% { opacity: 0.3; transform: translateX(-50%) scale(0.85) rotate(5deg); }
+  100% { opacity: 1; transform: translateX(-50%) scale(1); }
+}
+
+/* ============================================
+   HEAD - PERFECT CIRCLE (BALD)
+   ============================================ */
+
+.char-head {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+.hair-top {
+  display: none;
+}
+
+.hair-detail {
+  display: none;
+}
+
+.face {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: #8B4513;
+  border-radius: 50%;
+  top: 5px;
+  left: 0;
+  box-shadow: inset -3px -3px 6px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+.ears {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 5px;
+  left: 0;
+}
+
+.ear {
+  position: absolute;
+  width: 12px;
+  height: 16px;
+  background: #8B4513;
+  border-radius: 50%;
+  top: 20px;
+  box-shadow: inset -2px -2px 3px rgba(0,0,0,0.15);
+}
+
+.ear.left-ear {
+  left: -6px;
+}
+
+.ear.right-ear {
+  right: -6px;
+}
+
+/* EYES - SIMPLE CIRCLES */
+.eyes {
+  position: absolute;
+  top: 18px;
+  left: 10px;
+  width: 30px;
+  height: 14px;
+  z-index: 11;
+}
+
+.eye {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #000;
+}
+
+.eye.left-eye {
+  left: 0;
+}
+
+.eye.right-eye {
+  right: 0;
+}
+
+.pupil {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 5px;
+  height: 5px;
+  background: #000;
+  border-radius: 50%;
+}
+
+.eye-shine {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+}
+
+/* NOSE & MOUTH */
+.nose {
+  position: absolute;
+  top: 32px;
+  left: 22px;
+  width: 6px;
+  height: 4px;
+  background: #A0522D;
+  border-radius: 50%;
+}
+
+.mouth {
+  position: absolute;
+  top: 38px;
+  left: 18px;
+  width: 14px;
+  height: 6px;
+}
+
+.smile {
+  width: 14px;
+  height: 6px;
+  background: #8B4513;
+  border-radius: 0 0 7px 7px;
+}
+
+/* ============================================
+   NECK - SMOOTH CONNECTION
+   ============================================ */
+
+.char-neck {
+  position: relative;
+  width: 18px;
+  height: 8px;
+  background: #8B4513;
+  margin: -2px auto 0;
+  border-radius: 9px;
+  z-index: 8;
+}
+
+/* ============================================
+   TORSO - ROUNDED RECTANGLE
+   ============================================ */
+
+.char-torso {
+  position: relative;
+  width: 56px;
+  height: 48px;
+  margin: 0 auto;
+  z-index: 7;
+}
+
+.shirt-body {
+  position: relative;
+  width: 56px;
+  height: 48px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: inset 0 -4px 8px rgba(0,0,0,0.1);
+}
+
+.collar-left,
+.collar-right {
+  position: absolute;
+  width: 16px;
+  height: 10px;
+  background: #E0E0E0;
+  top: 0;
+  border-radius: 8px 8px 0 0;
+}
+
+.collar-left {
+  left: 12px;
+  transform: rotate(-10deg);
+}
+
+.collar-right {
+  right: 12px;
+  transform: rotate(10deg);
+}
+
+.shirt-buttons {
+  position: absolute;
+  left: 24px;
+  top: 10px;
+  width: 8px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.button {
+  width: 8px;
+  height: 8px;
+  background: #333;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.tie-full {
+  position: absolute;
+  left: 22px;
+  top: 8px;
+  width: 12px;
+  height: 34px;
+  z-index: 2;
+}
+
+.tie-knot {
+  width: 12px;
+  height: 8px;
+  background: #8B0000;
+  border-radius: 4px 4px 0 0;
+}
+
+.tie-body {
+  width: 10px;
+  height: 20px;
+  background: #8B0000;
+  margin: 0 auto;
+}
+
+.tie-tip {
+  width: 10px;
+  height: 6px;
+  background: #8B0000;
+  margin: 0 auto;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+/* ============================================
+   ARMS - UNIFIED SIMPLE TUBES
+   ============================================ */
+
+.arms-container {
+  position: absolute;
+  width: 100%;
+  height: 48px;
+  top: 0;
+  left: 0;
+}
+
+.arm {
+  position: absolute;
+  width: 12px;
+  height: 46px;
+  top: 4px;
+  z-index: 6;
+  background: #8B4513;
+  border-radius: 6px;
+  box-shadow: inset -1px 0 2px rgba(0,0,0,0.15);
+}
+
+.arm.left-arm {
+  left: -6px;
+  transform-origin: top center;
+  transform: rotate(-10deg);
+}
+
+.arm.right-arm {
+  right: -6px;
+  transform-origin: top center;
+  transform: rotate(10deg);
+}
+
+.shoulder {
+  display: none;
+}
+
+.upper-arm {
+  display: none;
+}
+
+.elbow {
+  display: none;
+}
+
+.forearm {
+  display: none;
+}
+
+.hand {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #8B4513;
+  border-radius: 50%;
+  bottom: -2px;
+  left: -2px;
+  box-shadow: inset 0 -2px 3px rgba(0,0,0,0.15);
+}
+
+.thumb {
+  display: none;
+}
+
+.fingers {
+  display: none;
+}
+
+/* ============================================
+   WAIST - SMOOTH TRANSITION
+   ============================================ */
+
+.char-waist {
+  position: relative;
+  width: 42px;
+  height: 12px;
+  margin: -2px auto 0;
+  background: #333333;
+  border-radius: 6px;
+  z-index: 6;
+  box-shadow: inset 0 -2px 3px rgba(0,0,0,0.3);
+}
+
+.belt {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background: #654321;
+  border-radius: 4px;
+  top: 2px;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.2);
+}
+
+.belt-buckle {
+  position: absolute;
+  width: 10px;
+  height: 8px;
+  background: #FFD700;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.4);
+}
+
+/* ============================================
+   LEGS - UNIFIED SIMPLE TUBES
+   ============================================ */
+
+.legs-container {
+  position: relative;
+  width: 42px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  z-index: 5;
+}
+
+.leg {
+  width: 14px;
+  height: 50px;
+  position: relative;
+  background: #333333;
+  border-radius: 7px;
+  box-shadow: inset -1px 0 2px rgba(0,0,0,0.3);
+}
+
+.thigh {
+  display: none;
+}
+
+.knee {
+  display: none;
+}
+
+.shin {
+  display: none;
+}
+
+.ankle {
+  display: none;
+}
+
+.foot {
+  width: 24px;
+  height: 14px;
+  position: absolute;
+  bottom: -2px;
+  left: -5px;
+}
+
+.shoe-body {
+  width: 24px;
+  height: 12px;
+  background: #000000;
+  border-radius: 12px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.1);
+}
+
+.shoe-sole {
+  position: absolute;
+  width: 26px;
+  height: 5px;
+  background: #654321;
+  border-radius: 50%;
+  bottom: 0;
+  left: -1px;
+  z-index: 1;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.shoe-laces {
+  position: absolute;
+  width: 14px;
+  height: 6px;
+  top: 3px;
+  left: 5px;
+  z-index: 3;
+}
+
+.shoe-laces:before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background: rgba(255,255,255,0.6);
+  top: 0;
+  left: 2px;
+  border-radius: 1px;
+}
+
+.shoe-laces:after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 2px;
+  background: rgba(255,255,255,0.5);
+  top: 3px;
+  left: 3px;
+  border-radius: 1px;
+}
+
+/* ============================================
+   LEVEL 0 & 1 - CLEAN OUTFIT (NO ACCESSORIES)
+   ============================================ */
+
+.nerd-outfit-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.nerd-glasses-frame {
+  display: none;
+}
+
+.glasses-lens {
+  display: none;
+}
+
+.glasses-bridge {
+  display: none;
+}
+
+.glasses-shine {
+  display: none;
+}
+
+.pocket-protector {
+  display: none;
+}
+
+.pen {
+  display: none;
+}
+
+.calculator-device {
+  display: none;
+}
+
+.calc-screen {
+  display: none;
+}
+
+.calc-buttons {
+  display: none;
+}
+
+.pocket-protector {
+  position: absolute;
+  top: 72px;
+  left: 36px;
+  width: 20px;
+  height: 28px;
+  background: #FFFFFF;
+  border: 2px solid #333;
+  border-radius: 4px 4px 0 0;
+  z-index: 9;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.pen {
+  position: absolute;
+  width: 3px;
+  height: 20px;
+  border-radius: 2px;
+  top: 4px;
+}
+
+.pen-1 {
+  left: 5px;
+  background: linear-gradient(180deg, #4169E1, #1E90FF);
+}
+
+.pen-2 {
+  left: 12px;
+  background: linear-gradient(180deg, #FF0000, #DC143C);
+}
+
+.calculator-device {
+  position: absolute;
+  top: 76px;
+  left: 40px;
+  width: 12px;
+  height: 16px;
+  background: #000;
+  border: 2px solid #333;
+  border-radius: 2px;
+  z-index: 10;
+}
+
+.calc-screen {
+  width: 10px;
+  height: 5px;
+  background: #00FF00;
+  margin: 2px auto;
+  border-radius: 1px;
+}
+
+.calc-buttons {
+  width: 10px;
+  height: 8px;
+  margin: 1px auto;
+  background: linear-gradient(90deg, #666 25%, transparent 25%, transparent 50%, #666 50%, #666 75%, transparent 75%);
+  background-size: 3px 3px;
+}
+
+/* ============================================
+   LEVEL 2 - BASKETBALL OUTFIT
+   ============================================ */
+
+.character-pixel.outfit-level-2 .shirt-body {
+  background: #FF6B35;
+}
+
+.character-pixel.outfit-level-2 .thigh,
+.character-pixel.outfit-level-2 .shin,
+.character-pixel.outfit-level-2 .leg {
+  background: #000080;
+}
+
+.character-pixel.outfit-level-2 .tie-full {
+  display: none;
+}
+
+.character-pixel.outfit-level-2 .collar-left,
+.character-pixel.outfit-level-2 .collar-right {
+  display: none;
+}
+
+.character-pixel.outfit-level-2 .shirt-buttons {
+  display: none;
+}
+
+.basketball-outfit-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.basketball-headband {
+  position: absolute;
+  top: 12px;
+  left: 28px;
+  width: 44px;
+  height: 8px;
+  background: #FF0000;
+  border-radius: 4px;
+  z-index: 12;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.sweatband-left,
+.sweatband-right {
+  display: none;
+}
+
+.jersey-number {
+  position: absolute;
+  top: 72px;
+  left: 40px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 0;
+  border: none;
+  z-index: 9;
+  font-family: 'Press Start 2P', monospace;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.basketball-in-hand {
+  position: absolute;
+  bottom: 20px;
+  left: 32px;
+  width: 26px;
+  height: 26px;
+  background: radial-gradient(circle, #FF6347 40%, #CD853F);
+  border-radius: 50%;
+  z-index: 7;
+  animation: ballDribbleFloat 1s ease-in-out infinite;
+}
+
+.ball-line {
+  position: absolute;
+  background: #8B4513;
+}
+
+.ball-line.horizontal {
+  width: 26px;
+  height: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.ball-line.vertical {
+  width: 2px;
+  height: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes ballDribbleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ============================================
+   LEVEL 3 - STINGRAY OUTFIT
+   ============================================ */
+
+.character-pixel.outfit-level-3 .shirt-body {
+  background: linear-gradient(135deg, #FF4500, #DC143C);
+}
+
+.character-pixel.outfit-level-3 .basketball-in-hand {
+  display: none;
+}
+
+.character-pixel.outfit-level-3 .leg {
+  background: linear-gradient(135deg, #FF4500, #DC143C);
+}
+
+.character-pixel.outfit-level-3 .face {
+  background: linear-gradient(135deg, #FF4500, #DC143C);
+}
+
+.character-pixel.outfit-level-3 .ear {
+  background: linear-gradient(135deg, #FF4500, #DC143C);
+}
+
+.character-pixel.outfit-level-3 .char-neck {
+  background: linear-gradient(135deg, #FF4500, #DC143C);
+}
+
+.character-pixel.outfit-level-3 .arm {
+  background: linear-gradient(135deg, #FF4500, #DC143C);
+}
+
+.character-pixel.outfit-level-3 .hand {
+  background: linear-gradient(135deg, #FF4500, #DC143C);
+}
+
+.character-pixel.outfit-level-3 .tie-full {
+  display: none;
+}
+
+.character-pixel.outfit-level-3 .collar-left,
+.character-pixel.outfit-level-3 .collar-right {
+  display: none;
+}
+
+.character-pixel.outfit-level-3 .shirt-buttons {
+  display: none;
+}
+
+.scuba-outfit-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.scuba-mask-full {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  width: 52px;
+  height: 34px;
+  z-index: 15;
+}
+
+.mask-lens {
+  position: absolute;
+  width: 52px;
+  height: 32px;
+  background: linear-gradient(135deg, #FFFFFF, #E0E0E0);
+  border: 3px solid #333;
+  border-radius: 26px;
+  box-shadow: inset 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.mask-strap {
+  display: none;
+}
+
+.oxygen-tank-full {
+  position: absolute;
+  top: 66px;
+  left: 76px;
+  width: 20px;
+  height: 50px;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  border: 2px solid #333;
+  border-radius: 10px;
+  z-index: 4;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.tank-valve {
+  display: none;
+}
+
+.tank-gauge {
+  display: none;
+}
+
+.tank-hose {
+  display: none;
+}
+
+.wetsuit-full {
+  position: absolute;
+  top: 78px;
+  left: 34px;
+  width: 32px;
+  height: 20px;
+  background: #FFFFFF;
+  border-radius: 16px 16px 0 0;
+  z-index: 3;
+}
+
+.diving-fins {
+  display: none;
+}
+
+.fin-left {
+  display: none;
+}
+
+.fin-right {
+  display: none;
+}
+
+.bubble-stream {
+  position: absolute;
+  top: -34px;
+  left: 44px;
+  width: 20px;
+  height: 70px;
+  z-index: 20;
+}
+
+.bubble {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: bubbleRiseUp 2.5s linear infinite;
+}
+
+.bubble.b1 {
+  width: 7px;
+  height: 7px;
+  left: 6px;
+  animation-delay: 0s;
+}
+
+.bubble.b2 {
+  width: 9px;
+  height: 9px;
+  left: 3px;
+  animation-delay: 0.6s;
+}
+
+.bubble.b3 {
+  width: 5px;
+  height: 5px;
+  left: 10px;
+  animation-delay: 1.2s;
+}
+
+.bubble.b4 {
+  width: 8px;
+  height: 8px;
+  left: 5px;
+  animation-delay: 1.8s;
+}
+
+@keyframes bubbleRiseUp {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-70px) scale(1.4); opacity: 0; }
+}
+  left: 0;
+  transform: rotate(-8deg);
+
+.fin-right {
+  right: 0;
+  transform: rotate(8deg);
+}
+
+.bubble-stream {
+  position: absolute;
+  top: -34px;
+  left: 44px;
+  width: 20px;
+  height: 70px;
+  z-index: 20;
+}
+
+.bubble {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: bubbleRiseUp 2.5s linear infinite;
+}
+
+.bubble.b1 {
+  width: 7px;
+  height: 7px;
+  left: 6px;
+  animation-delay: 0s;
+}
+
+.bubble.b2 {
+  width: 9px;
+  height: 9px;
+  left: 3px;
+  animation-delay: 0.6s;
+}
+
+.bubble.b3 {
+  width: 5px;
+  height: 5px;
+  left: 10px;
+  animation-delay: 1.2s;
+}
+
+.bubble.b4 {
+  width: 8px;
+  height: 8px;
+  left: 5px;
+  animation-delay: 1.8s;
+}
+
+@keyframes bubbleRiseUp {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-70px) scale(1.4); opacity: 0; }
+}
+
+/* ============================================
+   LEVEL 4 - BLACK PANTHER OUTFIT
+   ============================================ */
+
+.character-pixel.outfit-level-4 .shirt-body {
+  background: #1a1a1a;
+}
+
+.character-pixel.outfit-level-4 .face {
+  background: #1a1a1a;
+}
+
+.character-pixel.outfit-level-4 .ear {
+  background: #1a1a1a;
+}
+
+.character-pixel.outfit-level-4 .char-neck {
+  background: #1a1a1a;
+}
+
+.character-pixel.outfit-level-4 .arm {
+  background: #1a1a1a;
+}
+
+.character-pixel.outfit-level-4 .hand {
+  background: #1a1a1a;
+}
+
+.character-pixel.outfit-level-4 .leg {
+  background: #1a1a1a;
+}
+
+.panther-outfit-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.panther-helmet {
+  position: absolute;
+  top: 8px;
+  left: 25px;
+  width: 50px;
+  height: 50px;
+  background: #1a1a1a;
+  border: 2px solid #555;
+  border-radius: 50%;
+  z-index: 16;
+  box-shadow: inset 0 -4px 8px rgba(0,0,0,0.5);
+}
+
+.panther-ears {
+  position: absolute;
+  width: 100%;
+  height: 28px;
+  top: -8px;
+}
+
+.ear-left,
+.ear-right {
+  position: absolute;
+  width: 12px;
+  height: 18px;
+  background: #1a1a1a;
+  border: 2px solid #555;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.ear-left {
+  left: 4px;
+  transform: rotate(-10deg);
+}
+
+.ear-right {
+  right: 4px;
+  transform: rotate(10deg);
+}
+
+.panther-eyes-glow {
+  position: absolute;
+  width: 36px;
+  height: 12px;
+  top: 20px;
+  left: 7px;
+}
+
+.eye-glow {
+  position: absolute;
+  width: 14px;
+  height: 10px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  animation: pantherEyesPulse 2s ease-in-out infinite;
+}
+
+.eye-glow.left {
+  left: 0;
+}
+
+.eye-glow.right {
+  right: 0;
+}
+
+@keyframes pantherEyesPulse {
+  0%, 100% { 
+    opacity: 0.9;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+  }
+  50% { 
+    opacity: 1;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.9);
+  }
+}
+
+.panther-face-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.panther-face-lines:before,
+.panther-face-lines:after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 2px;
+  background: #555;
+  top: 24px;
+  box-shadow: 0 6px 0 #555;
+}
+
+.panther-face-lines:before {
+  left: 3px;
+}
+
+.panther-face-lines:after {
+  right: 3px;
+}
+
+.vibranium-suit {
+  position: absolute;
+  top: 66px;
+  left: 22px;
+  width: 56px;
+  height: 52px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: inset 0 -4px 8px rgba(0,0,0,0.5);
+  z-index: 8;
+}
+
+.suit-pattern {
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #555, transparent);
+  opacity: 0.6;
+}
+
+.suit-pattern.pattern-1 {
+  top: 12px;
+  left: 13px;
+}
+
+.suit-pattern.pattern-2 {
+  top: 32px;
+  right: 13px;
+}
+
+.vibranium-claws-extended {
+  position: absolute;
+  top: 84px;
+  left: 10px;
+  width: 80px;
+  height: 14px;
+  z-index: 17;
+}
+
+.claw {
+  position: absolute;
+  width: 16px;
+  height: 3px;
+  background: linear-gradient(90deg, #999, #FFFFFF);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.claw.c1 {
+  left: 0;
+  transform: rotate(-20deg);
+}
+
+.claw.c2 {
+  left: 32px;
+  transform: rotate(-5deg);
+}
+
+.claw.c3 {
+  right: 0;
+  transform: rotate(20deg);
+}
+
+.energy-aura-purple {
+  display: none;
+}
+
+/* ============================================
+   LEVEL 5 - IRON MAN OUTFIT
+   ============================================ */
+
+.character-pixel.outfit-level-5 .shirt-body {
+  background: linear-gradient(135deg, #DC143C, #8B0000);
+}
+
+.character-pixel.outfit-level-5 .face {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+}
+
+.character-pixel.outfit-level-5 .ear {
+  background: linear-gradient(135deg, #DC143C, #8B0000);
+}
+
+.character-pixel.outfit-level-5 .char-neck {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+}
+
+.character-pixel.outfit-level-5 .arm {
+  background: linear-gradient(135deg, #DC143C, #8B0000);
+}
+
+.character-pixel.outfit-level-5 .hand {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+}
+
+.character-pixel.outfit-level-5 .leg {
+  background: linear-gradient(135deg, #DC143C, #8B0000);
+}
+
+.character-pixel.outfit-level-5 .foot {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+}
+
+.character-pixel.outfit-level-5 .tie-full {
+  display: none;
+}
+
+.character-pixel.outfit-level-5 .collar-left,
+.character-pixel.outfit-level-5 .collar-right {
+  display: none;
+}
+
+.jetpack-outfit-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.aviator-goggles {
+  position: absolute;
+  top: 22px;
+  left: 28px;
+  width: 44px;
+  height: 26px;
+  z-index: 15;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  border-radius: 50%;
+  box-shadow: inset 0 -4px 8px rgba(0,0,0,0.3);
+}
+
+.goggle-lens {
+  position: absolute;
+  width: 18px;
+  height: 20px;
+  background: radial-gradient(circle, #00FFFF, #0080FF);
+  border: 2px solid #FFD700;
+  border-radius: 50%;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), 0 0 12px rgba(0, 255, 255, 0.6);
+  animation: arcReactorGlow 2s ease-in-out infinite;
+}
+
+.goggle-lens.left {
+  left: 2px;
+  top: 3px;
+}
+
+.goggle-lens.right {
+  right: 2px;
+  top: 3px;
+}
+
+@keyframes arcReactorGlow {
+  0%, 100% { 
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), 0 0 12px rgba(0, 255, 255, 0.6);
+  }
+  50% { 
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.6), 0 0 20px rgba(0, 255, 255, 1);
+  }
+}
+
+.goggle-strap {
+  display: none;
+}
+
+.flight-suit-full {
+  position: absolute;
+  top: 66px;
+  left: 22px;
+  width: 56px;
+  height: 52px;
+  background: linear-gradient(135deg, #DC143C, #8B0000);
+  border-radius: 12px;
+  z-index: 3;
+}
+
+.flight-suit-full:before {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle, #00FFFF, #0080FF);
+  border: 3px solid #FFD700;
+  border-radius: 50%;
+  top: 12px;
+  left: 16px;
+  box-shadow: inset 0 2px 6px rgba(255,255,255,0.4), 0 0 16px rgba(0, 255, 255, 0.8);
+  animation: arcReactorGlow 2s ease-in-out infinite;
+}
+
+.jetpack-unit {
+  display: none;
+}
+
+.jetpack-body {
+  display: none;
+}
+
+.jetpack-thruster {
+  display: none;
+}
+
+.flame-core {
+  display: none;
+}
+
+.flame-outer {
+  display: none;
+}
+
+.jetpack-exhaust {
+  display: none;
+}
+
+/* ============================================
+   LEVEL 6 - BLACK ADAM OUTFIT
+   ============================================ */
+
+.character-pixel.outfit-level-6 .shirt-body {
+  background: #1a1a1a;
+}
+
+.character-pixel.outfit-level-6 .leg {
+  background: #1a1a1a;
+}
+
+.character-pixel.outfit-level-6 .tie-full {
+  display: none;
+}
+
+.character-pixel.outfit-level-6 .collar-left,
+.character-pixel.outfit-level-6 .collar-right {
+  display: none;
+}
+
+.character-pixel.outfit-level-6 .shirt-buttons {
+  display: none;
+}
+
+.hero-outfit-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero-cape-flowing {
+  position: absolute;
+  top: 68px;
+  left: 70px;
+  width: 30px;
+  height: 60px;
+  background: linear-gradient(135deg, #1a1a1a, #000000);
+  border: 2px solid #FFD700;
+  border-radius: 0 15px 15px 0;
+  animation: capeFlow 3s ease-in-out infinite alternate;
+  z-index: 2;
+  box-shadow: -4px 0 8px rgba(0,0,0,0.5);
+}
+
+.cape-shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0,0,0,0.3), transparent);
+  border-radius: 0 18px 18px 0;
+}
+
+.cape-highlight {
+  position: absolute;
+  width: 10px;
+  height: 52px;
+  background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2));
+  top: 10px;
+  right: 6px;
+  border-radius: 5px;
+}
+
+@keyframes capeFlow {
+  0% { transform: rotate(-4deg) scaleY(1); }
+  100% { transform: rotate(4deg) scaleY(1.04); }
+}
+
+.victory-crown-detailed {
+  display: none;
+}
+
+.crown-jewel {
+  display: none;
+}
+
+.crown-point {
+  display: none;
+}
+
+.champion-medal-detailed {
+  position: absolute;
+  top: 78px;
+  left: 38px;
+  width: 24px;
+  height: 24px;
+  z-index: 9;
+}
+
+.medal-ribbon {
+  display: none;
+}
+
+.medal-star {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle, #FFD700, #FFA500);
+  border-radius: 4px;
+  bottom: 0;
+  left: 0;
+  font-size: 16px;
+  color: #1a1a1a;
+  text-align: center;
+  line-height: 24px;
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.8), inset 0 2px 4px rgba(255,255,255,0.3);
+  font-weight: bold;
+  animation: lightningGlow 2s ease-in-out infinite;
+}
+
+.medal-star:before {
+  content: '⚡';
+}
+
+@keyframes lightningGlow {
+  0%, 100% { 
+    box-shadow: 0 0 16px rgba(255, 215, 0, 0.8), inset 0 2px 4px rgba(255,255,255,0.3);
+  }
+  50% { 
+    box-shadow: 0 0 28px rgba(255, 215, 0, 1), inset 0 2px 4px rgba(255,255,255,0.5);
+  }
+}
+
+/* ============================================
+   MOVEMENT ANIMATIONS - SMOOTH & ROUNDED
+   ============================================ */
+
+.character-pixel.moving {
+  animation: walkCycle 0.6s ease-in-out infinite;
+}
+
+@keyframes walkCycle {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-3px); }
+}
+
+.character-pixel.moving .left-leg {
+  animation: walkLeftLegCycle 0.6s ease-in-out infinite;
+}
+
+.character-pixel.moving .right-leg {
+  animation: walkRightLegCycle 0.6s ease-in-out infinite;
+}
+
+@keyframes walkLeftLegCycle {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-12deg); }
+}
+
+@keyframes walkRightLegCycle {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(12deg); }
+}
+
+.character-pixel.moving .left-arm {
+  animation: walkLeftArmCycle 0.6s ease-in-out infinite;
+}
+
+.character-pixel.moving .right-arm {
+  animation: walkRightArmCycle 0.6s ease-in-out infinite;
+}
+
+@keyframes walkLeftArmCycle {
+  0%, 100% { transform: rotate(-10deg); }
+  50% { transform: rotate(-20deg); }
+}
+
+@keyframes walkRightArmCycle {
+  0%, 100% { transform: rotate(10deg); }
+  50% { transform: rotate(20deg); }
+}
+
+/* ============================================
+   BASKETBALL ANIMATIONS
+   ============================================ */
+
+.character-pixel.dribbling {
+  animation: basketballDribble 1s ease-in-out infinite;
+}
+
+@keyframes basketballDribble {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-8px); }
+}
+
+.character-pixel.dribbling .right-arm {
+  animation: dribbleArmMotion 1s ease-in-out infinite;
+}
+
+@keyframes dribbleArmMotion {
+  0%, 100% { transform: rotate(10deg); }
+  50% { transform: rotate(50deg) translateY(18px); }
+}
+
+/* ============================================
+   SWIMMING ANIMATIONS
+   ============================================ */
+
+.character-pixel.swimming,
+.character-pixel.underwater {
+  animation: swimMotion 2.5s ease-in-out infinite;
+}
+
+@keyframes swimMotion {
+  0%, 100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+  33% { transform: translateX(-50%) translateY(-8px) rotate(-2deg); }
+  66% { transform: translateX(-50%) translateY(8px) rotate(2deg); }
+}
+
+.character-pixel.swimming .arm,
+.character-pixel.underwater .arm {
+  animation: swimArmStroke 2.5s ease-in-out infinite;
+}
+
+@keyframes swimArmStroke {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(20deg); }
+}
+
+/* ============================================
+   BOSS FIGHT ANIMATIONS
+   ============================================ */
+
+.character-pixel.fighting-boss,
+.character-pixel.battle-stance {
+  animation: fightStance 1.5s ease-in-out infinite;
+}
+
+@keyframes fightStance {
+  0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
+  50% { transform: translateX(-50%) translateY(-5px) scale(1.02); }
+}
+
+.power-aura-effect {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.4), transparent);
+  border-radius: 50%;
+  animation: powerAuraGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes powerAuraGlow {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.4; }
+  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.7; }
+}
+
+/* ============================================
+   FLYING ANIMATIONS
+   ============================================ */
+
+.character-pixel.flying,
+.character-pixel.jetpack-active {
+  animation: flyingMotion 2.5s ease-in-out infinite;
+}
+
+@keyframes flyingMotion {
+  0%, 100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+  33% { transform: translateX(-50%) translateY(-18px) rotate(-4deg); }
+  66% { transform: translateX(-50%) translateY(8px) rotate(4deg); }
+}
+
+/* ============================================
+   LANDING ANIMATIONS
+   ============================================ */
+
+.character-pixel.landing,
+.character-pixel.superhero-landing {
+  animation: heroLanding 2s ease-in-out infinite;
+}
+
+@keyframes heroLanding {
+  0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
+  50% { transform: translateX(-50%) translateY(-8px) scale(1.06); }
+}
+
+.character-pixel.landing .arm,
+.character-pixel.superhero-landing .arm {
+  animation: heroArmsUp 2s ease-in-out infinite;
+}
+
+@keyframes heroArmsUp {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-12deg); }
+}
+
+/* ============================================
+   HOVER EFFECT
+   ============================================ */
+
+.character-pixel:hover {
+  animation: characterBounce 0.8s;
+}
+
+@keyframes characterBounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* ============================================
+   HIDE NON-ACTIVE OUTFIT LAYERS
+   ============================================ */
+
+.character-pixel:not(.outfit-level-0):not(.outfit-level-1) .nerd-outfit-layer {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.character-pixel:not(.outfit-level-2) .basketball-outfit-layer {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.character-pixel:not(.outfit-level-3) .scuba-outfit-layer {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.character-pixel:not(.outfit-level-4) .panther-outfit-layer {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.character-pixel:not(.outfit-level-5) .jetpack-outfit-layer {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.character-pixel:not(.outfit-level-6) .hero-outfit-layer {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Smooth transitions for outfit changes */
+.character-pixel * {
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .character-pixel {
+    width: 75px;
+    height: 105px;
+  }
+  
+  .char-head {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .face {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .char-torso {
+    width: 42px;
+    height: 36px;
+  }
+  
+  .shirt-body {
+    width: 42px;
+    height: 36px;
+  }
+}
+
+/* ============================================
+   ADDITIONAL SPECIAL EFFECTS
+   ============================================ */
+
+/* Jetpack Flying Effect - FROM HANDS AND FEET */
+.jetpack-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.jetpack-flame {
+  position: absolute;
+  width: 12px;
+  height: 24px;
+  background: linear-gradient(180deg, #FFFF00, #FF6347);
+  border-radius: 50% 50% 0 0;
+  animation: jetpackFlameEffect 0.25s ease-in-out infinite alternate;
+  box-shadow: 0 0 16px rgba(255, 255, 0, 0.9);
+}
+
+.flame1 {
+  left: -6px;
+  bottom: -4px;
+}
+
+.flame2 {
+  right: -6px;
+  bottom: -4px;
+}
+
+@keyframes jetpackFlameEffect {
+  0% { height: 24px; opacity: 1; }
+  100% { height: 34px; opacity: 0.8; }
+}
+
+/* Swimming Bubbles Effect */
+.swim-bubbles-effect {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 54px;
+}
+
+.swim-bubble {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: swimBubbleFloat 2.5s linear infinite;
+}
+
+.bubble1 {
+  width: 7px;
+  height: 7px;
+  left: -8px;
+  animation-delay: 0s;
+}
+
+.bubble2 {
+  width: 9px;
+  height: 9px;
+  left: 0px;
+  animation-delay: 0.8s;
+}
+
+.bubble3 {
+  width: 5px;
+  height: 5px;
+  left: 8px;
+  animation-delay: 1.6s;
+}
+
+@keyframes swimBubbleFloat {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-54px) scale(1.5); opacity: 0; }
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+.character-pixel {
+  will-change: transform;
+}
+
+.character-pixel.moving,
+.character-pixel.dribbling,
+.character-pixel.swimming,
+.character-pixel.flying,
+.character-pixel.fighting-boss,
+.character-pixel.landing {
+  will-change: transform;
+}
+
+/* Prevent text selection */
+.character-pixel * {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* ===== IRON MAN FOOT REPULSORS FIX ===== */
+/* Add this to Character.css */
+
+/* Iron Man Hand Repulsors (existing - keeping for reference) */
+.character-pixel.outfit-level-5 .left-arm::after,
+.character-pixel.outfit-level-5 .right-arm::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 20px;
+  background: linear-gradient(180deg, 
+    rgba(0, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.7) 50%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  filter: blur(2px);
+  animation: repulsorFlame 0.3s ease-in-out infinite alternate;
+  z-index: 10;
+}
+
+/* NEW: Iron Man Foot Repulsors */
+.character-pixel.outfit-level-5 .left-leg::after,
+.character-pixel.outfit-level-5 .right-leg::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 24px;
+  background: linear-gradient(180deg, 
+    rgba(0, 255, 255, 0.95) 0%,
+    rgba(255, 255, 0, 0.8) 30%,
+    rgba(255, 255, 255, 0.6) 60%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  filter: blur(2.5px);
+  animation: footRepulsorFlame 0.25s ease-in-out infinite alternate;
+  z-index: 10;
+  box-shadow: 
+    0 0 15px rgba(0, 255, 255, 0.8),
+    0 0 25px rgba(0, 255, 255, 0.5);
+}
+
+/* Stagger the foot flame animations slightly */
+.character-pixel.outfit-level-5 .right-leg::after {
+  animation-delay: 0.125s;
+}
+
+/* Foot repulsor animation (slightly different from hand) */
+@keyframes footRepulsorFlame {
+  0% {
+    height: 24px;
+    opacity: 1;
+    filter: blur(2.5px);
+  }
+  50% {
+    height: 28px;
+    opacity: 0.9;
+    filter: blur(3px);
+  }
+  100% {
+    height: 20px;
+    opacity: 0.95;
+    filter: blur(2px);
+  }
+}
+
+/* When Flying - Enhance foot repulsors */
+.character-pixel.outfit-level-5.flying .left-leg::after,
+.character-pixel.outfit-level-5.flying .right-leg::after {
+  height: 35px;
+  bottom: -18px;
+  width: 16px;
+  animation: footRepulsorFlying 0.2s ease-in-out infinite;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 1),
+    0 0 35px rgba(0, 255, 255, 0.7),
+    0 0 50px rgba(0, 255, 255, 0.4);
+}
+
+@keyframes footRepulsorFlying {
+  0% {
+    height: 35px;
+    opacity: 1;
+  }
+  50% {
+    height: 42px;
+    opacity: 0.85;
+  }
+  100% {
+    height: 32px;
+    opacity: 0.95;
+  }
+}
+
+/* Extra intense burst when taking off */
+.character-pixel.outfit-level-5.flying .left-arm::after,
+.character-pixel.outfit-level-5.flying .right-arm::after {
+  height: 28px;
+  width: 14px;
+  animation: handRepulsorFlying 0.2s ease-in-out infinite;
+}
+
+@keyframes handRepulsorFlying {
+  0% {
+    height: 28px;
+    opacity: 1;
+  }
+  50% {
+    height: 35px;
+    opacity: 0.9;
+  }
+  100% {
+    height: 25px;
+    opacity: 0.95;
+  }
+}

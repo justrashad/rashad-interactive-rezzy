@@ -5287,3 +5287,42 @@ body {
     opacity: 1;
   }
 }
+
+/* ===== FIX: REMOVE BACKGROUND BASKETBALL ===== */
+/* Add this to your App.css file */
+
+/* Hide the static basketball on the court */
+.basketball-interactive {
+  display: none !important;
+}
+
+/* The character-basketball (dribbling ball) should remain visible */
+.character-basketball {
+  /* This one stays - it's the ball that bounces with dribbling animation */
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: radial-gradient(circle at 30% 30%, #FF6347, #CD853F);
+  border-radius: 50%;
+  left: 45%;
+  bottom: 15px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+  animation: characterBallDribble 1s ease-in-out infinite;
+  z-index: 15;
+}
+
+/* Make sure no other basketball elements appear in the background */
+#game-basketball {
+  display: none !important;
+}
+
+/* Only show the character's dribbling ball during basketball state */
+.character.dribbling .character-basketball,
+.character.playing-basketball .character-basketball {
+  display: block;
+}
+
+/* Hide it in other states */
+.character:not(.dribbling):not(.playing-basketball) .character-basketball {
+  display: none;
+}

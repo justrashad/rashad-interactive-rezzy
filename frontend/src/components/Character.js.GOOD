@@ -1,0 +1,318 @@
+import React from 'react';
+import './Character.css';
+
+const Character = ({ position, isMoving, currentLevel, gameAction, gameState }) => {
+  const getCharacterClass = () => {
+    let classes = 'character-pixel';
+    if (isMoving) classes += ' moving';
+    
+    // Add outfit class based on level with transition
+    classes += ` outfit-level-${currentLevel}`;
+    classes += ' level-transition';
+    
+    // Use gameState for more dynamic animations
+    switch (gameState) {
+      case 'basketball':
+        classes += ' playing-basketball dribbling';
+        break;
+      case 'swimming':
+        classes += ' swimming underwater';
+        break;
+      case 'bossfight':
+        classes += ' fighting-boss battle-stance';
+        break;
+      case 'flying':
+        classes += ' flying jetpack-active';
+        break;
+      case 'landing':
+        classes += ' landing superhero-landing';
+        break;
+      default:
+        if (gameAction) {
+          classes += ` ${gameAction}`;
+        }
+        break;
+    }
+    
+    return classes;
+  };
+
+  // Render different character details based on level
+  const renderCharacterDetails = () => {
+    switch (currentLevel) {
+      case 0: // Introduction - Normal outfit
+      case 1: // About Rashad - Nerd outfit
+        return (
+          <div className="nerd-outfit-layer">
+            <div className="nerd-glasses-frame">
+              <div className="glasses-lens left-lens"></div>
+              <div className="glasses-lens right-lens"></div>
+              <div className="glasses-bridge"></div>
+              <div className="glasses-shine left-shine"></div>
+              <div className="glasses-shine right-shine"></div>
+            </div>
+            <div className="pocket-protector">
+              <div className="pen pen-1"></div>
+              <div className="pen pen-2"></div>
+            </div>
+            <div className="calculator-device">
+              <div className="calc-screen"></div>
+              <div className="calc-buttons"></div>
+            </div>
+          </div>
+        );
+      case 2: // Basketball - Basketball uniform
+        return (
+          <div className="basketball-outfit-layer">
+            <div className="basketball-headband"></div>
+            <div className="sweatband-left"></div>
+            <div className="sweatband-right"></div>
+            <div className="jersey-number">23</div>
+            <div className="basketball-in-hand">
+              <div className="ball-line horizontal"></div>
+              <div className="ball-line vertical"></div>
+            </div>
+          </div>
+        );
+      case 3: // Swimming - Scuba gear
+        return (
+          <div className="scuba-outfit-layer">
+            <div className="scuba-mask-full">
+              <div className="mask-lens"></div>
+              <div className="mask-strap"></div>
+            </div>
+            <div className="oxygen-tank-full">
+              <div className="tank-valve"></div>
+              <div className="tank-gauge"></div>
+              <div className="tank-hose"></div>
+            </div>
+            <div className="wetsuit-full"></div>
+            <div className="diving-fins">
+              <div className="fin-left"></div>
+              <div className="fin-right"></div>
+            </div>
+            <div className="bubble-stream">
+              <div className="bubble b1"></div>
+              <div className="bubble b2"></div>
+              <div className="bubble b3"></div>
+              <div className="bubble b4"></div>
+            </div>
+          </div>
+        );
+      case 4: // Boss Battle - Black Panther suit
+        return (
+          <div className="panther-outfit-layer">
+            <div className="panther-helmet">
+              <div className="panther-ears">
+                <div className="ear-left"></div>
+                <div className="ear-right"></div>
+              </div>
+              <div className="panther-eyes-glow">
+                <div className="eye-glow left"></div>
+                <div className="eye-glow right"></div>
+              </div>
+              <div className="panther-face-lines"></div>
+            </div>
+            <div className="vibranium-suit">
+              <div className="suit-pattern pattern-1"></div>
+              <div className="suit-pattern pattern-2"></div>
+            </div>
+            <div className="vibranium-claws-extended">
+              <div className="claw c1"></div>
+              <div className="claw c2"></div>
+              <div className="claw c3"></div>
+            </div>
+            <div className="energy-aura-purple"></div>
+          </div>
+        );
+      case 5: // Flying - Jetpack outfit
+        return (
+          <div className="jetpack-outfit-layer">
+            <div className="aviator-goggles">
+              <div className="goggle-lens left"></div>
+              <div className="goggle-lens right"></div>
+              <div className="goggle-strap"></div>
+            </div>
+            <div className="flight-suit-full"></div>
+            <div className="jetpack-unit">
+              <div className="jetpack-body"></div>
+              <div className="jetpack-thruster left">
+                <div className="flame-core"></div>
+                <div className="flame-outer"></div>
+              </div>
+              <div className="jetpack-thruster right">
+                <div className="flame-core"></div>
+                <div className="flame-outer"></div>
+              </div>
+              <div className="jetpack-exhaust"></div>
+            </div>
+          </div>
+        );
+      case 6: // Landing - Hero cape
+        return (
+          <div className="hero-outfit-layer">
+            <div className="hero-cape-flowing">
+              <div className="cape-shadow"></div>
+              <div className="cape-highlight"></div>
+            </div>
+            <div className="victory-crown-detailed">
+              <div className="crown-jewel"></div>
+              <div className="crown-point p1"></div>
+              <div className="crown-point p2"></div>
+              <div className="crown-point p3"></div>
+            </div>
+            <div className="champion-medal-detailed">
+              <div className="medal-ribbon"></div>
+              <div className="medal-star">★</div>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div 
+      className={getCharacterClass()}
+      style={{
+        left: `${position.x}%`,
+        bottom: `${position.y}px`
+      }}
+    >
+      {/* Complete character body structure */}
+      <div className="character-container">
+        
+        {/* HEAD */}
+        <div className="char-head">
+          <div className="hair-top">
+            <div className="hair-detail"></div>
+          </div>
+          <div className="face">
+            <div className="eyes">
+              <div className="eye left-eye">
+                <div className="pupil"></div>
+                <div className="eye-shine"></div>
+              </div>
+              <div className="eye right-eye">
+                <div className="pupil"></div>
+                <div className="eye-shine"></div>
+              </div>
+            </div>
+            <div className="nose"></div>
+            <div className="mouth">
+              <div className="smile"></div>
+            </div>
+          </div>
+          <div className="ears">
+            <div className="ear left-ear"></div>
+            <div className="ear right-ear"></div>
+          </div>
+        </div>
+        
+        {/* NECK */}
+        <div className="char-neck"></div>
+        
+        {/* TORSO */}
+        <div className="char-torso">
+          <div className="shirt-body">
+            <div className="collar-left"></div>
+            <div className="collar-right"></div>
+            <div className="shirt-buttons">
+              <div className="button"></div>
+              <div className="button"></div>
+              <div className="button"></div>
+            </div>
+            <div className="tie-full">
+              <div className="tie-knot"></div>
+              <div className="tie-body"></div>
+              <div className="tie-tip"></div>
+            </div>
+          </div>
+          
+          {/* ARMS */}
+          <div className="arms-container">
+            <div className="arm left-arm">
+              <div className="shoulder"></div>
+              <div className="upper-arm"></div>
+              <div className="elbow"></div>
+              <div className="forearm"></div>
+              <div className="hand">
+                <div className="thumb"></div>
+                <div className="fingers"></div>
+              </div>
+            </div>
+            <div className="arm right-arm">
+              <div className="shoulder"></div>
+              <div className="upper-arm"></div>
+              <div className="elbow"></div>
+              <div className="forearm"></div>
+              <div className="hand">
+                <div className="thumb"></div>
+                <div className="fingers"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* WAIST */}
+        <div className="char-waist">
+          <div className="belt">
+            <div className="belt-buckle"></div>
+          </div>
+        </div>
+        
+        {/* LEGS */}
+        <div className="legs-container">
+          <div className="leg left-leg">
+            <div className="thigh"></div>
+            <div className="knee"></div>
+            <div className="shin"></div>
+            <div className="ankle"></div>
+            <div className="foot">
+              <div className="shoe-body"></div>
+              <div className="shoe-sole"></div>
+              <div className="shoe-laces"></div>
+            </div>
+          </div>
+          <div className="leg right-leg">
+            <div className="thigh"></div>
+            <div className="knee"></div>
+            <div className="shin"></div>
+            <div className="ankle"></div>
+            <div className="foot">
+              <div className="shoe-body"></div>
+              <div className="shoe-sole"></div>
+              <div className="shoe-laces"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Level-specific character details - these overlay on top */}
+      {renderCharacterDetails()}
+
+      {/* Special effects for different actions */}
+      {gameAction === 'flying' && (
+        <div className="jetpack-effect">
+          <div className="jetpack-flame flame1"></div>
+          <div className="jetpack-flame flame2"></div>
+        </div>
+      )}
+      
+      {gameAction === 'swimming' && (
+        <div className="swim-bubbles-effect">
+          <div className="swim-bubble bubble1"></div>
+          <div className="swim-bubble bubble2"></div>
+          <div className="swim-bubble bubble3"></div>
+        </div>
+      )}
+      
+      {gameAction === 'bossfight' && (
+        <div className="power-aura-effect"></div>
+      )}
+    </div>
+  );
+};
+
+export default Character;
