@@ -35,7 +35,7 @@ const InteractiveResume = () => {
           newPosition = Math.max(0, newPosition - 50);
         }
         if (key === 'arrowright' || key === 'd') {
-          newPosition = Math.min(12000, newPosition + 50);
+          newPosition = Math.min(21000, newPosition + 50);
         }
         
         return newPosition;
@@ -136,7 +136,7 @@ const InteractiveResume = () => {
             newPosition = Math.max(0, newPosition - 8);
           }
           if (keysPressed.has('d') || keysPressed.has('arrowright')) {
-            newPosition = Math.min(12000, newPosition + 8);
+            newPosition = Math.min(21000, newPosition + 8);
           }
           
           return newPosition;
@@ -151,37 +151,32 @@ const InteractiveResume = () => {
   useEffect(() => {
     let newLevel = 0;
     
-    // ALL SECTIONS NOW 2000px WIDE - EQUAL LENGTH!
-    // Section boundaries: 0, 2000, 4000, 6000, 8000, 10000, 12000
-    // Add 500px buffer for smooth transitions
-    const buffer = 500;
-    
-    if (worldPosition >= 12000 + buffer) newLevel = 6; // Contact
-    else if (worldPosition >= 10000 + buffer) newLevel = 5; // Flying
-    else if (worldPosition >= 8000 + buffer) newLevel = 4; // Boss
-    else if (worldPosition >= 6000 + buffer) newLevel = 3; // Swimming
-    else if (worldPosition >= 4000 + buffer) newLevel = 2; // Basketball
-    else if (worldPosition >= 2000 + buffer) newLevel = 1; // About
-    else newLevel = 0; // Intro
-    
-    console.log(`worldPosition: ${worldPosition}, level: ${newLevel}`);
-    
-    if (newLevel !== currentLevel && newLevel < resumeData.levels.length) {
-      setCurrentLevel(newLevel);
-      setLevelProgress(0);
-    }
-    
-  // Trigger level-specific game states based on position within section
-  // These trigger AFTER costume changes for smoother experience
-  if (worldPosition >= 5000 && worldPosition < 6000) { // Mid basketball section
+  // NO BUFFER - Costume changes EXACTLY at section boundaries
+  if (worldPosition >= 18000) newLevel = 6; // Contact (18000-21000)
+  else if (worldPosition >= 15000) newLevel = 5; // Flying (15000-18000)
+  else if (worldPosition >= 12000) newLevel = 4; // Boss (12000-15000)
+  else if (worldPosition >= 9000) newLevel = 3; // Swimming (9000-12000)
+  else if (worldPosition >= 6000) newLevel = 2; // Basketball (6000-9000)
+  else if (worldPosition >= 3000) newLevel = 1; // About (3000-6000)
+  else newLevel = 0; // Intro (0-3000)
+  
+  console.log(`worldPosition: ${worldPosition}, level: ${newLevel}`);
+  
+  if (newLevel !== currentLevel && newLevel < resumeData.levels.length) {
+    setCurrentLevel(newLevel);
+    setLevelProgress(0);
+  }
+  
+  // Trigger level-specific game states in the MIDDLE of each section
+  if (worldPosition >= 7500 && worldPosition < 9000) { // Mid basketball section
     setGameState('basketball');
-  } else if (worldPosition >= 7000 && worldPosition < 8000) { // Mid swimming section
+  } else if (worldPosition >= 10500 && worldPosition < 12000) { // Mid swimming section
     setGameState('swimming');
-  } else if (worldPosition >= 9000 && worldPosition < 10000) { // Mid boss section
+  } else if (worldPosition >= 13500 && worldPosition < 15000) { // Mid boss section
     setGameState('bossfight');
-  } else if (worldPosition >= 11000 && worldPosition < 12000) { // Mid flying section
+  } else if (worldPosition >= 16500 && worldPosition < 18000) { // Mid flying section
     setGameState('flying');
-  } else if (worldPosition >= 13000) { // Contact/Landing section
+  } else if (worldPosition >= 19500) { // Contact/Landing section
     setGameState('landing');
   } else {
     setGameState('exploring');

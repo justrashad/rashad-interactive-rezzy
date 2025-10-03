@@ -167,7 +167,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
 
   // Calculate smooth background gradient based on world position
   const getBackgroundStyle = () => {
-    const progress = worldPosition / 12000; // Normalize to 0-1
+    const progress = worldPosition / 21000; // Normalize to 0-1
     
     // Define color stops for each section
     const colorStops = [
@@ -213,17 +213,17 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
       <div 
         className="world-container" 
         style={{ 
-          transform: `translateX(-${worldPosition * 0.8}px)`, // Parallax effect
+          transform: `translateX(-${worldPosition}px)`, // Parallax effect
           transition: 'transform 0.1s cubic-bezier(0.4, 0, 0.2, 1)' // Smoother easing
         }}
       >
         {renderLevelBackground()}
         
         {/* Fixed elements that move with world */}
-        <div className="world-content" style={{ width: '13000px', position: 'relative' }}>
+        <div className="world-content" style={{ width: '21000px', position: 'relative' }}>
           
           {/* Section 0: Introduction */}
-          <div className="world-section intro-section" style={{ left: '0px', width: '1500px' }}>
+          <div className="world-section intro-section" style={{ left: '0px', width: '3000px' }}>
             <div className="main-title">
               <div className="title-banner">Interactive Resume of</div>
               <h1 className="main-name">RASHAD WASHINGTON</h1>
@@ -237,7 +237,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
           </div>
 
           {/* Section 1: About Rashad - Extended Beautiful Scene */}
-          <div className="world-section about-section" style={{ left: '1500px', width: '2500px' }}>
+          <div className="world-section about-section" style={{ left: '3000px', width: '3000px' }}>
             <div className="section-title about-title">
               <h2 className="level-name">ABOUT RASHAD</h2>
               <p className="section-description">The journey begins...</p>
@@ -379,7 +379,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
           </div>
 
           {/* Section 2: Houston Basketball */}
-          <div className="world-section basketball-section" style={{ left: '4000px', width: '2000px' }}>
+          <div className="world-section basketball-section" style={{ left: '6000px', width: '3000px' }}>
             <div className="section-title">
               <h2 className="level-name">HOME COURT - HOUSTON</h2>
               <p className="section-description">Where precision meets passion</p>
@@ -559,7 +559,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
           </div>
 
           {/* Section 3: Underwater Skills */}
-          <div className="world-section underwater-section" style={{ left: '6000px', width: '1500px' }}>
+          <div className="world-section underwater-section" style={{ left: '9000px', width: '3000px' }}>
             <div className="section-title underwater-title">
               <h2 className="level-name">DEEP DIVE - SKILLS</h2>
               <p className="section-description">Exploring the depths of technology</p>
@@ -646,7 +646,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
           </div>
 
           {/* Section 4: Boss Battle Experience */}
-          <div className="world-section industrial-section" style={{ left: '7500px', width: '1500px' }}>
+          <div className="world-section industrial-section" style={{ left: '12000px', width: '3000px' }}>
             <div className="section-title">
               <h2 className="level-name">BOSS BATTLE - EXPERIENCE</h2>
               <p className="section-description">Conquering IT challenges</p>
@@ -755,7 +755,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
           </div>
 
           {/* Section 5: Flying Achievements */}
-          <div className="world-section flying-section" style={{ left: '9000px', width: '1500px' }}>
+          <div className="world-section flying-section" style={{ left: '15000px', width: '3000px' }}>
             <div className="section-title">
               <h2 className="level-name">SOARING HIGH - ACHIEVEMENTS</h2>
               <p className="section-description">Reaching new heights</p>
@@ -797,7 +797,7 @@ const GameScene = ({ currentLevel, characterPosition, isMoving, worldPosition, g
           </div>
 
           {/* Section 6: Rooftop Contact */}
-          <div className="world-section contact-section" style={{ left: '10500px', width: '1500px' }}>
+          <div className="world-section contact-section" style={{ left: '18000px', width: '3000px' }}>
             <div className="section-title">
               <h2 className="level-name">THE SUMMIT - CONTACT</h2>
               <p className="section-description">Let's connect at the top!</p>
