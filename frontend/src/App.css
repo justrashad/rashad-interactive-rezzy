@@ -11,6 +11,51 @@ body {
   font-size: 12px;
 }
 
+/* ===== SECTION VISIBILITY CONTROL ===== */
+/* Hide all sections by default */
+.world-section {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Show only the current level's section */
+.game-container.level-0 .intro-section {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.game-container.level-1 .about-section {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.game-container.level-2 .basketball-section {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.game-container.level-3 .underwater-section {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.game-container.level-4 .industrial-section {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.game-container.level-5 .flying-section {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.game-container.level-6 .contact-section {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* ===== END SECTION VISIBILITY CONTROL ===== */
+
 .App {
   width: 100vw;
   height: 100vh;
@@ -5325,4 +5370,961 @@ body {
 /* Hide it in other states */
 .character:not(.dribbling):not(.playing-basketball) .character-basketball {
   display: none;
+}
+
+/* ============================================
+   CLEAN PIXEL ART RETRO BACKGROUNDS
+   Actual visible elements
+   ============================================ */
+
+/* Keep the old cluttered elements hidden */
+.sunrise-environment, .story-hills, .story-tree,
+.flower-field, .birds-flying, .butterflies,
+.story-achievements, .story-elements, .quote-scroll,
+.ground-details, .houston-building,
+.basketball-stadium, .crowd-section, .stadium-lights,
+.underwater-plants, .treasure-chest,
+.factory-complex, .industrial-smokestacks,
+.boss-robot, .rooftop-scene {
+  display: none !important;
+}
+
+/* ============================================
+   NEW CLEAN BACKGROUNDS - Real DOM Elements
+   ============================================ */
+
+/* Pixel Clouds - SOLID, not transparent */
+.pixel-cloud {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+  opacity: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pixel-cloud::before,
+.pixel-cloud::after {
+  content: '';
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+/* Cloud 1 - Large */
+.cloud-1 {
+  width: 120px;
+  height: 50px;
+  top: 15%;
+  left: 20%;
+  animation: cloudDrift 45s linear infinite;
+}
+
+.cloud-1::before {
+  width: 60px;
+  height: 60px;
+  top: -20px;
+  left: 20px;
+}
+
+.cloud-1::after {
+  width: 70px;
+  height: 50px;
+  top: -15px;
+  right: 15px;
+}
+
+/* Cloud 2 - Medium */
+.cloud-2 {
+  width: 100px;
+  height: 40px;
+  top: 25%;
+  left: 60%;
+  animation: cloudDrift 60s linear infinite;
+  animation-delay: -20s;
+}
+
+.cloud-2::before {
+  width: 50px;
+  height: 50px;
+  top: -18px;
+  left: 15px;
+}
+
+.cloud-2::after {
+  width: 55px;
+  height: 40px;
+  top: -12px;
+  right: 20px;
+}
+
+/* Cloud 3 - Small */
+.cloud-3 {
+  width: 80px;
+  height: 35px;
+  top: 35%;
+  left: 85%;
+  animation: cloudDrift 50s linear infinite;
+  animation-delay: -40s;
+}
+
+.cloud-3::before {
+  width: 40px;
+  height: 40px;
+  top: -15px;
+  left: 10px;
+}
+
+.cloud-3::after {
+  width: 45px;
+  height: 35px;
+  top: -10px;
+  right: 10px;
+}
+
+@keyframes cloudDrift {
+  from { transform: translateX(-100px); }
+  to { transform: translateX(100px); }
+}
+
+/* Pixel Hills - SOLID with clear edges */
+.pixel-hill {
+  position: absolute;
+  background: #2d8f2d;
+  border-radius: 50% 50% 0 0;
+  bottom: 80px;
+  opacity: 1;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.pixel-hill-1 {
+  width: 500px;
+  height: 220px;
+  left: 10%;
+}
+
+.pixel-hill-2 {
+  width: 420px;
+  height: 190px;
+  left: 40%;
+  background: #3ca03c;
+}
+
+.pixel-hill-3 {
+  width: 380px;
+  height: 170px;
+  left: 70%;
+}
+
+/* Pixel Sun */
+.pixel-sun {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, #ffeb3b 0%, #ff9800 60%, rgba(255, 152, 0, 0.5) 100%);
+  border-radius: 50%;
+  top: 12%;
+  right: 15%;
+  box-shadow: 0 0 80px rgba(255, 235, 59, 0.7);
+  animation: sunGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes sunGlow {
+  0% { 
+    box-shadow: 0 0 80px rgba(255, 235, 59, 0.7);
+    transform: scale(1);
+  }
+  100% { 
+    box-shadow: 0 0 120px rgba(255, 152, 0, 0.9);
+    transform: scale(1.05);
+  }
+}
+
+/* Stadium Lights */
+.stadium-light {
+  position: absolute;
+  width: 80px;
+  height: 30px;
+  background: linear-gradient(180deg, #ffd700 0%, rgba(255, 215, 0, 0) 100%);
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+  top: 10%;
+  animation: lightFlicker 3s ease-in-out infinite alternate;
+}
+
+.light-left {
+  left: 20%;
+}
+
+.light-right {
+  right: 20%;
+}
+
+@keyframes lightFlicker {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Court Lines */
+.court-line {
+  position: absolute;
+  background: white;
+  bottom: 120px;
+}
+
+.court-center {
+  width: 4px;
+  height: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.court-horizontal {
+  width: 600px;
+  height: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Light Rays Underwater */
+.light-ray {
+  position: absolute;
+  width: 150px;
+  height: 100%;
+  background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.1) 40%,
+    transparent 80%);
+  top: 0;
+  transform-origin: top center;
+  animation: lightWave 8s ease-in-out infinite alternate;
+}
+
+.ray-1 {
+  left: 20%;
+  transform: skewX(-8deg);
+}
+
+.ray-2 {
+  left: 45%;
+  transform: skewX(-10deg);
+  animation-delay: -2s;
+}
+
+.ray-3 {
+  left: 70%;
+  transform: skewX(-12deg);
+  animation-delay: -4s;
+}
+
+@keyframes lightWave {
+  0% { opacity: 0.5; transform: skewX(-8deg) translateX(-10px); }
+  100% { opacity: 0.8; transform: skewX(-8deg) translateX(10px); }
+}
+
+/* Underwater Bubbles */
+.pixel-bubble {
+  position: absolute;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+  border-radius: 50%;
+  bottom: 0;
+  animation: bubbleRise 8s linear infinite;
+}
+
+.bubble-1 {
+  width: 15px;
+  height: 15px;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.bubble-2 {
+  width: 12px;
+  height: 12px;
+  left: 45%;
+  animation-delay: 2s;
+}
+
+.bubble-3 {
+  width: 18px;
+  height: 18px;
+  left: 70%;
+  animation-delay: 4s;
+}
+
+.bubble-4 {
+  width: 10px;
+  height: 10px;
+  left: 85%;
+  animation-delay: 6s;
+}
+
+@keyframes bubbleRise {
+  0% { 
+    transform: translateY(0) scale(1); 
+    opacity: 0; 
+  }
+  10% { 
+    opacity: 0.7; 
+  }
+  90% { 
+    opacity: 0.4; 
+  }
+  100% { 
+    transform: translateY(-100vh) scale(1.4); 
+    opacity: 0; 
+  }
+}
+
+/* Factory Window Light */
+.factory-window {
+  position: absolute;
+  width: 200px;
+  height: 140px;
+  background: linear-gradient(135deg,
+    rgba(255, 193, 7, 0.4) 0%,
+    rgba(255, 152, 0, 0.2) 50%,
+    transparent 100%);
+  top: 15%;
+  right: 20%;
+  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+  animation: windowGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes windowGlow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Machinery Silhouettes */
+.machinery {
+  position: absolute;
+  background: rgba(96, 125, 139, 0.6);
+  bottom: 100px;
+  border-radius: 8px 8px 0 0;
+}
+
+.machine-1 {
+  width: 80px;
+  height: 120px;
+  left: 15%;
+}
+
+.machine-2 {
+  width: 100px;
+  height: 150px;
+  left: 45%;
+  background: rgba(69, 90, 100, 0.7);
+}
+
+.machine-3 {
+  width: 70px;
+  height: 100px;
+  left: 75%;
+}
+
+/* Sky Clouds (larger, more prominent) */
+.sky-cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  animation: cloudFloat 90s linear infinite;
+}
+
+.sky-cloud::before,
+.sky-cloud::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+}
+
+.sky-cloud-1 {
+  width: 280px;
+  height: 90px;
+  top: 20%;
+  left: 15%;
+}
+
+.sky-cloud-1::before {
+  width: 120px;
+  height: 120px;
+  top: -40px;
+  left: 60px;
+}
+
+.sky-cloud-1::after {
+  width: 140px;
+  height: 100px;
+  top: -30px;
+  right: 40px;
+}
+
+.sky-cloud-2 {
+  width: 240px;
+  height: 80px;
+  top: 45%;
+  left: 55%;
+  animation-delay: -30s;
+}
+
+.sky-cloud-2::before {
+  width: 100px;
+  height: 100px;
+  top: -35px;
+  left: 50px;
+}
+
+.sky-cloud-2::after {
+  width: 110px;
+  height: 85px;
+  top: -25px;
+  right: 35px;
+}
+
+@keyframes cloudFloat {
+  from { transform: translateX(-200px); }
+  to { transform: translateX(200px); }
+}
+
+/* Distant Buildings */
+.distant-building {
+  position: absolute;
+  background: rgba(30, 60, 114, 0.4);
+  bottom: 200px;
+  border-radius: 4px 4px 0 0;
+  opacity: 0.6;
+}
+
+.building-1 {
+  width: 60px;
+  height: 100px;
+  left: 20%;
+}
+
+.building-2 {
+  width: 80px;
+  height: 140px;
+  left: 40%;
+  background: rgba(42, 82, 152, 0.5);
+}
+
+.building-3 {
+  width: 70px;
+  height: 120px;
+  left: 65%;
+  background: rgba(30, 60, 114, 0.4);
+}
+
+/* Night Stars */
+.pixel-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+.star-1 { top: 15%; left: 20%; animation-delay: 0s; }
+.star-2 { top: 25%; left: 45%; width: 3px; height: 3px; animation-delay: 1s; }
+.star-3 { top: 12%; left: 70%; animation-delay: 2s; }
+.star-4 { top: 35%; left: 35%; animation-delay: 0.5s; }
+.star-5 { top: 20%; left: 85%; width: 3px; height: 3px; animation-delay: 1.5s; }
+.star-6 { top: 40%; left: 55%; animation-delay: 2.5s; }
+.star-7 { top: 18%; left: 62%; width: 3px; height: 3px; animation-delay: 3s; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* City Light Windows */
+.city-light {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  background: rgba(255, 193, 7, 0.7);
+  bottom: 180px;
+  animation: windowLight 3s ease-in-out infinite alternate;
+}
+
+.city-light:nth-child(even) {
+  background: rgba(33, 150, 243, 0.7);
+  animation-delay: 1s;
+}
+
+.city-light:nth-child(3n) {
+  background: rgba(156, 39, 176, 0.7);
+  animation-delay: 2s;
+}
+
+.light-1 { left: 15%; }
+.light-2 { left: 22%; }
+.light-3 { left: 35%; }
+.light-4 { left: 42%; }
+.light-5 { left: 55%; }
+.light-6 { left: 62%; }
+.light-7 { left: 75%; }
+.light-8 { left: 82%; }
+
+@keyframes windowLight {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* ============================================
+   LEVEL 0: INTRO - Clean Hills & Sky
+   ============================================ */
+.intro-section {
+  position: relative;
+  background: linear-gradient(to bottom, 
+    #5b9bd5 0%,    /* Sky blue top */
+    #7fb3e5 50%,   /* Mid blue */
+    #a8d5f5 100%   /* Light blue horizon */
+  );
+}
+
+/* Make hills SOLID and VISIBLE */
+.intro-section .pixel-hill {
+  opacity: 1;
+  z-index: 2;
+}
+
+.intro-section .pixel-hill-1 {
+  background: #2d8f2d;
+}
+
+.intro-section .pixel-hill-2 {
+  background: #3ca03c;
+}
+
+.intro-section .pixel-hill-3 {
+  background: #2d8f2d;
+}
+
+/* Make clouds SOLID and VISIBLE */
+.intro-section .pixel-cloud {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Simple pixel clouds */
+.intro-section::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: 
+    radial-gradient(ellipse 120px 40px at 20% 30%, #fff 0%, transparent 70%),
+    radial-gradient(ellipse 100px 35px at 60% 50%, #fff 0%, transparent 70%),
+    radial-gradient(ellipse 130px 45px at 85% 25%, #fff 0%, transparent 70%);
+  opacity: 0.9;
+  animation: cloudDrift 60s linear infinite;
+}
+
+/* Rolling pixel hills - clean shapes */
+.intro-section::after {
+  content: '';
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  background: 
+    radial-gradient(ellipse 400px 200px at 25% 100%, #2d8f2d 0%, transparent 70%),
+    radial-gradient(ellipse 350px 180px at 60% 100%, #3ca03c 0%, transparent 70%),
+    radial-gradient(ellipse 300px 150px at 85% 100%, #2d8f2d 0%, transparent 70%);
+}
+
+@keyframes cloudDrift {
+  from { transform: translateX(0); }
+  to { transform: translateX(100px); }
+}
+
+/* ============================================
+   LEVEL 1: ABOUT - Peaceful Sunrise
+   ============================================ */
+.about-section {
+  position: relative;
+  background: linear-gradient(to bottom,
+    #ffd89b 0%,    /* Warm sunrise yellow */
+    #ffa751 30%,   /* Orange glow */
+    #ff8c69 60%,   /* Peachy pink */
+    #87ceeb 100%   /* Sky blue at bottom */
+  );
+}
+
+/* Pixel sun */
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 12%;
+  right: 15%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #ffeb3b 0%, #ff9800 70%, transparent 70%);
+  border-radius: 50%;
+  box-shadow: 0 0 60px rgba(255, 235, 59, 0.6);
+  animation: sunGlow 4s ease-in-out infinite alternate;
+}
+
+/* Silhouette hills */
+.about-section::after {
+  content: '';
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: 
+    radial-gradient(ellipse 450px 180px at 30% 100%, rgba(45, 143, 45, 0.8) 0%, transparent 70%),
+    radial-gradient(ellipse 380px 160px at 70% 100%, rgba(60, 160, 60, 0.7) 0%, transparent 70%);
+}
+
+@keyframes sunGlow {
+  0% { box-shadow: 0 0 60px rgba(255, 235, 59, 0.6); }
+  100% { box-shadow: 0 0 100px rgba(255, 152, 0, 0.8); }
+}
+
+/* ============================================
+   LEVEL 2: BASKETBALL - Indoor Court
+   ============================================ */
+.basketball-section {
+  position: relative;
+  background: linear-gradient(to bottom,
+    #2c3e50 0%,    /* Dark ceiling */
+    #34495e 40%,   /* Stadium interior */
+    #d2691e 70%,   /* Court floor */
+    #8b4513 100%   /* Floor shadow */
+  );
+}
+
+/* Stadium lights glow */
+.basketball-section::before {
+  content: '';
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 150px;
+  background: radial-gradient(ellipse 600px 100px at 50% 0%, 
+    rgba(255, 255, 200, 0.3) 0%, 
+    transparent 70%);
+  animation: lightFlicker 3s ease-in-out infinite alternate;
+}
+
+/* Simplified court lines */
+.basketball-section::after {
+  content: '';
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 3px;
+  background: white;
+  box-shadow: 
+    0 -150px 0 0 white,
+    -250px -75px 0 0 white,
+    250px -75px 0 0 white;
+}
+
+@keyframes lightFlicker {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* ============================================
+   LEVEL 3: UNDERWATER - Deep Ocean
+   ============================================ */
+.underwater-section {
+  position: relative;
+  background: linear-gradient(to bottom,
+    #1e90ff 0%,    /* Surface bright blue */
+    #1565c0 30%,   /* Mid water */
+    #0d47a1 60%,   /* Deep blue */
+    #01579b 100%   /* Ocean depths */
+  );
+}
+
+/* Light rays from surface */
+.underwater-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 30%;
+  width: 200px;
+  height: 100%;
+  background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.08) 40%,
+    transparent 80%);
+  transform: skewX(-10deg);
+  animation: lightWave 8s ease-in-out infinite alternate;
+}
+
+/* Simple coral silhouettes */
+.underwater-section::after {
+  content: '';
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background: 
+    radial-gradient(ellipse 80px 150px at 15% 100%, rgba(0, 150, 100, 0.4) 0%, transparent 70%),
+    radial-gradient(ellipse 100px 180px at 45% 100%, rgba(0, 120, 80, 0.4) 0%, transparent 70%),
+    radial-gradient(ellipse 90px 160px at 78% 100%, rgba(0, 150, 100, 0.4) 0%, transparent 70%);
+}
+
+@keyframes lightWave {
+  0% { transform: skewX(-10deg) translateX(0); opacity: 0.6; }
+  100% { transform: skewX(-10deg) translateX(30px); opacity: 0.8; }
+}
+
+/* ============================================
+   LEVEL 4: INDUSTRIAL - Factory Floor
+   ============================================ */
+.industrial-section {
+  position: relative;
+  background: linear-gradient(to bottom,
+    #37474f 0%,    /* Dark industrial ceiling */
+    #455a64 30%,   /* Mid factory */
+    #546e7a 60%,   /* Floor area */
+    #607d8b 100%   /* Ground */
+  );
+}
+
+/* Factory window light */
+.industrial-section::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: 20%;
+  width: 200px;
+  height: 120px;
+  background: linear-gradient(135deg,
+    rgba(255, 193, 7, 0.3) 0%,
+    rgba(255, 152, 0, 0.2) 50%,
+    transparent 100%);
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+  animation: industrialGlow 5s ease-in-out infinite alternate;
+}
+
+/* Simplified machinery shapes */
+.industrial-section::after {
+  content: '';
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: 
+    linear-gradient(to right, 
+      transparent 10%,
+      rgba(96, 125, 139, 0.6) 15%,
+      rgba(96, 125, 139, 0.6) 20%,
+      transparent 20%,
+      transparent 40%,
+      rgba(69, 90, 100, 0.7) 45%,
+      rgba(69, 90, 100, 0.7) 55%,
+      transparent 55%,
+      transparent 75%,
+      rgba(84, 110, 122, 0.6) 80%,
+      rgba(84, 110, 122, 0.6) 85%,
+      transparent 85%);
+}
+
+@keyframes industrialGlow {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* ============================================
+   LEVEL 5: FLYING - Sky & Clouds
+   ============================================ */
+.flying-section {
+  position: relative;
+  background: linear-gradient(to bottom,
+    #1e3c72 0%,    /* Deep sky */
+    #2a5298 30%,   /* Mid sky */
+    #5b9bd5 60%,   /* Light sky */
+    #87ceeb 100%   /* Horizon */
+  );
+}
+
+/* Large floating clouds */
+.flying-section::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background: 
+    radial-gradient(ellipse 250px 80px at 25% 40%, rgba(255, 255, 255, 0.9) 0%, transparent 70%),
+    radial-gradient(ellipse 200px 70px at 65% 60%, rgba(255, 255, 255, 0.85) 0%, transparent 70%),
+    radial-gradient(ellipse 180px 60px at 85% 30%, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+  animation: cloudFloat 80s linear infinite;
+}
+
+/* Distant cityscape silhouette */
+.flying-section::after {
+  content: '';
+  position: absolute;
+  bottom: 200px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: 
+    linear-gradient(to right,
+      transparent 15%,
+      rgba(30, 60, 114, 0.4) 18%,
+      rgba(30, 60, 114, 0.4) 22%,
+      transparent 22%,
+      transparent 35%,
+      rgba(42, 82, 152, 0.5) 38%,
+      rgba(42, 82, 152, 0.5) 45%,
+      transparent 45%,
+      transparent 60%,
+      rgba(30, 60, 114, 0.4) 63%,
+      rgba(30, 60, 114, 0.4) 68%,
+      transparent 68%);
+  opacity: 0.6;
+}
+
+@keyframes cloudFloat {
+  from { transform: translateX(-200px); }
+  to { transform: translateX(200px); }
+}
+
+/* ============================================
+   LEVEL 6: ROOFTOP - Night City
+   ============================================ */
+.contact-section {
+  position: relative;
+  background: linear-gradient(to bottom,
+    #0f0c29 0%,    /* Deep night sky */
+    #302b63 40%,   /* Purple night */
+    #24243e 100%   /* City night */
+  );
+}
+
+/* Stars */
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background-image: 
+    radial-gradient(circle at 20% 15%, white 1px, transparent 1px),
+    radial-gradient(circle at 60% 25%, white 1.5px, transparent 1.5px),
+    radial-gradient(circle at 85% 10%, white 1px, transparent 1px),
+    radial-gradient(circle at 40% 40%, white 1px, transparent 1px),
+    radial-gradient(circle at 75% 50%, white 1.5px, transparent 1.5px);
+  background-size: 100% 100%;
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+/* City lights below */
+.contact-section::after {
+  content: '';
+  position: absolute;
+  bottom: 150px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: 
+    linear-gradient(to right,
+      transparent 10%,
+      rgba(255, 193, 7, 0.3) 12%,
+      rgba(255, 193, 7, 0.3) 15%,
+      transparent 15%,
+      transparent 25%,
+      rgba(33, 150, 243, 0.3) 27%,
+      rgba(33, 150, 243, 0.3) 32%,
+      transparent 32%,
+      transparent 45%,
+      rgba(255, 193, 7, 0.3) 47%,
+      rgba(255, 193, 7, 0.3) 50%,
+      transparent 50%,
+      transparent 65%,
+      rgba(156, 39, 176, 0.3) 67%,
+      rgba(156, 39, 176, 0.3) 72%,
+      transparent 72%,
+      transparent 85%,
+      rgba(33, 150, 243, 0.3) 87%,
+      rgba(33, 150, 243, 0.3) 90%,
+      transparent 90%);
+  animation: cityLights 3s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+@keyframes cityLights {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.9; }
+}
+
+/* ============================================
+   FLOATING PIXEL ELEMENTS (Minimal & Clean)
+   ============================================ */
+
+/* Simple floating bubbles for underwater */
+.underwater-section .bubble-stream-enhanced {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 70%);
+  border-radius: 50%;
+  bottom: 0;
+  animation: bubbleRise 8s linear infinite;
+}
+
+.underwater-section .bs1 { left: 25%; animation-delay: 0s; }
+.underwater-section .bs2 { left: 50%; animation-delay: 2s; }
+.underwater-section .bs3 { left: 75%; animation-delay: 4s; }
+
+@keyframes bubbleRise {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.4; }
+  100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+}
+
+/* ============================================
+   GROUND/FLOOR (Consistent across all levels)
+   ============================================ */
+.world-section {
+  position: relative;
+}
+
+.world-section::after {
+  /* Each level overrides this with their specific floor */
+  z-index: 1;
+}
+
+/* Intro & About grass floor */
+.intro-section > *:last-child,
+.about-section > *:last-child {
+  position: relative;
+  z-index: 2;
+}
+
+/* Ground line for all sections */
+.intro-section,
+.about-section,
+.basketball-section,
+.underwater-section,
+.industrial-section,
+.flying-section,
+.contact-section {
+  border-bottom: 8px solid rgba(0, 0, 0, 0.3);
 }
