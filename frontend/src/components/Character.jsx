@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Character.css';
 
 const Character = ({ position, currentLevel, isMoving, gameAction, gameState }) => {
+  const [direction, setDirection] = useState('right');
+  const prevPositionRef = useRef(position);
+  
+  // Detect movement direction based on position change
+  useEffect(() => {
+    if (position.x > prevPositionRef.current.x) {
+      setDirection('right');
+    } else if (position.x < prevPositionRef.current.x) {
+      setDirection('left');
+    }
+    prevPositionRef.current = position;
+  }, [position]);
   
   const renderOutfitDetails = () => {
     // Level-specific costume elements rendered on top
@@ -115,7 +127,7 @@ const Character = ({ position, currentLevel, isMoving, gameAction, gameState }) 
 
   return (
     <div 
-      className={`character-modern level-${currentLevel} ${isMoving ? 'moving' : ''} ${gameState === 'swimming' ? 'swimming' : ''} ${gameState}`}
+      className={`character-modern level-${currentLevel} ${isMoving ? 'moving' : ''} ${isMoving && direction === 'right' ? 'move-right' : ''} ${isMoving && direction === 'left' ? 'move-left' : ''} ${gameState === 'swimming' ? 'swimming' : ''} ${gameState}`}
       style={{
         left: `${position.x}%`,
         bottom: `${position.y}px`,

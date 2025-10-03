@@ -1,5 +1,5 @@
 /* ===== MODERN 2D VECTOR CHARACTER DESIGN ===== */
-/* Clean, smooth, professional aesthetic */
+/* Clean, smooth, professional aesthetic with FIXED WALKING ANIMATION */
 
 .character-modern {
   position: absolute;
@@ -42,62 +42,97 @@
 .head-shape {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #a67c52 0%, #8b6f47 100%);
+  background: linear-gradient(135deg, #8B6F47 0%, #6B5335 100%);
   border-radius: 50%;
   position: relative;
   box-shadow: 
-    inset -4px -4px 8px rgba(0, 0, 0, 0.15),
-    inset 2px 2px 6px rgba(255, 255, 255, 0.2);
+    inset -3px -3px 6px rgba(0, 0, 0, 0.1),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1);
 }
 
-/* Face Elements */
+/* ===== HAIR - EXACTLY like reference ===== */
+.head-shape::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 25px;
+  background: #000;
+  border-radius: 25px 25px 0 0;
+  z-index: 1;
+}
+
+/* ===== EXACT FACE MATCH - Based on Reference Image ===== */
 .face-container {
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 2;
 }
 
+/* Red-rimmed glasses with bridge only */
 .eyes-modern {
   position: absolute;
-  top: 20px;
+  top: 18px;
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 4px;
+  z-index: 12;
 }
 
 .eye {
-  width: 11px;
-  height: 11px;
+  width: 26px;
+  height: 26px;
   background: white;
   border-radius: 50%;
   position: relative;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border: 4px solid #c41e3a;
+  box-shadow: none;
 }
 
 .pupil {
   position: absolute;
   width: 6px;
   height: 6px;
-  background: #2c1810;
+  background: #000;
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: blinkEyes 4s ease-in-out infinite;
+}
+
+.eye-shine {
+  display: none;
+}
+
+/* Glasses bridge only */
+.eyes-modern::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 3px;
+  background: #c41e3a;
+  top: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 11;
 }
 
 .eye-shine {
   position: absolute;
-  width: 3px;
-  height: 3px;
+  width: 6px;
+  height: 6px;
   background: white;
   border-radius: 50%;
-  top: 2px;
-  left: 7px;
-  opacity: 0.9;
+  top: 3px;
+  left: 3px;
+  opacity: 1;
+  z-index: 1;
 }
 
 @keyframes blinkEyes {
@@ -105,60 +140,56 @@
   98% { transform: translate(-50%, -50%) scaleY(0.1); }
 }
 
-.nose-modern {
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 6px;
-  height: 8px;
-  background: linear-gradient(135deg, #8b6f47 0%, #a67c52 100%);
-  border-radius: 3px;
-  box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.15);
+/* Thick black glasses bridge */
+.eyes-modern::before {
+  display: none;
 }
 
+/* NO NOSE */
+.nose-modern {
+  display: none;
+}
+
+/* Lips NARROWER - dark pink oval with red center line */
 .mouth-modern {
   position: absolute;
-  top: 38px;
+  top: 40px;
   left: 50%;
   transform: translateX(-50%);
-  width: 16px;
-  height: 6px;
+  width: 24px;
+  height: 10px;
+  background: #d4694f;
+  border-radius: 12px;
+  z-index: 11;
+}
+
+/* Red center line for lips */
+.mouth-modern::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 2px;
+  background: #c41e3a;
 }
 
 .smile-line {
-  width: 100%;
-  height: 3px;
-  border-radius: 0 0 12px 12px;
-  border: 1.5px solid #6d5839;
-  border-top: none;
-  background: rgba(200, 100, 100, 0.15);
+  display: none;
 }
 
-/* Ears */
+.smile-line {
+  display: none;
+}
+
+/* NO EARS */
 .ears-modern {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  display: none;
 }
 
 .ear {
-  position: absolute;
-  width: 16px;
-  height: 20px;
-  background: linear-gradient(135deg, #a67c52 0%, #8b6f47 100%);
-  border-radius: 50%;
-  top: 24px;
-}
-
-.ear.left {
-  left: -8px;
-  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.15);
-}
-
-.ear.right {
-  right: -8px;
-  box-shadow: inset -2px 2px 4px rgba(0, 0, 0, 0.15);
+  display: none;
 }
 
 /* ===== NECK ===== */
@@ -169,7 +200,7 @@
   transform: translateX(-50%);
   width: 28px;
   height: 16px;
-  background: linear-gradient(135deg, #a67c52 0%, #8b6f47 100%);
+  background: linear-gradient(135deg, #8B6F47 0%, #6B5335 100%);
   border-radius: 8px;
   z-index: 5;
 }
@@ -202,7 +233,7 @@
     inset 0 -2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* ===== ARMS ===== */
+/* ===== UNIFIED ARMS - No segmentation ===== */
 .arms-modern {
   position: absolute;
   width: 120%;
@@ -224,55 +255,47 @@
   right: 0;
 }
 
+/* Single unified arm piece with African American skin tone - INCLUDES HAND AT BOTTOM */
 .upper-arm {
   width: 16px;
-  height: 28px;
-  background: linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%);
-  border-radius: 12px;
+  height: 70px;
+  background: linear-gradient(135deg, #8B6F47 0%, #6B5335 100%);
+  border-radius: 8px 8px 8px 8px;
   box-shadow: 
     0 2px 4px rgba(0, 0, 0, 0.1),
     inset 2px 0 4px rgba(255, 255, 255, 0.3);
   transform-origin: top center;
+  position: relative;
+}
+
+/* Hand portion at bottom of arm */
+.upper-arm::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, #8B6F47 0%, #6B5335 100%);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .forearm {
-  width: 14px;
-  height: 24px;
-  background: linear-gradient(135deg, #a67c52 0%, #8b6f47 100%);
-  border-radius: 10px;
-  margin-top: -4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transform-origin: top center;
+  display: none;
 }
 
 .hand {
-  width: 16px;
-  height: 16px;
-  background: linear-gradient(135deg, #a67c52 0%, #8b6f47 100%);
-  border-radius: 8px;
-  margin-top: -4px;
-  position: relative;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  display: none;
 }
 
 .fingers {
-  position: absolute;
-  bottom: -4px;
-  left: 2px;
-  width: 12px;
-  height: 6px;
-  background: linear-gradient(135deg, #8b6f47 0%, #6d5839 100%);
-  border-radius: 0 0 8px 8px;
+  display: none;
 }
 
 .thumb {
-  position: absolute;
-  top: 4px;
-  left: -3px;
-  width: 5px;
-  height: 8px;
-  background: linear-gradient(135deg, #8b6f47 0%, #6d5839 100%);
-  border-radius: 4px;
+  display: none;
 }
 
 /* ===== WAIST/BELT ===== */
@@ -311,7 +334,7 @@
     inset 0 1px 2px rgba(255, 255, 255, 0.3);
 }
 
-/* ===== LEGS ===== */
+/* ===== UNIFIED LEGS - No segmentation ===== */
 .legs-modern {
   position: absolute;
   top: 120px;
@@ -327,53 +350,195 @@
   width: 20px;
 }
 
+/* Single unified leg piece with African American skin tone - INCLUDES FOOT AT BOTTOM */
 .thigh {
   width: 100%;
-  height: 32px;
-  background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
-  border-radius: 12px;
+  height: 68px;
+  background: linear-gradient(135deg, #8B6F47 0%, #6B5335 100%);
+  border-radius: 10px 10px 5px 5px;
   box-shadow: 
     0 2px 4px rgba(0, 0, 0, 0.15),
     inset 2px 0 4px rgba(255, 255, 255, 0.05);
   transform-origin: top center;
-}
-
-.shin {
-  width: 18px;
-  height: 28px;
-  background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
-  border-radius: 10px;
-  margin: -4px auto 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  transform-origin: top center;
-}
-
-.foot {
-  width: 24px;
-  height: 14px;
-  margin: -2px auto 0 -2px;
   position: relative;
 }
 
-.shoe {
-  width: 100%;
-  height: 10px;
+/* Foot/Shoe portion at bottom of leg */
+.thigh::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 12px;
   background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
-  border-radius: 8px 8px 4px 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 40% 40% 20% 20%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.shin {
+  display: none;
+}
+
+.foot {
+  display: none;
+}
+
+.shoe {
+  display: none;
 }
 
 .shoe-sole {
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(135deg, #4a4a4a 0%, #2c2c2c 100%);
-  border-radius: 0 0 8px 8px;
-  margin-top: -2px;
+  display: none;
+}
+
+/* ===== FIXED WALKING ANIMATIONS ===== */
+/* Natural alternating movement with torso rotation and HEAD TURNING */
+
+.character-modern.moving {
+  animation: walkingBob 0.5s ease-in-out infinite;
+}
+
+@keyframes walkingBob {
+  0%, 100% { 
+    transform: translateY(0); 
+  }
+  50% { 
+    transform: translateY(-3px); 
+  }
+}
+
+/* Head FACES the direction of movement */
+.character-modern.moving .char-head-modern {
+  transition: transform 0.2s ease-out;
+}
+
+/* Character facing RIGHT - head AND eyes look right */
+.character-modern.move-right .char-head-modern {
+  transform: translateX(-45%) scaleX(0.95);
+}
+
+.character-modern.move-right .eyes-modern {
+  transform: translateX(3px);
+}
+
+.character-modern.move-right .mouth-modern {
+  transform: translateX(-47%) scaleX(0.9);
+}
+
+/* Character facing LEFT - head AND eyes look left */
+.character-modern.move-left .char-head-modern {
+  transform: translateX(-55%) scaleX(0.95);
+}
+
+.character-modern.move-left .eyes-modern {
+  transform: translateX(-3px);
+}
+
+.character-modern.move-left .mouth-modern {
+  transform: translateX(-53%) scaleX(0.9);
+}
+
+/* Default forward-facing */
+.character-modern .char-head-modern {
+  transition: transform 0.2s ease-out;
+}
+
+.character-modern .eyes-modern {
+  transition: transform 0.2s ease-out;
+}
+
+.character-modern .mouth-modern {
+  transition: transform 0.2s ease-out;
+}
+
+/* Torso rotation for natural movement */
+.character-modern.moving .torso-modern {
+  animation: torsoRotate 0.5s ease-in-out infinite;
+}
+
+@keyframes torsoRotate {
+  0%, 100% { 
+    transform: translateX(-50%) rotate(0deg); 
+  }
+  25% { 
+    transform: translateX(-50%) rotate(-1deg); 
+  }
+  75% { 
+    transform: translateX(-50%) rotate(1deg); 
+  }
+}
+
+/* LEFT ARM - Swings FORWARD when right leg goes forward */
+.character-modern.moving .arm.left .upper-arm {
+  animation: leftArmSwing 0.5s ease-in-out infinite;
+}
+
+@keyframes leftArmSwing {
+  0% { 
+    transform: rotate(-25deg); 
+  }
+  50% { 
+    transform: rotate(20deg); 
+  }
+  100% { 
+    transform: rotate(-25deg); 
+  }
+}
+
+/* RIGHT ARM - Swings BACKWARD when right leg goes forward */
+.character-modern.moving .arm.right .upper-arm {
+  animation: rightArmSwing 0.5s ease-in-out infinite;
+}
+
+@keyframes rightArmSwing {
+  0% { 
+    transform: rotate(20deg); 
+  }
+  50% { 
+    transform: rotate(-25deg); 
+  }
+  100% { 
+    transform: rotate(20deg); 
+  }
+}
+
+/* LEFT LEG - Moves BACKWARD when right leg moves forward */
+.character-modern.moving .leg.left .thigh {
+  animation: leftLegSwing 0.5s ease-in-out infinite;
+}
+
+@keyframes leftLegSwing {
+  0% { 
+    transform: rotate(20deg); 
+  }
+  50% { 
+    transform: rotate(-15deg); 
+  }
+  100% { 
+    transform: rotate(20deg); 
+  }
+}
+
+/* RIGHT LEG - Moves FORWARD (opposite of left) */
+.character-modern.moving .leg.right .thigh {
+  animation: rightLegSwing 0.5s ease-in-out infinite;
+}
+
+@keyframes rightLegSwing {
+  0% { 
+    transform: rotate(-15deg); 
+  }
+  50% { 
+    transform: rotate(20deg); 
+  }
+  100% { 
+    transform: rotate(-15deg); 
+  }
 }
 
 /* ===== SWIMMING ANIMATIONS ===== */
-
-/* Swimming state - horizontal body orientation */
 .character-modern.swimming {
   animation: swimFloat 2s ease-in-out infinite;
 }
@@ -387,7 +552,6 @@
   }
 }
 
-/* Swimming arms - breaststroke motion */
 .character-modern.swimming .arm.left .upper-arm {
   animation: swimArmStrokeLeft 1.5s ease-in-out infinite;
 }
@@ -414,7 +578,6 @@
   }
 }
 
-/* Swimming legs - flutter kick */
 .character-modern.swimming .leg.left .thigh {
   animation: swimKickLeft 1.2s ease-in-out infinite;
 }
@@ -441,79 +604,6 @@
   }
 }
 
-/* Diving state - vertical orientation */
-.character-modern.diving {
-  animation: diveMotion 1s ease-in-out infinite;
-}
-
-@keyframes diveMotion {
-  0%, 100% { 
-    transform: rotate(-10deg) translateY(0); 
-  }
-  50% { 
-    transform: rotate(-8deg) translateY(4px); 
-  }
-}
-
-.character-modern.diving .arm.left .upper-arm,
-.character-modern.diving .arm.right .upper-arm {
-  animation: diveArms 1s ease-in-out infinite;
-}
-
-@keyframes diveArms {
-  0%, 100% { 
-    transform: rotate(-45deg); 
-  }
-  50% { 
-    transform: rotate(-60deg); 
-  }
-}
-.character-modern.moving .arm.left .upper-arm {
-  animation: armSwingLeft 0.4s ease-in-out infinite;
-}
-
-.character-modern.moving .arm.right .upper-arm {
-  animation: armSwingRight 0.4s ease-in-out infinite;
-}
-
-.character-modern.moving .leg.left .thigh {
-  animation: legSwingLeft 0.4s ease-in-out infinite;
-}
-
-.character-modern.moving .leg.right .thigh {
-  animation: legSwingRight 0.4s ease-in-out infinite;
-}
-
-@keyframes armSwingLeft {
-  0%, 100% { transform: rotate(-15deg); }
-  50% { transform: rotate(20deg); }
-}
-
-@keyframes armSwingRight {
-  0%, 100% { transform: rotate(20deg); }
-  50% { transform: rotate(-15deg); }
-}
-
-@keyframes legSwingLeft {
-  0%, 100% { transform: rotate(15deg); }
-  50% { transform: rotate(-10deg); }
-}
-
-@keyframes legSwingRight {
-  0%, 100% { transform: rotate(-10deg); }
-  50% { transform: rotate(15deg); }
-}
-
-/* Bobbing while moving */
-.character-modern.moving {
-  animation: characterBob 0.4s ease-in-out infinite;
-}
-
-@keyframes characterBob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-}
-
 /* ===== OUTFIT LAYER ===== */
 .outfit-details-layer {
   position: absolute;
@@ -531,11 +621,26 @@
   opacity: 0;
 }
 
-/* I'll continue with outfit-specific styles in the next message to stay under token limit */
-
-/* ===== OUTFIT-SPECIFIC STYLES - MODERN 2D ===== */
-
 /* ===== LEVEL 0-1: BUSINESS PROFESSIONAL ===== */
+.character-modern.level-0 .thigh,
+.character-modern.level-1 .thigh {
+  background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+}
+
+/* White long-sleeved business shirt for levels 0, 1, 2 */
+.character-modern.level-0 .upper-arm,
+.character-modern.level-1 .upper-arm,
+.character-modern.level-2 .upper-arm {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+}
+
+/* Hands stay skin tone */
+.character-modern.level-0 .upper-arm::after,
+.character-modern.level-1 .upper-arm::after,
+.character-modern.level-2 .upper-arm::after {
+  background: linear-gradient(135deg, #8B6F47 0%, #6B5335 100%);
+}
+
 .business-tie {
   position: absolute;
   top: 70px;
@@ -563,26 +668,7 @@
 }
 
 .business-briefcase {
-  position: absolute;
-  bottom: 20px;
-  right: -8px;
-  width: 18px;
-  height: 14px;
-  background: linear-gradient(135deg, #4a4a4a 0%, #2c2c2c 100%);
-  border-radius: 2px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-}
-
-.business-briefcase::after {
-  content: '';
-  position: absolute;
-  top: -3px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 3px;
-  background: #1a1a1a;
-  border-radius: 2px;
+  display: none;
 }
 
 /* ===== LEVEL 2: BASKETBALL PLAYER ===== */
@@ -590,9 +676,24 @@
   background: linear-gradient(135deg, #ff6b35 0%, #ff4500 100%);
 }
 
-.character-modern.level-2 .thigh,
-.character-modern.level-2 .shin {
-  background: linear-gradient(135deg, #000080 0%, #00005c 100%);
+/* Basketball shorts - shorter legs showing skin below */
+.character-modern.level-2 .thigh {
+  background: linear-gradient(180deg, #000080 0%, #00005c 50%, #8B6F47 50%, #6B5335 100%);
+  height: 68px;
+}
+
+/* Basketball shoes - orange/white */
+.character-modern.level-2 .thigh::after {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff4500 100%);
+  width: 28px;
+  height: 14px;
+  bottom: -10px;
+  border: 2px solid white;
+}
+
+/* Sleeveless jersey - show skin tone arms */
+.character-modern.level-2 .upper-arm {
+  background: linear-gradient(135deg, #8B6F47 0%, #6B5335 100%);
 }
 
 .basketball-jersey-number {
@@ -616,28 +717,29 @@
 
 .basketball-headband {
   position: absolute;
-  top: 24px;
+  top: 12px;
   left: 50%;
   transform: translateX(-50%);
   width: 56px;
-  height: 8px;
+  height: 10px;
   background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
-  border-radius: 4px;
+  border-radius: 5px;
   box-shadow: 
     0 2px 4px rgba(0, 0, 0, 0.3),
     inset 0 1px 2px rgba(255, 255, 255, 0.2);
-  z-index: 11;
+  z-index: 13;
 }
 
 .basketball-prop {
   position: absolute;
-  bottom: 10px;
-  right: -5px;
-  width: 24px;
-  height: 24px;
+  bottom: 15px;
+  right: -15px;
+  width: 32px;
+  height: 32px;
   background: radial-gradient(circle at 35% 35%, #ff8c42, #ff6b35, #d35400);
   border-radius: 50%;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  z-index: 5;
 }
 
 .basketball-prop::before,
@@ -663,12 +765,22 @@
 }
 
 .basketball-prop.dribbling {
-  animation: basketballBounce 0.5s ease-in-out infinite;
+  animation: basketballBounce 0.6s ease-in-out infinite;
 }
 
 @keyframes basketballBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  0% { 
+    transform: translateY(0);
+    bottom: 15px;
+  }
+  50% { 
+    transform: translateY(0);
+    bottom: -25px;
+  }
+  100% { 
+    transform: translateY(0);
+    bottom: 15px;
+  }
 }
 
 /* ===== LEVEL 3: MARVEL STINGRAY ===== */
@@ -677,9 +789,7 @@
 }
 
 .character-modern.level-3 .upper-arm,
-.character-modern.level-3 .forearm,
-.character-modern.level-3 .thigh,
-.character-modern.level-3 .shin {
+.character-modern.level-3 .thigh {
   background: linear-gradient(135deg, #ff4500 0%, #dc143c 100%);
 }
 
@@ -810,9 +920,7 @@
 /* ===== LEVEL 4: BLACK PANTHER ===== */
 .character-modern.level-4 .torso-fill,
 .character-modern.level-4 .upper-arm,
-.character-modern.level-4 .forearm,
-.character-modern.level-4 .thigh,
-.character-modern.level-4 .shin {
+.character-modern.level-4 .thigh {
   background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
 }
 
@@ -937,8 +1045,7 @@
   background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);
 }
 
-.character-modern.level-5 .upper-arm,
-.character-modern.level-5 .forearm {
+.character-modern.level-5 .upper-arm {
   background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);
 }
 
@@ -946,8 +1053,7 @@
   background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
 }
 
-.character-modern.level-5 .thigh,
-.character-modern.level-5 .shin {
+.character-modern.level-5 .thigh {
   background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);
 }
 
@@ -1152,9 +1258,7 @@
 /* ===== LEVEL 6: BLACK ADAM ===== */
 .character-modern.level-6 .torso-fill,
 .character-modern.level-6 .upper-arm,
-.character-modern.level-6 .forearm,
-.character-modern.level-6 .thigh,
-.character-modern.level-6 .shin {
+.character-modern.level-6 .thigh {
   background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
 }
 
