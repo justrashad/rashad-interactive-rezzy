@@ -9,49 +9,43 @@ body {
   overflow: hidden;
   user-select: none;
   font-size: 12px;
+  background: red; /* TEMPORARY TEST - DELETE THIS AFTER */
 }
 
 /* ===== SECTION VISIBILITY CONTROL ===== */
-/* Hide all sections by default */
-.world-section {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease-in-out;
-}
-
 /* Show only the current level's section */
-.game-container.level-0 .intro-section {
-  opacity: 1;
+.game-container.level-0 .world-section.intro-section {
+  opacity: 1 !important;
   pointer-events: auto;
 }
 
-.game-container.level-1 .about-section {
-  opacity: 1;
+.game-container.level-1 .world-section.about-section {
+  opacity: 1 !important;
   pointer-events: auto;
 }
 
-.game-container.level-2 .basketball-section {
-  opacity: 1;
+.game-container.level-2 .world-section.basketball-section {
+  opacity: 1 !important;
   pointer-events: auto;
 }
 
-.game-container.level-3 .underwater-section {
-  opacity: 1;
+.game-container.level-3 .world-section.underwater-section {
+  opacity: 1 !important;
   pointer-events: auto;
 }
 
-.game-container.level-4 .industrial-section {
-  opacity: 1;
+.game-container.level-4 .world-section.industrial-section {
+  opacity: 1 !important;
   pointer-events: auto;
 }
 
-.game-container.level-5 .flying-section {
-  opacity: 1;
+.game-container.level-5 .world-section.flying-section {
+  opacity: 1 !important;
   pointer-events: auto;
 }
 
-.game-container.level-6 .contact-section {
-  opacity: 1;
+.game-container.level-6 .world-section.contact-section {
+  opacity: 1 !important;
   pointer-events: auto;
 }
 /* ===== END SECTION VISIBILITY CONTROL ===== */
@@ -121,10 +115,9 @@ body {
 .world-section {
   position: absolute;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .section-title {
@@ -6181,11 +6174,12 @@ body {
   font-family: Arial, sans-serif !important;
   font-size: 100px !important;
   font-weight: 900 !important;
-  color: #ff0000 !important;
+  color: #ff6600 !important;
   z-index: 100 !important;
   letter-spacing: 8px !important;
   background: yellow !important;
   padding: 20px !important;
+  transform: translateY(0) !important; /* Force correct position */
 }
 
 .about-diagonal-stripes {
@@ -6649,10 +6643,6 @@ body {
 /* ============================================
    GROUND/FLOOR (Consistent across all levels)
    ============================================ */
-.world-section {
-  position: relative;
-}
-
 .world-section::after {
   /* Each level overrides this with their specific floor */
   z-index: 1;
@@ -6674,4 +6664,40 @@ body {
 .flying-section,
 .contact-section {
   border-bottom: 8px solid rgba(0, 0, 0, 0.3);
+}
+
+/* FORCE SECTION VISIBILITY - Add to bottom of App.css */
+.game-container.level-0 .intro-section {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.game-container.level-1 .about-section {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.game-container.level-2 .basketball-section {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.game-container.level-3 .underwater-section {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.game-container.level-4 .industrial-section {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.game-container.level-5 .flying-section {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.game-container.level-6 .contact-section {
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
