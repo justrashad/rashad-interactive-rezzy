@@ -5872,119 +5872,466 @@ body {
 }
 
 /* ============================================
-   LEVEL 0: INTRO - Clean Hills & Sky
+   LEVEL 0: INTRO - Vibrant Game-Like Scene
    ============================================ */
 .intro-section {
   position: relative;
   background: linear-gradient(to bottom, 
-    #5b9bd5 0%,    /* Sky blue top */
-    #7fb3e5 50%,   /* Mid blue */
-    #a8d5f5 100%   /* Light blue horizon */
+    #00bfff 0%,    /* Bright sky blue */
+    #87ceeb 100%   /* Light sky blue */
   );
 }
 
-/* Make hills SOLID and VISIBLE */
-.intro-section .pixel-hill {
-  opacity: 1;
-  z-index: 2;
-}
-
-.intro-section .pixel-hill-1 {
-  background: #2d8f2d;
-}
-
-.intro-section .pixel-hill-2 {
-  background: #3ca03c;
-}
-
-.intro-section .pixel-hill-3 {
-  background: #2d8f2d;
-}
-
-/* Make clouds SOLID and VISIBLE */
-.intro-section .pixel-cloud {
-  opacity: 1;
+/* Mountains - Background Layer */
+.pixel-mountain {
+  position: absolute;
+  background: linear-gradient(to bottom right, #8b7355, #6b5344);
+  bottom: 80px;
   z-index: 1;
 }
 
-/* Simple pixel clouds */
-.intro-section::before {
+.pixel-mountain::before {
   content: '';
   position: absolute;
-  top: 15%;
+  top: 0;
   left: 0;
-  width: 100%;
-  height: 200px;
-  background: 
-    radial-gradient(ellipse 120px 40px at 20% 30%, #fff 0%, transparent 70%),
-    radial-gradient(ellipse 100px 35px at 60% 50%, #fff 0%, transparent 70%),
-    radial-gradient(ellipse 130px 45px at 85% 25%, #fff 0%, transparent 70%);
-  opacity: 0.9;
-  animation: cloudDrift 60s linear infinite;
-}
-
-/* Rolling pixel hills - clean shapes */
-.intro-section::after {
-  content: '';
-  position: absolute;
-  bottom: 80px;
-  left: 0;
-  width: 100%;
-  height: 250px;
-  background: 
-    radial-gradient(ellipse 400px 200px at 25% 100%, #2d8f2d 0%, transparent 70%),
-    radial-gradient(ellipse 350px 180px at 60% 100%, #3ca03c 0%, transparent 70%),
-    radial-gradient(ellipse 300px 150px at 85% 100%, #2d8f2d 0%, transparent 70%);
-}
-
-@keyframes cloudDrift {
-  from { transform: translateX(0); }
-  to { transform: translateX(100px); }
-}
-
-/* ============================================
-   LEVEL 1: ABOUT - Peaceful Sunrise
-   ============================================ */
-.about-section {
-  position: relative;
-  background: linear-gradient(to bottom,
-    #ffd89b 0%,    /* Warm sunrise yellow */
-    #ffa751 30%,   /* Orange glow */
-    #ff8c69 60%,   /* Peachy pink */
-    #87ceeb 100%   /* Sky blue at bottom */
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    transparent 49%, 
+    rgba(107, 83, 68, 0.5) 49%, 
+    rgba(107, 83, 68, 0.5) 51%, 
+    transparent 51%
   );
 }
 
-/* Pixel sun */
-.about-section::before {
-  content: '';
-  position: absolute;
-  top: 12%;
-  right: 15%;
-  width: 120px;
-  height: 120px;
-  background: radial-gradient(circle, #ffeb3b 0%, #ff9800 70%, transparent 70%);
-  border-radius: 50%;
-  box-shadow: 0 0 60px rgba(255, 235, 59, 0.6);
-  animation: sunGlow 4s ease-in-out infinite alternate;
+.pixel-mountain {
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
 }
 
-/* Silhouette hills */
-.about-section::after {
-  content: '';
+/* Pixel Clouds - Solid White */
+.intro-section .pixel-cloud {
+  background: #ffffff;
+  opacity: 1;
+  z-index: 3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.intro-section .pixel-cloud::before,
+.intro-section .pixel-cloud::after {
+  background: #ffffff;
+}
+
+/* Hills - Vibrant Green */
+.intro-section .pixel-hill {
+  opacity: 1;
+  z-index: 2;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.intro-section .pixel-hill-1 {
+  background: linear-gradient(to bottom, #7cb342, #689f38);
+}
+
+.intro-section .pixel-hill-2 {
+  background: linear-gradient(to bottom, #8bc34a, #7cb342);
+  z-index: 3;
+}
+
+.intro-section .pixel-hill-3 {
+  background: linear-gradient(to bottom, #7cb342, #689f38);
+}
+
+/* Trees */
+.pixel-tree {
   position: absolute;
-  bottom: 80px;
-  left: 0;
-  width: 100%;
+  bottom: 100px;
+  width: 80px;
   height: 200px;
-  background: 
-    radial-gradient(ellipse 450px 180px at 30% 100%, rgba(45, 143, 45, 0.8) 0%, transparent 70%),
-    radial-gradient(ellipse 380px 160px at 70% 100%, rgba(60, 160, 60, 0.7) 0%, transparent 70%);
+  z-index: 4;
 }
 
-@keyframes sunGlow {
-  0% { box-shadow: 0 0 60px rgba(255, 235, 59, 0.6); }
-  100% { box-shadow: 0 0 100px rgba(255, 152, 0, 0.8); }
+.tree-trunk {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 80px;
+  background: linear-gradient(to right, #8b4513, #a0522d);
+  border-radius: 2px;
+}
+
+.tree-foliage {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  background: #4caf50;
+  border-radius: 50%;
+  box-shadow: 
+    0 -20px 0 -5px #66bb6a,
+    -25px -10px 0 -8px #4caf50,
+    25px -10px 0 -8px #4caf50;
+}
+
+/* Ground/Grass Layer */
+.pixel-ground {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 120px !important;
+  z-index: 5 !important;
+  pointer-events: none;
+}
+
+.grass-top {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 30px !important;
+  background: #7cb342 !important;
+  border-top: 3px solid #689f38 !important;
+}
+
+.grass-top::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 8px !important;
+  background: repeating-linear-gradient(
+    90deg,
+    #8bc34a 0px,
+    #8bc34a 4px,
+    #7cb342 4px,
+    #7cb342 8px,
+    #689f38 8px,
+    #689f38 12px,
+    #7cb342 12px,
+    #7cb342 16px
+  ) !important;
+}
+
+.dirt-layer {
+  position: absolute !important;
+  top: 30px !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 90px !important;
+  background: linear-gradient(to bottom, #8d6e63, #6d4c41) !important;
+}
+
+.dirt-layer::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: repeating-linear-gradient(
+    135deg,
+    transparent 0px,
+    transparent 10px,
+    rgba(109, 76, 65, 0.3) 10px,
+    rgba(109, 76, 65, 0.3) 20px
+  ) !important;
+}
+
+/* Intro Title - Beginning of Level */
+.main-title-intro {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  z-index: 10;
+  text-align: center;
+}
+
+.title-banner-ribbon {
+  background: #d32f2f;
+  color: white;
+  padding: 10px 40px;
+  font-family: 'Courier New', monospace;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.title-banner-ribbon::before,
+.title-banner-ribbon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.title-banner-ribbon::before {
+  left: -20px;
+  border-width: 23px 20px 23px 0;
+  border-color: transparent #d32f2f transparent transparent;
+}
+
+.title-banner-ribbon::after {
+  right: -20px;
+  border-width: 23px 0 23px 20px;
+  border-color: transparent transparent transparent #d32f2f;
+}
+
+.main-name-large {
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 48px;
+  color: #000;
+  margin: 0;
+  text-shadow: 
+    3px 3px 0 #ff6b00,
+    6px 6px 0 #c41e3a;
+  letter-spacing: 4px;
+  line-height: 1.2;
+}
+
+.subtitle-intro {
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin: 15px 0 5px 0;
+  letter-spacing: 2px;
+}
+
+.location-intro {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.instructions-box {
+  background: white;
+  border: 3px solid #333;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Character Drop-in Animation */
+@keyframes dropIn {
+  0% {
+    transform: translateY(-600px);
+  }
+  70% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(-30px);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  95% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.game-container.level-0 .character {
+  animation: dropIn 1.5s ease-out;
+  animation-fill-mode: forwards;
+}
+
+/* ============================================
+   LEVEL 2: ABOUT SECTION
+   ============================================ */
+.about-section {
+  position: relative;
+  opacity: 1 !important;
+  background: linear-gradient(to right, 
+    #87ceeb 0%,
+    #87ceeb 800px,
+    #5dade2 800px,
+    #5dade2 100%
+  );
+}
+
+/* ABOUT title with orange stripes */
+.about-title-large {
+  position: absolute !important;
+  left: 100px !important;
+  top: 150px !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 100px !important;
+  font-weight: 900 !important;
+  color: #ff0000 !important;
+  z-index: 100 !important;
+  letter-spacing: 8px !important;
+  background: yellow !important;
+  padding: 20px !important;
+}
+
+.about-diagonal-stripes {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 800px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    #ff8c00 0px,
+    #ff8c00 40px,
+    #ff6b00 40px,
+    #ff6b00 80px
+  );
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* Skills banner ribbon */
+.skills-banner-ribbon {
+  position: absolute;
+  left: 1400px;
+  top: 50px;
+  background: #d32f2f;
+  color: white;
+  padding: 15px 60px;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 32px;
+  font-weight: bold;
+  z-index: 10;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.skills-banner-ribbon::before,
+.skills-banner-ribbon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.skills-banner-ribbon::before {
+  left: -30px;
+  border-width: 33px 30px 33px 0;
+  border-color: transparent #d32f2f transparent transparent;
+}
+
+.skills-banner-ribbon::after {
+  right: -30px;
+  border-width: 33px 0 33px 30px;
+  border-color: transparent transparent transparent #d32f2f;
+}
+
+/* Skill category boxes */
+.skill-category-box {
+  position: absolute;
+  background: #ff8c00;
+  color: white;
+  padding: 12px 20px;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 8;
+}
+
+/* Skill level labels */
+.skill-level-label {
+  position: absolute;
+  left: 900px;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  z-index: 8;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Skill tree elements */
+.skill-tree-grid {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.skill-flower {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  z-index: 7;
+}
+
+.skill-flower.red-flower {
+  background: #e53935;
+  border-radius: 50% 0 50% 0;
+  transform: rotate(45deg);
+  box-shadow: 0 0 0 8px #fff, 0 0 0 10px #e53935;
+}
+
+.skill-flower.red-flower::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.skill-leaf {
+  position: absolute;
+  width: 60px;
+  height: 40px;
+  background: #4caf50;
+  border-radius: 50%;
+  z-index: 6;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.skill-leaf::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background: #388e3c;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.skill-stem {
+  position: absolute;
+  width: 6px;
+  background: linear-gradient(to bottom, #8b4513, #6d4c41);
+  z-index: 5;
+  border-radius: 3px;
 }
 
 /* ============================================
